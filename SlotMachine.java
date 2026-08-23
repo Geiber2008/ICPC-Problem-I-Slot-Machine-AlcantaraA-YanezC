@@ -1,4 +1,4 @@
 public class SlotMachine {
-    @SuppressWarnings("unused")
     private int xd;
+    private String name;
 }
