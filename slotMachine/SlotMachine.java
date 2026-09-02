@@ -5,8 +5,8 @@ import java.util.Random;
 /**
  * Represents a Slot Machine containing multiple wheels and visual elements.
  * 
- * @author AlcantaraA-YanezC
- * @version v1.0
+ * @author (your name)
+ * @version (a version number or a date)
  */
 public class SlotMachine
 {
@@ -127,12 +127,13 @@ public class SlotMachine
      * @param pos index of the wheel to be deleted.
      */
     public void delWheel(int pos) {
-        if (wheels.isEmpty() || pos < 4 || pos > wheels.size()) {
+        if (wheels.isEmpty() || pos < 1 || pos > wheels.size()) {
             ok = false;
             return;
         }
         pos = limit(pos);
-        sizehorizontal -= 40; machine.changeSize(100, sizehorizontal);
+        sizehorizontal -= 40;
+        machine.changeSize(100, sizehorizontal);
         Wheel j = wheels.get(0);
         int startX = j.getpositionX();
         Wheel w = wheels.get(pos-1);
@@ -249,4 +250,3 @@ public class SlotMachine
         return opciones[random.nextInt(opciones.length)];
     }    
 }
-

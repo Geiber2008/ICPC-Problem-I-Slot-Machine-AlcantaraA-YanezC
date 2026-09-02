@@ -1,166 +1,127 @@
 import java.util.ArrayList;
-/**
- * Write a description of class Wheel here.
- *
- * @author AlcantaraA-YanezC
- * @version v1.0
- */
 
+/**
+ * Representa una rueda (Wheel) dentro de la máquina tragamonedas.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
 public class Wheel
 {
-    // instance variables - replace the example below with your own
     private int positionX;
     private int positionY;
     private int positionA;
-    private static ArrayList<Symbol> Symbols;   
+    private ArrayList<Symbol> symbols; // Corregido: ya no es 'static'
     private Rectangle Vwheel;
     private String show_symbol; 
-    
+
     /**
-     * Constructor for objects of class Wheel
+     * Constructor principal para la clase Wheel
      */
-    public Wheel(int h,int w,int x,int y,String s,int pos)
+    public Wheel(int h, int w, int x, int y, String s, int pos)
     {
-        // initialise instance variables
-        Vwheel = new Rectangle(h,w,x,y,s);
+        Vwheel = new Rectangle(h, w, x, y, s);
         positionX = x;
         positionY = y;
         positionA = pos;
         Vwheel.makeVisible();
-        Symbols = new ArrayList<>();
-        Symbol cruz = new Symbol("red",1); Symbol corazon = new Symbol("yellow",1); Symbol picas = new Symbol("green",1);
-        Symbols.add(cruz); Symbols.add(corazon); Symbols.add(picas);
-        positionA = pos;
+        
+        symbols = new ArrayList<>();
+        Symbol cruz = new Symbol("red", 1); 
+        Symbol corazon = new Symbol("yellow", 1); 
+        Symbol picas = new Symbol("green", 1);
+        
+        symbols.add(cruz); 
+        symbols.add(corazon); 
+        symbols.add(picas);
+        
         show_symbol = s;
     }
-    
+
     public Wheel()
     {
-        // initialise instance variables
-        Vwheel = new Rectangle(80,30,110,90,"red");
+        Vwheel = new Rectangle(80, 30, 110, 90, "red");
         Vwheel.makeVisible();
+        symbols = new ArrayList<>();
     }
-    
+
     public int getpositionX(){
         return positionX;
     }
-    
+
     public int getpositionA(){
         return positionA;
     }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public void setposition(int pos,int x)
+
+    public void setposition(int pos, int x)
     {
         positionA = pos;
         positionX = x;
         Vwheel.setpositionX(x);
     }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+
     public void delete(){
         Vwheel.makeInvisible();
         Vwheel = null;
     }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public void addSymbols(String color,int pos){
+
+    public void addSymbols(String color, int pos){
         ArrayList<String> sname = Symbols();
         if (sname.contains(color)){
-            System.out.println("ya esta el" + color);
+            System.out.println("Ya existe el símbolo: " + color);
+            return;
+        }
+
+        if (pos < 0) {
+            pos = 0;
+        } else if (pos > symbols.size()) {
+            pos = symbols.size();
+        }
+        
+        Symbol s = new Symbol(color, pos);
+        symbols.add(pos, s); // Corregido: inserta en la posición 'pos'
+        
+        for (int i = 0; i < symbols.size(); i++) {
+            Symbol symbol = symbols.get(i);
+            symbol.setposition(i);
+        } 
+    }
+
+    public void deleteSymbols(String color){
+        ArrayList<String> sname = Symbols();
+        // Corregido: negación ! para verificar si NO existe
+        if (!sname.contains(color)){ 
+            System.out.println("No existe el símbolo: " + color);
             return;
         }
         
-        if (pos < 0) {
-            pos = 0;
-        } else if (pos > Symbols.size()) {
-            pos = Symbols.size();
-        }
-        Symbol s = new Symbol(color,pos);
-        Symbols.add(s);
-        for (int i = 0; i < Symbols.size(); i++) {
-            Symbol symbol = Symbols.get(i);
+        // Corregido: buscar el índice en la lista de nombres
+        int pos = sname.indexOf(color); 
+        symbols.remove(pos);        
+        
+        for (int i = 0; i < symbols.size(); i++) {
+            Symbol symbol = symbols.get(i);
             symbol.setposition(i);
-            } 
+        } 
     }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public void deleteSymbols(String color){
-        ArrayList<String> sname = Symbols();
-        if (sname.contains(color)){
-            System.out.println("no esta el" + color);
-            return;
-        }
-        int pos = Symbols.indexOf(color);
-        Symbols.remove(pos);       
-        for (int i = 0; i < Symbols.size(); i++) {
-            Symbol symbol = Symbols.get(i);
-            symbol.setposition(i);
-            } 
-    
-}
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+
     public ArrayList<String> Symbols(){
         ArrayList<String> listSymbols = new ArrayList<>();
-        for (Symbol s : Symbols){
+        for (Symbol s : symbols){
             listSymbols.add(s.getname());
         }
         return listSymbols;
-}
+    }
 
-     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public int distinctSymbols(){
-        return Symbols.size();        
-}
+        return symbols.size();        
+    }
 
-     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public String getshow_symbol(){
         return show_symbol;        
-}
+    }
 
-     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public void rotate(){
-         
-}
+
+    }
 }
