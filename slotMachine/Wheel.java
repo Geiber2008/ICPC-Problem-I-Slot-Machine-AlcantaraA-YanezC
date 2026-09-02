@@ -2,9 +2,10 @@ import java.util.ArrayList;
 /**
  * Write a description of class Wheel here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author AlcantaraA-YanezC
+ * @version v1.0
  */
+
 public class Wheel
 {
     // instance variables - replace the example below with your own
@@ -27,14 +28,10 @@ public class Wheel
         positionA = pos;
         Vwheel.makeVisible();
         Symbols = new ArrayList<>();
-        Symbol cruz = new Symbol("red",1);
-        Symbol corazon = new Symbol("yellow",1);
-        Symbol picas = new Symbol("green",1);
-        Symbols.add(cruz);
-        Symbols.add(corazon);
-        Symbols.add(picas);
+        Symbol cruz = new Symbol("red",1); Symbol corazon = new Symbol("yellow",1); Symbol picas = new Symbol("green",1);
+        Symbols.add(cruz); Symbols.add(corazon); Symbols.add(picas);
         positionA = pos;
-        show_symbol = "red";
+        show_symbol = s;
     }
     
     public Wheel()
@@ -155,5 +152,15 @@ public class Wheel
      */
     public String getshow_symbol(){
         return show_symbol;        
+}
+
+     /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public void rotate(){
+         
 }
 }
