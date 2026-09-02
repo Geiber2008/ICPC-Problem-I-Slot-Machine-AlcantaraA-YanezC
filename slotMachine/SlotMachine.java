@@ -127,7 +127,7 @@ public class SlotMachine
      * @param pos index of the wheel to be deleted.
      */
     public void delWheel(int pos) {
-        if (wheels.isEmpty() || pos < 1 || pos > wheels.size()) {
+        if (wheels.isEmpty() || pos < 4 || pos > wheels.size()) {
             ok = false;
             return;
         }
