@@ -203,4 +203,21 @@ public class Wheel
             Vwheel.changeColor(this.show_symbol);
         }
     }
+    
+    /**
+     * Rotates the wheel to the next available symbol in the list.
+     * Updates both the logical state and the visual representation.
+     */
+    public void makeVisible() {
+        Vwheel.makeVisible();
+    }
+    
+    /**
+     * Rotates the wheel to the next available symbol in the list.
+     * Updates both the logical state and the visual representation.
+     */
+    public void makeInvisible() {
+        Vwheel.makeInvisible();
+    }
+    
 }

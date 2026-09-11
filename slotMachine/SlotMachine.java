@@ -40,9 +40,7 @@ public class SlotMachine
     public void makeVisible() {
         machine.makeVisible();
         for (Wheel w : wheels) {
-            // Assumes Wheel has a makeVisible() or handles visibility through setposition/Vwheel
-            // If Wheel exposes Vwheel or a makeVisible method:
-            w.setposition(w.getpositionA(), w.getpositionX());
+            w.makeVisible();
         }
         ok = true;
     }
@@ -53,7 +51,7 @@ public class SlotMachine
     public void makeInvisible() {
         machine.makeInvisible();
         for (Wheel w : wheels) {
-            w.delete();
+            w.makeInvisible();
         }
         ok = true;
     }
