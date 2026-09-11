@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Collections;
 
 /**
  * Represents a Slot Machine containing multiple wheels and visual elements.
@@ -246,5 +247,22 @@ public class SlotMachine
         Random random = new Random();
         String[] opciones = {"red", "yellow", "naranja"};
         return opciones[random.nextInt(opciones.length)];
-    }    
+    } 
+    
+    /**
+     * Generates a random color for wheel setup.
+     *
+     * @return random color string.
+     */
+    public void swap(int wheel1,int wheel2){
+        System.out.println(wheels);
+        Wheel wheeln1 = wheels.get(wheel1-1);
+        Wheel wheeln2 = wheels.get(wheel2-1);
+        int position1 = wheeln1.getpositionX();
+        int position2 = wheeln2.getpositionX();
+        wheeln1.setposition(wheel1, position1);
+        wheeln2.setposition(wheel2,position2);
+        Collections.swap(wheels,wheel1-1,wheel2-1);
+        System.out.println(wheels);
+    } 
 }

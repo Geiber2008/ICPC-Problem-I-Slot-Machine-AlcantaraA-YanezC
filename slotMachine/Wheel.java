@@ -89,6 +89,21 @@ public class Wheel
             Vwheel.setpositionX(x);
         }
     }
+    
+    /**
+     * Updates the position index and X coordinate of the wheel.
+     *
+     * @param pos New index position.
+     * @param x New X coordinate.
+     */
+    public void setposition(int pos, int x)
+    {
+        positionA = pos;
+        positionX = x;
+        if (Vwheel != null) {
+            Vwheel.setpositionX(x);
+        }
+    }
 
     /**
      * Deletes and hides the visual representation of the wheel.
