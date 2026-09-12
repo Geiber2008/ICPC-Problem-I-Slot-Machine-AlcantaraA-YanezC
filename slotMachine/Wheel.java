@@ -12,9 +12,10 @@ public class Wheel
     private int positionX;
     private int positionY;
     private int positionA;
-    private ArrayList<Symbol> symbols;
+    private static ArrayList<Symbol> symbols;
     private Rectangle Vwheel;
     private String show_symbol; 
+    private boolean esMove;
 
     /**
      * Main constructor for objects of class Wheel.
@@ -32,6 +33,7 @@ public class Wheel
         positionX = x;
         positionY = y;
         positionA = pos;
+        esMove = true;
         Vwheel.makeVisible();
         
         symbols = new ArrayList<>();
@@ -89,6 +91,21 @@ public class Wheel
             Vwheel.setpositionX(x);
         }
     }
+    
+    /**
+     * Updates the position index and X coordinate of the wheel.
+     *
+     * @param pos New index position.
+     * @param x New X coordinate.
+     */
+    public void Moveposition(int pos, int x)
+    {
+        positionA = pos;
+        if (Vwheel != null) {
+            Vwheel.moveHorizontal(positionX-x);
+        }
+        positionX = x;
+    }
 
     /**
      * Deletes and hides the visual representation of the wheel.
@@ -112,12 +129,8 @@ public class Wheel
             System.out.println("Symbol already exists: " + color);
             return;
         }
-
-        if (pos < 0) {
-            pos = 0;
-        } else if (pos > symbols.size()) {
-            pos = symbols.size();
-        }
+        
+        pos = limit(pos);
         
         Symbol s = new Symbol(color, pos);
         symbols.add(pos, s);
@@ -202,5 +215,68 @@ public class Wheel
         if (Vwheel != null) {
             Vwheel.changeColor(this.show_symbol);
         }
+    }
+    
+    /**
+     * Rotates the wheel to the next available symbol in the list.
+     * Updates both the logical state and the visual representation.
+     */
+    public void makeVisible() {
+        Vwheel.makeVisible();
+    }
+    
+    /**
+     * Rotates the wheel to the next available symbol in the list.
+     * Updates both the logical state and the visual representation.
+     */
+    public void makeInvisible() {
+        Vwheel.makeInvisible();
+    }
+    
+    /**
+     * Rotates the wheel to the next available symbol in the list.
+     * Updates both the logical state and the visual representation.
+     */
+    public boolean getesMove() {
+        return esMove;
+    }
+    
+    /**
+     * Rotates the wheel to the next available symbol in the list.
+     * Updates both the logical state and the visual representation.
+     */
+    public void lock(){
+        esMove = false;
+    }
+    
+    /**
+     * Rotates the wheel to the next available symbol in the list.
+     * Updates both the logical state and the visual representation.
+     */
+    public void unlock(){
+        esMove = true;
+    }
+    
+    /**
+     * Rotates the wheel to the next available symbol in the list.
+     * Updates both the logical state and the visual representation.
+     */
+    public void setSymbols(ArrayList<String> setSymbols){
+        symbols.clear();
+        int p = 0;
+        for(String newS: setSymbols){
+            Symbol s = new Symbol(newS,p);
+            symbols.add(s);
+            p+= 1;
+        }
+    }
+    
+    private int limit (int x){
+        if (x < 0) {
+            x = 0;
+        } else if (x > symbols.size()) {
+            x = symbols.size();
+        }
+        return x;
     }
 }

@@ -20,7 +20,7 @@ public class Symbol
         name = n;
         position = p;
     }
-
+    
     /**
      * An example of a method - replace this comment with your own
      *
