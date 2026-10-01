@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Collections;
+import java.awt.Color;
 
 /**
  * Represents a Slot Machine containing multiple wheels and visual elements.
@@ -15,18 +16,32 @@ public class SlotMachine
     private ArrayList<Wheel> wheels;
     private Rectangle machine;
     private int positonW;
-    private int sizehorizontal;
+    private int sizehorizontal = 10;
     private boolean ok;
 
     /**
      * Constructor for objects of class SlotMachine.
      * Initializes the machine frame and standard set of wheels.
      */
-    public SlotMachine(){
-        sizehorizontal = 130;
-        machine = new Rectangle(100, sizehorizontal, 100, 80, "blue");
+    public SlotMachine(int n){
+        machine = new Rectangle(100, sizehorizontal, 100, 80, "#00000");
         machine.makeVisible();
         wheels = new ArrayList<>();
+        sizehorizontal += 40*n; machine.changeSize(100, sizehorizontal);
+        int x = 110;
+        for(int i = 0; i < n; i++){
+            Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i);
+            wheels.add(w);
+            x += 40;
+        }
+        ok = true;
+    }
+    
+    public SlotMachine(){
+        machine = new Rectangle(100, sizehorizontal, 100, 80, "#00000");
+        machine.makeVisible();
+        wheels = new ArrayList<>();
+        sizehorizontal += 40*3; machine.changeSize(100, sizehorizontal);
         int x = 110;
         for(int i = 1; i < 4; i++){
             Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i);
@@ -82,7 +97,7 @@ public class SlotMachine
      * @param steps number of steps/rotations to perform.
      * @throws InterruptedException if the thread execution sleep is interrupted.
      */
-    public void spin(int wheel, int steps) throws InterruptedException {
+    public void spin(int wheel, int steps) throws InterruptedException{
         if (wheel >= 1 && wheel <= wheels.size()) {
             if (wheels.get(wheel - 1).getesMove()){
                 for (int i = 0; i < steps; i++){
@@ -103,15 +118,14 @@ public class SlotMachine
      * @param wheel 1-based index position of the wheel to spin.
      * @throws InterruptedException if thread execution is interrupted.
      */
-    public void spin(int wheel) throws InterruptedException {
+    public void spin(int wheel){
         if (wheel >= 1 && wheel <= wheels.size()) {
             if (wheels.get(wheel - 1).getesMove()){
                 wheels.get(wheel - 1).rotate();
             }
             ok = true;
         } else {
-            System.out.println("Invalid wheel position: " + wheel);
-            ok = false;
+            return;
         }
     }
 
@@ -122,11 +136,9 @@ public class SlotMachine
      */
     public void spin(String[] setSymbols) {
         ArrayList<String> listaSimbolos = new ArrayList<>(java.util.Arrays.asList(setSymbols));
-
         if (!wheels.isEmpty()) {
             wheels.get(0).setSymbols(listaSimbolos);
         }
-
         for (Wheel w : wheels) {
             if (w.getesMove()) {
                 w.rotate();
@@ -152,13 +164,12 @@ public class SlotMachine
      *
      * @param pos 1-based index position where the new wheel should be placed.
      */
-    public void addWheel(int pos) {   
-        pos = limit(pos);
-        sizehorizontal += 40;
+    public void addWheel(int pos) {
+        pos = limit(pos); sizehorizontal += 40;
         machine.changeSize(100, sizehorizontal);
         Wheel j = wheels.get(0);
         int startX = j.getpositionX();
-        Wheel w = new Wheel(80, 30, 0, 90, "green", pos-1);
+        Wheel w = new Wheel(80, 30, 0, 90, colorRandomExists(), pos-1);
         wheels.add(pos-1, w); 
         for (int i = 0; i < wheels.size(); i++) {
             Wheel wheel = wheels.get(i);
@@ -288,6 +299,7 @@ public class SlotMachine
         }
         return pos;
     }
+    
 
     /**
      * Selects a random color string from a predefined array of color options.
@@ -296,8 +308,24 @@ public class SlotMachine
      */
     private String colorRandom(){
         Random random = new Random();
-        String[] opciones = {"red", "yellow", "green"};
-        return opciones[random.nextInt(opciones.length)];
+        int red = random.nextInt(1,255) ; int blue = random.nextInt(1,255) ; int green = random.nextInt(1,255);
+        Color c = new Color(red,blue,green);
+        String namec = String.format("#%02X%02X%02X", c.getRed(), c.getGreen(), c.getBlue());;
+        return namec;
+    }
+    
+    /**
+     * Selects a random color string from a predefined array of color options.
+     *
+     * @return random color string name.
+     */
+    private String colorRandomExists(){
+        Random random = new Random();
+        Wheel j = wheels.get(0);
+        ArrayList<String> colores = j.getlistcolor();
+        int index = random.nextInt(colores.size());
+        String namec = colores.get(index); 
+        return namec;
     } 
 
     /**

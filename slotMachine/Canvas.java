@@ -195,7 +195,13 @@ public class Canvas{
         }
 
         public void draw(Graphics2D graphic){
-            setForegroundColor(colorString);
+            try {
+            // Convierte la cadena hexadecimal a java.awt.Color y la asigna al Graphics2D
+                graphic.setColor(Color.decode(colorString));
+            } catch (NumberFormatException e) {
+            // Si el String no es un hexadecimal válido, asigna un color por defecto
+                graphic.setColor(Color.BLACK);
+            }
             graphic.draw(shape);
             graphic.fill(shape);
         }
