@@ -361,4 +361,8 @@ public class SlotMachine
     public void unlock(int wheel){
         wheels.get(wheel-1).unlock();        
     } 
+    
+    public ArrayList<Wheel> getWheels (){
+        return wheels;
+    }
 }

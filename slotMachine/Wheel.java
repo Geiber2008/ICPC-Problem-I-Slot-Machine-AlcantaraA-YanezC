@@ -31,7 +31,7 @@ public class Wheel
     {   
         Vwheel = new Rectangle(h, w, x, y, s);
         positionX = x; positionY = y; positionA = pos; esMove = true; Vwheel.makeVisible();
-        if (inicio) {addSymbols(s,pos);}       
+        if (inicio) {addSymbols(s,symbols.size() + 1);}       
         show_symbol = s;
     }
 
@@ -262,4 +262,16 @@ public class Wheel
         }
         return listcolor;
     }  
+    
+    public int getPositionSymbol(String s){
+        int index = 0;
+        for (Symbol symbol : symbols){
+            if (symbol.getname().equals(s)){
+                break;
+            }
+            index++;
+        }
+        Symbol symbol = symbols.get(index);
+        return symbol.getPosition();
+    }
 }
