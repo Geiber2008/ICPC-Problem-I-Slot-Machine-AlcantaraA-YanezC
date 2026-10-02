@@ -84,14 +84,14 @@ public class Test_slotMachine
     @Test
     public void testSpinSingleWheelValid()
     {
-        slotMachine.spin(1);
+        slotMachine.spin();
         assertTrue(slotMachine.ok());
     }
 
     @Test
     public void testSpinSingleWheelInvalid()
     {
-        slotMachine.spin(-1);
+        slotMachine.spin();
         assertFalse(slotMachine.ok());
     }
 

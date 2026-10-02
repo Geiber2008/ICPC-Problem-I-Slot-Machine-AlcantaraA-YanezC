@@ -12,10 +12,10 @@ public class Wheel
     private int positionX;
     private int positionY;
     private int positionA;
-    private static ArrayList<Symbol> symbols;
+    private static ArrayList<Symbol> symbols = new ArrayList<>();
     private Rectangle Vwheel;
     private String show_symbol; 
-    private boolean esMove;
+    private boolean esMove = true;
 
     /**
      * Main constructor for objects of class Wheel.
@@ -27,24 +27,11 @@ public class Wheel
      * @param s Initial symbol/color shown.
      * @param pos Position index of the wheel.
      */
-    public Wheel(int h, int w, int x, int y, String s, int pos)
-    {
+    public Wheel(int h, int w, int x, int y, String s, int pos,boolean inicio)
+    {   
         Vwheel = new Rectangle(h, w, x, y, s);
-        positionX = x;
-        positionY = y;
-        positionA = pos;
-        esMove = true;
-        Vwheel.makeVisible();
-        
-        symbols = new ArrayList<>();
-        Symbol cruz = new Symbol("red", 1); 
-        Symbol corazon = new Symbol("yellow", 1); 
-        Symbol picas = new Symbol("green", 1);
-        
-        symbols.add(cruz); 
-        symbols.add(corazon); 
-        symbols.add(picas);
-        
+        positionX = x; positionY = y; positionA = pos; esMove = true; Vwheel.makeVisible();
+        if (inicio) {addSymbols(s,symbols.size() + 1);}       
         show_symbol = s;
     }
 
@@ -84,7 +71,8 @@ public class Wheel
      * @param x New X coordinate.
      */
     public void setposition(int pos, int x)
-    {
+    {   
+        if (!esMove){return;}
         positionA = pos;
         positionX = x;
         if (Vwheel != null) {
@@ -99,7 +87,8 @@ public class Wheel
      * @param x New X coordinate.
      */
     public void Moveposition(int pos, int x)
-    {
+    {   
+        if (!esMove){return;}
         positionA = pos;
         if (Vwheel != null) {
             Vwheel.moveHorizontal(positionX-x);
@@ -111,6 +100,7 @@ public class Wheel
      * Deletes and hides the visual representation of the wheel.
      */
     public void delete(){
+        if (!esMove){return;}
         if (Vwheel != null) {
             Vwheel.makeInvisible();
             Vwheel = null;
@@ -125,16 +115,9 @@ public class Wheel
      */
     public void addSymbols(String color, int pos){
         ArrayList<String> sname = Symbols();
-        if (sname.contains(color)){
-            System.out.println("Symbol already exists: " + color);
-            return;
-        }
-        
         pos = limit(pos);
-        
         Symbol s = new Symbol(color, pos);
-        symbols.add(pos, s);
-        
+        symbols.add(pos, s);     
         for (int i = 0; i < symbols.size(); i++) {
             Symbol symbol = symbols.get(i);
             symbol.setposition(i);
@@ -198,23 +181,15 @@ public class Wheel
      * Updates both the logical state and the visual representation.
      */
     public void rotate() {
-        if (symbols == null || symbols.isEmpty()) {
-            System.out.println("No symbols available to rotate.");
-            return;
-        }
-
-        ArrayList<String> symbolNames = Symbols();
+        if (!esMove){return;}
+        ArrayList<String> symbolNames = getlistcolor();
         int currentIndex = symbolNames.indexOf(this.show_symbol);
-
-        // Advance to the next index sequentially (wrapping around if needed)
         int nextIndex = (currentIndex + 1) % symbols.size();
-
         Symbol nextSymbol = symbols.get(nextIndex);
+        nextSymbol.setposition(nextIndex);
         this.show_symbol = nextSymbol.getname();
-
-        if (Vwheel != null) {
-            Vwheel.changeColor(this.show_symbol);
-        }
+        Vwheel.changeColor(this.show_symbol);
+        
     }
     
     /**
@@ -278,5 +253,25 @@ public class Wheel
             x = symbols.size();
         }
         return x;
+    }
+    
+    public ArrayList<String> getlistcolor(){
+        ArrayList<String> listcolor = new ArrayList<>();
+        for(Symbol s: symbols){
+            listcolor.add(s.getname());
+        }
+        return listcolor;
+    }  
+    
+    public int getPositionSymbol(String s){
+        int index = 0;
+        for (Symbol symbol : symbols){
+            if (symbol.getname().equals(s)){
+                break;
+            }
+            index++;
+        }
+        Symbol symbol = symbols.get(index);
+        return symbol.getPosition();
     }
 }

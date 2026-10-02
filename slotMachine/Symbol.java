@@ -36,4 +36,8 @@ public class Symbol
     {
         return name;
     }
+    
+    public int getPosition(){
+        return position;
+    }
 }
