@@ -30,7 +30,7 @@ public class SlotMachine
         sizehorizontal += 40*n; machine.changeSize(100, sizehorizontal);
         int x = 110;
         for(int i = 0; i < n; i++){
-            Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i);
+            Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i,true);
             wheels.add(w);
             x += 40;
         }
@@ -44,7 +44,7 @@ public class SlotMachine
         sizehorizontal += 40*3; machine.changeSize(100, sizehorizontal);
         int x = 110;
         for(int i = 1; i < 4; i++){
-            Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i);
+            Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i,true);
             wheels.add(w);
             x += 40;
         }
@@ -169,7 +169,7 @@ public class SlotMachine
         machine.changeSize(100, sizehorizontal);
         Wheel j = wheels.get(0);
         int startX = j.getpositionX();
-        Wheel w = new Wheel(80, 30, 0, 90, colorRandomExists(), pos-1);
+        Wheel w = new Wheel(80, 30, 0, 90, colorRandomExists(), pos-1,false);
         wheels.add(pos-1, w); 
         for (int i = 0; i < wheels.size(); i++) {
             Wheel wheel = wheels.get(i);

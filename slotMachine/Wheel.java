@@ -27,11 +27,11 @@ public class Wheel
      * @param s Initial symbol/color shown.
      * @param pos Position index of the wheel.
      */
-    public Wheel(int h, int w, int x, int y, String s, int pos)
-    {
+    public Wheel(int h, int w, int x, int y, String s, int pos,boolean inicio)
+    {   
         Vwheel = new Rectangle(h, w, x, y, s);
         positionX = x; positionY = y; positionA = pos; esMove = true; Vwheel.makeVisible();
-        addSymbols(s,pos);       
+        if (inicio) {addSymbols(s,pos);}       
         show_symbol = s;
     }
 
