@@ -1,19 +1,21 @@
 import java.util.ArrayList;
-
+import java.util.HashMap;
+import java.util.Map;
 /**
  * Representa un concurso de tragamonedas que extienda las funcionalidades
  * básicas de {@link SlotMachine} para calcular y simular el alineamiento
  * de sus ruedas.
  */
-public class SlotMachineContest extends SlotMachine {   
-    
+public class SlotMachineContest {
+    private static SlotMachineContest slotTest;
+    private static SlotMachine sltmachine;
     /**
      * Construye una nueva instancia del concurso de tragamonedas.
      *
      * @param n El número de ruedas o la configuración inicial de la tragamonedas.
      */
-    public SlotMachineContest(int n) {
-        super(n);   
+    private SlotMachineContest(int n) {
+         sltmachine = new SlotMachine(n);
     }
 
     /**
@@ -28,23 +30,26 @@ public class SlotMachineContest extends SlotMachine {
      *           <li>{@code [1]}: La cantidad de giros necesarios para alinearla.</li>
      *         </ul>
      */
-    public ArrayList<int[]> solve(int n) {   
-        ArrayList<int[]> steps = new ArrayList<>();
-        this.makeInvisible();
-        ArrayList<Wheel> wheels = this.getWheels();
-        if (wheels == null || wheels.isEmpty()) {
-            return steps;
+    public static ArrayList<int[]> solve(int n) { 
+        if (slotTest != null){
+            sltmachine.makeInvisible();
+            sltmachine.getWheels().get(0).setSymbols(null);
+            slotTest = null; sltmachine = null;
+            slotTest = new  SlotMachineContest(n);
+        }else{
+            slotTest = new  SlotMachineContest(n);
         }
-        Wheel primeraRueda = wheels.get(0);
-        int posObjetivo = primeraRueda.getPositionSymbol(primeraRueda.getshow_symbol());
-        for (int i = 0; i < wheels.size(); i++) {
-            Wheel w = wheels.get(i);
-            int posActual = w.getPositionSymbol(w.getshow_symbol());
-            int giros = Math.abs(posObjetivo - posActual);
-            
-            steps.add(new int[]{i, giros});
-        } 
-        
+        ArrayList<int[]> steps = new ArrayList<>();
+        sltmachine.makeInvisible();
+        ArrayList<Integer> listPositionsymbols = sltmachine.getPositionSymbolos();
+        int mostNum = butFoundInt();
+        for (int i = 0; i < listPositionsymbols.size(); i++){
+            int Num = listPositionsymbols.get(i);
+            if (!(mostNum == Num)){
+                int step = Math.abs((sltmachine.distinctSymbols() - mostNum) - Num);
+                steps.add(new int[] {i + 1, step });
+            }
+        }        
         return steps;
     }
 
@@ -54,18 +59,32 @@ public class SlotMachineContest extends SlotMachine {
      * @param n Parámetro de configuración enviado al método {@link #solve(int)}.
      * @throws InterruptedException Si el hilo de ejecución es interrumpido durante las animaciones de giro.
      */
-    public void simulate(int n) throws InterruptedException {
-        for(int i = 0;i < 2;i++){
-            ArrayList<int[]> steps = solve(n);
-            this.makeVisible();
-            for (int[] step : steps) {
-                int ruedaIndex = step[0];
-                int cantidadGiros = step[1];
-                
-                if (cantidadGiros > 0) {
-                    this.spin(ruedaIndex, cantidadGiros);
-                }
+    public static void simulate(int n){
+        ArrayList<int[]> steps = solve(n);
+        sltmachine.makeVisible();
+        for (int[] step : steps) {
+            int ruedaIndex = step[0];
+            int cantidadGiros = step[1];
+            if (cantidadGiros > 0) {
+                    sltmachine.spin(ruedaIndex, cantidadGiros);
             }
         }
+    }
+    
+    private static int butFoundInt(){
+       ArrayList<Integer> listPositionsymbols = sltmachine.getPositionSymbolos();
+       int mostInt = 0;
+       int mostCant = 0;
+       Map<Integer, Integer> ListInt = new HashMap<>();
+       for (Integer n: listPositionsymbols){
+           if (ListInt.get(n) == null){
+               ListInt.put(n,1);
+            }else{
+               int cantActual = ListInt.get(n);
+               ListInt.put(n,cantActual + 1);
+               if (mostCant < cantActual + 1){mostInt = n;}
+            }
+       }
+       return mostInt;
     }
 }

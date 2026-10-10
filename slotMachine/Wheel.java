@@ -14,7 +14,7 @@ public class Wheel
     private int positionA;
     private static ArrayList<Symbol> symbols = new ArrayList<>();
     private Rectangle Vwheel;
-    private String show_symbol; 
+    private String showSymbol; 
     private boolean esMove = true;
 
     /**
@@ -32,7 +32,7 @@ public class Wheel
         Vwheel = new Rectangle(h, w, x, y, s);
         positionX = x; positionY = y; positionA = pos; esMove = true; Vwheel.makeVisible();
         if (inicio) {addSymbols(s,symbols.size() + 1);}       
-        show_symbol = s;
+        showSymbol = s;
     }
 
     /**
@@ -43,7 +43,7 @@ public class Wheel
         Vwheel = new Rectangle(80, 30, 110, 90, "red");
         Vwheel.makeVisible();
         symbols = new ArrayList<>();
-        show_symbol = "red";
+        showSymbol = "red";
     }
 
     /**
@@ -172,8 +172,8 @@ public class Wheel
      *
      * @return Currently shown symbol.
      */
-    public String getshow_symbol(){
-        return show_symbol;        
+    public String getshowSymbol(){
+        return showSymbol;        
     }
 
     /**
@@ -183,12 +183,12 @@ public class Wheel
     public void rotate() {
         if (!esMove){return;}
         ArrayList<String> symbolNames = getlistcolor();
-        int currentIndex = symbolNames.indexOf(this.show_symbol);
+        int currentIndex = symbolNames.indexOf(this.showSymbol);
         int nextIndex = (currentIndex + 1) % symbols.size();
         Symbol nextSymbol = symbols.get(nextIndex);
         nextSymbol.setposition(nextIndex);
-        this.show_symbol = nextSymbol.getname();
-        Vwheel.changeColor(this.show_symbol);
+        this.showSymbol = nextSymbol.getname();
+        Vwheel.changeColor(this.showSymbol);
         
     }
     
@@ -239,6 +239,9 @@ public class Wheel
     public void setSymbols(ArrayList<String> setSymbols){
         symbols.clear();
         int p = 0;
+        if (setSymbols == null){
+            return;
+        }
         for(String newS: setSymbols){
             Symbol s = new Symbol(newS,p);
             symbols.add(s);

@@ -97,11 +97,14 @@ public class SlotMachine
      * @param steps number of steps/rotations to perform.
      * @throws InterruptedException if the thread execution sleep is interrupted.
      */
-    public void spin(int wheel, int steps) throws InterruptedException{
+    public void spin(int wheel, int steps){
         if (wheel >= 1 && wheel <= wheels.size()) {
             if (wheels.get(wheel - 1).getesMove()){
                 for (int i = 0; i < steps; i++){
-                    Thread.sleep(2000);
+                    try{
+                        Thread.sleep(2000);
+                    }
+                    catch(Exception e){ }
                     wheels.get(wheel - 1).rotate();
                 }
             }
@@ -259,7 +262,7 @@ public class SlotMachine
     public ArrayList<String> configuration(){
         ArrayList<String> listSymbols = new ArrayList<>();
         for (Wheel w: wheels){
-            listSymbols.add(w.getshow_symbol());
+            listSymbols.add(w.getshowSymbol());
         }
         ok = true;
         return listSymbols;
@@ -275,7 +278,7 @@ public class SlotMachine
         for (int i = 0; i < wheels.size() - 1; i++) {
             Wheel w1 = wheels.get(i);
             Wheel w2 = wheels.get(i+1);
-            if (!(w1.getshow_symbol().equals(w2.getshow_symbol()))) {
+            if (!(w1.getshowSymbol().equals(w2.getshowSymbol()))) {
                 ok = true;
                 isJackpot = false;
                 return isJackpot;
@@ -365,4 +368,14 @@ public class SlotMachine
     public ArrayList<Wheel> getWheels (){
         return wheels;
     }
-}
+    
+    public ArrayList<Integer> getPositionSymbolos(){
+        ArrayList<Integer> listPosition = new ArrayList<>();
+        for(int n = 0; n < wheels.size();n++){
+            String color = wheels.get(n).getshowSymbol();
+            int t = wheels.get(n).getPositionSymbol(color);
+            listPosition.add(t);
+        }
+        return listPosition;
+    }
+    }
