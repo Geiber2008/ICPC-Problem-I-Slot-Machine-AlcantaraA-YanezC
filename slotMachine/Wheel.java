@@ -237,15 +237,12 @@ public class Wheel
      * Updates both the logical state and the visual representation.
      */
     public void setSymbols(ArrayList<String> setSymbols){
-        symbols.clear();
         int p = 0;
-        if (setSymbols == null){
-            return;
-        }
-        for(String newS: setSymbols){
-            Symbol s = new Symbol(newS,p);
+        for(int i = 0; i < setSymbols.size();i++){
+            Symbol s = new Symbol(setSymbols.get(i),i + 1);
+            symbols.set(i,s);
             symbols.add(s);
-            p+= 1;
+            p++;
         }
     }
     

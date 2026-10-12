@@ -14,12 +14,13 @@ import java.awt.Color;
 public class SlotMachine
 {
     private ArrayList<Wheel> wheels;
+    private ArrayList<String> colors = new ArrayList<>();
     private Rectangle machine;
     private int positonW;
     private int sizehorizontal = 10;
     private boolean ok;
-    private int maxWheel = 50;
-    private int minWheel = 3;
+    private static final int maxWheel = 50;
+    private static final int minWheel = 3;
 
     /**
      * Constructor for objects of class SlotMachine.
@@ -31,14 +32,15 @@ public class SlotMachine
         wheels = new ArrayList<>();
         sizehorizontal += 40*n; machine.changeSize(100, sizehorizontal);
         int x = 110;
-        String c = colorRandom();
-        Wheel w1 = new Wheel(80, 30, x, 90, c, 0,true); wheels.add(w1);
-        ArrayList<String> color = new ArrayList<>(); color.add(c);
-        w1.setSymbols(color);
+        String c1 = colorRandom();
+        Wheel w1 = new Wheel(80, 30, x, 90, c1, 0,true); wheels.add(w1);
+        colors.add(c1);
+        w1.setSymbols(colors);
         x += 40;
         for(int i = 1; i < n ; i++){
-            Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i,true);
-            wheels.add(w);
+            String c2 = colorRandom();
+            Wheel w = new Wheel(80, 30, x, 90, c2, i,true);
+            wheels.add(w); colors.add(c2);
             x += 40;
         }
         ok = true;
@@ -68,6 +70,7 @@ public class SlotMachine
      */
     public void makeVisible() {
         machine.makeVisible();
+        wheels.get(0).setSymbols(colors);
         for (Wheel w : wheels) {
             w.makeVisible();
         }
@@ -180,10 +183,11 @@ public class SlotMachine
      * @param pos 1-based index position where the new wheel should be placed.
      */
     public void addWheel(int pos) {
-        if (pos < 1 || pos > wheels.size() + 1 || wheels.size() + 1 > maxWheel) {
+        if (pos < 1 || pos > wheels.size() + 1 || wheels.size() + 1 > maxWheel || someWheelsAreLocked()) {
             ok = false;
             return;
         }
+        
         pos = limit(pos); sizehorizontal += 40;
         machine.changeSize(100, sizehorizontal);
         Wheel j = wheels.get(0);
@@ -404,5 +408,14 @@ public class SlotMachine
             listPosition.add(t);
         }
         return listPosition;
+    }
+    
+    public boolean someWheelsAreLocked(){
+        boolean isLock = false;
+        for(Wheel w:wheels){
+            if(w.getesMove() == false){isLock = true;}
+            break;
+        }
+        return isLock;
     }
     }

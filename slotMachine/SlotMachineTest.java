@@ -91,7 +91,7 @@ public class SlotMachineTest
     }
     
     /**
-     * Try the theSwap() 
+     * Try the Swap() 
      * Should (Acceptance): Correctly switch the positions of two wheels 
      * valid within the machine. 
      * SHOULD NOT (Reject): Allow the exchange when one or both positions are
@@ -114,17 +114,53 @@ public class SlotMachineTest
         assertTrue(w2.getpositionA() == 1);
     }
     
-     /**
-     * Try the theSwap() 
-     * Should (Acceptance): Correctly switch the positions of two wheels 
-     * valid within the machine. 
-     * SHOULD NOT (Reject): Allow the exchange when one or both positions are
-     * invalid, or when one of the wheels involved is locked.
-     */
+    /**
+    * Try the Lock() 
+    * Should (Acceptance): Set the status of the specified wheel to "locked" and
+    * Return a confirmation of success. 
+    * SHOULD NOT (Reject): Allow any action to be generated on the wheel and, on the other hand, 
+    * that the wheel that this one is about to be blocked in the range
+    */
     @Test
     public void tryTheLock(){
         ArrayList<Wheel> wheels = slotMachine.getWheels();
         Wheel w1 = wheels.get(0);
-       
+        String s = w1.getshowSymbol();
+        slotMachine.lock(1);
+        assertTrue(w1.getesMove() == false);
+        slotMachine.spin(1);
+        slotMachine.delWheel(1);
+        slotMachine.addSymbol("#9400D3", 1);
+        assertTrue(w1.getpositionA() + 1 == 1);
+        assertTrue(w1.getshowSymbol() == s);
+    }
+    
+     /**
+     * Try the Unlock() 
+     * Should (Acceptance): Set the status of the specified wheel to "locked" and
+     * Return a confirmation of success. 
+     * SHOULD NOT (Reject): Allow any action to be generated on the wheel 
+     */
+    @Test
+    public void tryTheUnlock(){
+        ArrayList<Wheel> wheels = slotMachine.getWheels();
+        Wheel w1 = wheels.get(0);
+        String s = w1.getshowSymbol();
+        
+    }
+    
+    /**
+    * Try the addSymbol() 
+    * Should (Acceptance): Set the status of the specified wheel to "locked" and
+    * Return a confirmation of success. 
+    * SHOULD NOT (Reject): Allow any action to be generated on the wheel and, on the other hand, 
+    * that the wheel that this one is about to be blocked in the range
+    */
+    @Test
+    public void tryTheaddSymbol(){
+        ArrayList<Wheel> wheels = slotMachine.getWheels();
+        Wheel w1 = wheels.get(0);
+        String s = w1.getshowSymbol();
+        
     }
 }
