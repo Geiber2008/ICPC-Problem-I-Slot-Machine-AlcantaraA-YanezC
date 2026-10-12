@@ -64,7 +64,7 @@ public class SlotMachineTest
     }
     
     /**
-     * Try the AddWheel() 
+     * Try the deleteWheel() 
      * Should (Acceptance): Remove the wheel from the indicated position and readjust its size 
      * the entire machine and its adjacent positions. 
      * SHOULD NOT (Reject): Allow a wheel to be removed if the machine has 3 wheels
@@ -91,14 +91,14 @@ public class SlotMachineTest
     }
     
     /**
-     * Try the AddWheel() 
+     * Try the theSwap() 
      * Should (Acceptance): Correctly switch the positions of two wheels 
      * valid within the machine. 
      * SHOULD NOT (Reject): Allow the exchange when one or both positions are
      * invalid, or when one of the wheels involved is locked.
      */
     @Test
-    public void tryThSwap(){
+    public void tryTheSwap(){
         ArrayList<Wheel> wheels = slotMachine.getWheels();
         Wheel w1 = wheels.get(0);
         Wheel w2 = wheels.get(2);
@@ -112,5 +112,19 @@ public class SlotMachineTest
         slotMachine.swap(1, 3);
         assertTrue(w1.getpositionA() == 3);
         assertTrue(w2.getpositionA() == 1);
+    }
+    
+     /**
+     * Try the theSwap() 
+     * Should (Acceptance): Correctly switch the positions of two wheels 
+     * valid within the machine. 
+     * SHOULD NOT (Reject): Allow the exchange when one or both positions are
+     * invalid, or when one of the wheels involved is locked.
+     */
+    @Test
+    public void tryTheLock(){
+        ArrayList<Wheel> wheels = slotMachine.getWheels();
+        Wheel w1 = wheels.get(0);
+       
     }
 }
