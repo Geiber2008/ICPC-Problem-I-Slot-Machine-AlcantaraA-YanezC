@@ -18,6 +18,7 @@ public class SlotMachine
     private int positonW;
     private int sizehorizontal = 10;
     private boolean ok;
+    
 
     /**
      * Constructor for objects of class SlotMachine.
@@ -29,7 +30,12 @@ public class SlotMachine
         wheels = new ArrayList<>();
         sizehorizontal += 40*n; machine.changeSize(100, sizehorizontal);
         int x = 110;
-        for(int i = 0; i < n; i++){
+        String c = colorRandom();
+        Wheel w1 = new Wheel(80, 30, x, 90, c, 0,true); wheels.add(w1);
+        ArrayList<String> color = new ArrayList<>(); color.add(c);
+        w1.setSymbols(color);
+        x += 40;
+        for(int i = 1; i < n ; i++){
             Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i,true);
             wheels.add(w);
             x += 40;
@@ -43,7 +49,12 @@ public class SlotMachine
         wheels = new ArrayList<>();
         sizehorizontal += 40*3; machine.changeSize(100, sizehorizontal);
         int x = 110;
-        for(int i = 1; i < 4; i++){
+        String c = colorRandom();
+        Wheel w1 = new Wheel(80, 30, x, 90, c, 0,true); wheels.add(w1);
+        ArrayList<String> color = new ArrayList<>(); color.add(c);
+        w1.setSymbols(color);
+        x += 40;
+        for(int i = 1; i < 3; i++){
             Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i,true);
             wheels.add(w);
             x += 40;
