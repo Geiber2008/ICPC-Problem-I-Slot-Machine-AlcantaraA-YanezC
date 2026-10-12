@@ -18,7 +18,8 @@ public class SlotMachine
     private int positonW;
     private int sizehorizontal = 10;
     private boolean ok;
-    
+    private int maxWheel = 50;
+    private int minWheel = 3;
 
     /**
      * Constructor for objects of class SlotMachine.
@@ -179,6 +180,10 @@ public class SlotMachine
      * @param pos 1-based index position where the new wheel should be placed.
      */
     public void addWheel(int pos) {
+        if (pos < 1 || pos > wheels.size() + 1 || wheels.size() + 1 > maxWheel) {
+            ok = false;
+            return;
+        }
         pos = limit(pos); sizehorizontal += 40;
         machine.changeSize(100, sizehorizontal);
         Wheel j = wheels.get(0);
@@ -199,7 +204,7 @@ public class SlotMachine
      * @param pos 1-based index of the wheel to be deleted.
      */
     public void delWheel(int pos) {
-        if (wheels.isEmpty() || pos < 1 || pos > wheels.size()) {
+        if (wheels.size() <= minWheel || pos < 1 || pos > wheels.size()) {
             ok = false;
             return;
         }
@@ -349,13 +354,24 @@ public class SlotMachine
      * @param wheel2 1-based index position of the second wheel.
      */
     public void swap(int wheel1, int wheel2){
-        Wheel wheeln1 = wheels.get(wheel1-1);
+        if (wheel1 > wheels.size()|| wheel1 < 0 && wheel2 > wheels.size()|| wheel2 < 0){
+            ok = false;
+            return;
+        }
+        Wheel wheeln1 = wheels.get(wheel1-1); 
         Wheel wheeln2 = wheels.get(wheel2-1);
+        if (!(wheeln1.getesMove() == true || wheeln1.getesMove() == true)){
+            ok = false;
+            return;
+        }
+        wheeln1.setPositionA(wheel2 - 1);
+        wheeln2.setPositionA(wheel1 - 1);
         int position1 = wheeln1.getpositionX();
         int position2 = wheeln2.getpositionX();
         wheeln1.setposition(wheel2, position2);
         wheeln2.setposition(wheel1, position1);
         Collections.swap(wheels, wheel1-1, wheel2-1);
+        ok = true;
     } 
 
     /**

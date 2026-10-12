@@ -277,4 +277,8 @@ public class Wheel
         Symbol symbol = symbols.get(index);
         return symbol.getPosition();
     }
+    
+    public void setPositionA(int pos){
+        positionA = pos;
+    }
 }
