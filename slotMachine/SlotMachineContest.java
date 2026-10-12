@@ -33,7 +33,6 @@ public class SlotMachineContest {
     public static ArrayList<int[]> solve(int n) { 
         if (slotTest != null){
             sltmachine.makeInvisible();
-            sltmachine.getWheels().get(0).setSymbols(null);
             slotTest = null; sltmachine = null;
             slotTest = new  SlotMachineContest(n);
         }else{
