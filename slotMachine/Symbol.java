@@ -1,42 +1,130 @@
-
 /**
- * Write a description of class Symbol here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Representa un símbolo que puede mostrar una rueda: un nombre (color), una
+ * posición dentro de la lista de símbolos, un tipo y, opcionalmente, un tamaño.
  */
 public class Symbol
 {
-    // instance variables - replace the example below with your own
-    private String name;
-    private int position; 
-
+    static final String TYPE_NORMAL = "Normal";
+    static final String TYPE_EPHEMERAL = "ephemeral";
+    static final String TYPE_SHY = "Shy";
+ 
+    private static final int COLLAPSED_SIZE = 1;
+    private static final int MINIMUM_SIZE = 2;
+ 
+    private final String name;
+    private final String type;
+    private int position;
+    private int height;
+    private int width;
+ 
     /**
-     * Constructor for objects of class Symbol
+     * Crea un símbolo con tipo y dimensiones explícitas.
+     *
+     * @param n nombre o color del símbolo.
+     * @param p posición inicial dentro de la lista de símbolos.
+     * @param t tipo del símbolo ("Normal", "ephemeral" o "Shy").
+     * @param h alto asociado al símbolo.
+     * @param w ancho asociado al símbolo.
      */
-    public Symbol(String n,int p)
+    public Symbol(String n, int p, String t, int h, int w)
     {
         name = n;
         position = p;
+        type = t;
+        height = h;
+        width = w;
     }
-    
+ 
     /**
-     * An example of a method - replace this comment with your own
+     * Crea un símbolo de tipo "Normal" sin dimensiones.
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param n nombre o color del símbolo.
+     * @param p posición inicial dentro de la lista de símbolos.
+     */
+    public Symbol(String n, int p)
+    {
+        name = n;
+        position = p;
+        type = TYPE_NORMAL;
+    }
+ 
+    /**
+     * Actualiza la posición del símbolo dentro de la lista.
+     *
+     * @param y nueva posición (base 0).
      */
     public void setposition(int y)
     {
         position = y;
     }
-    
+ 
+    /**
+     * Obtiene el nombre (color) del símbolo.
+     *
+     * @return nombre del símbolo.
+     */
     public String getname()
     {
         return name;
     }
-    
-    public int getPosition(){
+ 
+    /**
+     * Obtiene la posición del símbolo dentro de la lista.
+     *
+     * @return posición actual (base 0).
+     */
+    public int getPosition()
+    {
         return position;
+    }
+ 
+    /**
+     * Obtiene el tipo del símbolo.
+     *
+     * @return "Normal", "ephemeral" o "Shy".
+     */
+    public String getType()
+    {
+        return type;
+    }
+ 
+    /**
+     * Obtiene el alto del símbolo. Un alto almacenado de 1 se reporta como 2.
+     *
+     * @return alto efectivo.
+     */
+    public int getHeight()
+    {
+        return height == COLLAPSED_SIZE ? MINIMUM_SIZE : height;
+    }
+ 
+    /**
+     * Obtiene el ancho del símbolo. Un ancho almacenado de 1 se reporta como 2.
+     *
+     * @return ancho efectivo.
+     */
+    public int getWidth()
+    {
+        return width == COLLAPSED_SIZE ? MINIMUM_SIZE : width;
+    }
+ 
+    /**
+     * Establece el alto del símbolo.
+     *
+     * @param h nuevo alto.
+     */
+    public void setHeight(int h)
+    {
+        height = h;
+    }
+ 
+    /**
+     * Establece el ancho del símbolo.
+     *
+     * @param w nuevo ancho.
+     */
+    public void setWidth(int w)
+    {
+        width = w;
     }
 }
