@@ -1,74 +1,75 @@
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.Arrays;
 import java.util.Collections;
-import java.awt.Color;
+import java.util.Random;
 
 /**
- * Represents a Slot Machine containing multiple wheels and visual elements.
- * Provides controls for spinning, adding/removing wheels, locking, and checking payouts.
- * 
- * @author Alcantara-Yanez
- * @version v1.0
+ * Máquina tragamonedas compuesta por un marco y varias ruedas. Permite girar
+ * ruedas, agregarlas, eliminarlas, bloquearlas, intercambiarlas, administrar
+ * los símbolos y verificar si hay premio (jackpot). Después de cada operación,
+ * {@link #ok()} indica si terminó con éxito.
  */
 public class SlotMachine
 {
-    private ArrayList<Wheel> wheels;
-    private ArrayList<String> colors = new ArrayList<>();
-    private Rectangle machine;
-    private int positonW;
-    private int sizehorizontal = 10;
+    private static final int MAX_WHEELS = 50;
+    private static final int MIN_WHEELS = 3;
+    private static final int DEFAULT_WHEELS = 3;
+    private static final int FRAME_HEIGHT = 100;
+    private static final int FRAME_X = 100;
+    private static final int FRAME_Y = 80;
+    private static final int FRAME_BASE_WIDTH = 10;
+    private static final String FRAME_COLOR = "#000000";
+    private static final int FIRST_WHEEL_X = 110;
+    private static final int WHEEL_Y = 90;
+    private static final int WHEEL_HEIGHT = 80;
+    private static final int WHEEL_WIDTH = 30;
+    private static final int WHEEL_SPACING = 40;
+    private static final int COLOR_CHANNEL_VALUES = 254;
+    private static final long SPIN_DELAY_MILLIS = 2000;
+    private static final Random RANDOM = new Random();
+
+    private final ArrayList<Wheel> wheels = new ArrayList<>();
+    private final ArrayList<String> colors = new ArrayList<>();
+    private final Rectangle machine;
+    private int frameWidth = FRAME_BASE_WIDTH;
     private boolean ok;
-    private static final int maxWheel = 50;
-    private static final int minWheel = 3;
 
     /**
-     * Constructor for objects of class SlotMachine.
-     * Initializes the machine frame and standard set of wheels.
+     * Crea una máquina con n ruedas normales de colores aleatorios y un marco
+     * ajustado a su cantidad.
+     *
+     * @param n número de ruedas iniciales.
      */
-    public SlotMachine(int n){
-        machine = new Rectangle(100, sizehorizontal, 100, 80, "#00000");
+    public SlotMachine(int n)
+    {
+        machine = new Rectangle(FRAME_HEIGHT, frameWidth, FRAME_X, FRAME_Y, FRAME_COLOR);
         machine.makeVisible();
-        wheels = new ArrayList<>();
-        sizehorizontal += 40*n; machine.changeSize(100, sizehorizontal);
-        int x = 110;
-        String c1 = colorRandom();
-        Wheel w1 = new Wheel(80, 30, x, 90, c1, 0,this,true); wheels.add(w1);
-        colors.add(c1);
-        w1.setSymbols(colors);
-        x += 40;
-        for(int i = 1; i < n ; i++){
-            String c2 = colorRandom();
-            Wheel w = new Wheel(80, 30, x, 90, c2, i,this,true);
-            wheels.add(w); colors.add(c2);
-            x += 40;
-        }
-        ok = true;
-    }
-    
-    public SlotMachine(){
-        machine = new Rectangle(100, sizehorizontal, 100, 80, "#00000");
-        machine.makeVisible();
-        wheels = new ArrayList<>();
-        sizehorizontal += 40*3; machine.changeSize(100, sizehorizontal);
-        int x = 110;
-        String c = colorRandom();
-        Wheel w1 = new Wheel(80, 30, x, 90, c, 0,this,true); wheels.add(w1);
-        ArrayList<String> color = new ArrayList<>(); color.add(c);
-        w1.setSymbols(color);
-        x += 40;
-        for(int i = 1; i < 3; i++){
-            Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i,this,true);
-            wheels.add(w);
-            x += 40;
+        frameWidth += WHEEL_SPACING * n;
+        machine.changeSize(FRAME_HEIGHT, frameWidth);
+        int x = FIRST_WHEEL_X;
+        addInitialWheel(0, x).setSymbols(colors);
+        x += WHEEL_SPACING;
+        for (int i = 1; i < n; i++) {
+            addInitialWheel(i, x);
+            x += WHEEL_SPACING;
         }
         ok = true;
     }
 
     /**
-     * Makes the slot machine frame and all contained wheels visible on screen.
+     * Crea una máquina con el número de ruedas por defecto (3).
      */
-    public void makeVisible() {
+    public SlotMachine()
+    {
+        this(DEFAULT_WHEELS);
+    }
+
+    /**
+     * Muestra el marco y todas las ruedas, y reaplica a la primera rueda los
+     * colores iniciales de la máquina.
+     */
+    public void makeVisible()
+    {
         machine.makeVisible();
         wheels.get(0).setSymbols(colors);
         for (Wheel w : wheels) {
@@ -78,9 +79,10 @@ public class SlotMachine
     }
 
     /**
-     * Hides the slot machine frame and all contained wheels from the display.
+     * Oculta el marco y todas las ruedas.
      */
-    public void makeInvisible() {
+    public void makeInvisible()
+    {
         machine.makeInvisible();
         for (Wheel w : wheels) {
             w.makeInvisible();
@@ -89,74 +91,89 @@ public class SlotMachine
     }
 
     /**
-     * Exits the application and closes the graphic window interface.
+     * Oculta la máquina y termina la aplicación.
      */
-    public void exit() {
+    public void exit()
+    {
         makeInvisible();
         System.exit(0);
     }
 
     /**
-     * Indicates whether the last executed operation finished successfully.
+     * Indica si la última operación terminó con éxito.
      *
-     * @return true if the last operation succeeded; false otherwise.
+     * @return true si tuvo éxito; false en caso contrario.
      */
-    public boolean ok() {
+    public boolean ok()
+    {
         return ok;
     }
 
     /**
-     * Spins a single wheel at the specified position for a given number of steps.
+     * Gira una rueda varias veces, con una pausa de 2 segundos antes de cada
+     * giro. Si la rueda está bloqueada no gira, pero la operación se considera
+     * exitosa. Si el hilo es interrumpido, se detiene y ok queda en false.
      *
-     * @param wheel 1-based index position of the wheel to spin.
-     * @param steps number of steps/rotations to perform.
-     * @throws InterruptedException if the thread execution sleep is interrupted.
+     * @param wheel posición de la rueda (base 1).
+     * @param steps cantidad de giros.
      */
-    public void spin(int wheel, int steps){
-        if (wheel >= 1 && wheel <= wheels.size()) {
-            if (wheels.get(wheel - 1).getesMove()){
-                for (int i = 0; i < steps; i++){
-                    try{
-                        Thread.sleep(2000);
-                    }
-                    catch(Exception e){ }
-                    wheels.get(wheel - 1).rotate();
-                }
-            }
-            ok = true;
-        } else {
+    public void spin(int wheel, int steps)
+    {
+        if (!isValidWheel(wheel)) {
             System.out.println("Invalid wheel position: " + wheel);
             ok = false;
-        }
-    }
-
-    /**
-     * Spins a single wheel at the specified index position once.
-     *
-     * @param wheel 1-based index position of the wheel to spin.
-     * @throws InterruptedException if thread execution is interrupted.
-     */
-    public void spin(int wheel){
-        if (wheel >= 1 && wheel <= wheels.size()) {
-            if (wheels.get(wheel - 1).getesMove()){
-                wheels.get(wheel - 1).rotate();
-            }
-            ok = true;
-        } else {
             return;
         }
+        Wheel target = wheels.get(wheel - 1);
+        if (target.getesMove()) {
+            for (int i = 0; i < steps; i++) {
+                if (!pause()) {
+                    ok = false;
+                    return;
+                }
+                target.rotate();
+            }
+        }
+        ok = true;
     }
 
     /**
-     * Assigns new symbol colors to the first wheel and rotates all movable wheels once.
-     * 
-     * @param setSymbols array of color strings to update symbols on the first wheel.
+     * Gira una rueda una sola vez, si no está bloqueada.
+     *
+     * @param wheel posición de la rueda (base 1); si es inválida, ok queda en false.
      */
-    public void spin(String[] setSymbols) {
-        ArrayList<String> listaSimbolos = new ArrayList<>(java.util.Arrays.asList(setSymbols));
-        if (!wheels.isEmpty()) {
-            wheels.get(0).setSymbols(listaSimbolos);
+    public void spin(int wheel)
+    {
+        if (!isValidWheel(wheel)) {
+            ok = false;
+            return;
         }
+        Wheel target = wheels.get(wheel - 1);
+        if (target.getesMove()) {
+            target.rotate();
+        }
+        ok = true;
+    }
+
+    /**
+     * Actualiza los símbolos de la primera rueda con los colores dados y luego
+     * gira una vez todas las ruedas desbloqueadas.
+     *
+     * @param setSymbols colores de los símbolos a aplicar.
+     */
+    public void spin(String[] setSymbols)
+    {
+        if (!wheels.isEmpty()) {
+            wheels.get(0).setSymbols(new ArrayList<>(Arrays.asList(setSymbols)));
+        }
+        spin();
+    }
+
+    /**
+     * Gira una vez todas las ruedas desbloqueadas.
+     */
+    public void spin()
+    {
         for (Wheel w : wheels) {
             if (w.getesMove()) {
                 w.rotate();
@@ -166,285 +183,350 @@ public class SlotMachine
     }
 
     /**
-     * Rotates all unlocked wheels in the slot machine simultaneously once.
+     * Agrega una rueda normal en la posición indicada.
+     *
+     * @param pos posición de inserción (base 1), entre 1 y la cantidad de ruedas + 1.
      */
-    public void spin() {
-        for (Wheel w : wheels) {
-            if (w.getesMove()){
-                w.rotate();
-            }
-        }
-        ok = true;
+    public void addWheel(int pos)
+    {
+        addWheel(Wheel.TYPE_NORMAL, pos);
     }
 
     /**
-     * Adds a new wheel at the specified position and expands the machine frame layout.
+     * Agrega una rueda del tipo indicado y reubica las demás. Falla (ok = false)
+     * si la posición es inválida, se alcanzó el máximo de ruedas o alguna rueda
+     * está bloqueada.
      *
-     * @param pos 1-based index position where the new wheel should be placed.
+     * @param type "Rebel", "Lefty" o cualquier otro valor para una rueda normal.
+     * @param pos posición de inserción (base 1).
      */
-    public void addWheel(int pos) {
-        if (pos < 1 || pos > wheels.size() + 1 || wheels.size() + 1 > maxWheel || someWheelsAreLocked()) {
+    public void addWheel(String type, int pos)
+    {
+        if (pos < 1 || pos > wheels.size() + 1 || wheels.size() >= MAX_WHEELS || someWheelsAreLocked()) {
             ok = false;
             return;
         }
-        pos = limit(pos); sizehorizontal += 40;
-        machine.changeSize(100, sizehorizontal);
-        Wheel j = wheels.get(0);
-        int startX = j.getpositionX();
-        Wheel w = new Wheel(80, 30, 0, 90, colorRandomExists(), pos-1,this,false);
-        wheels.add(pos-1, w); 
-        for (int i = 0; i < wheels.size(); i++) {
-            Wheel wheel = wheels.get(i);
-            wheel.setposition(i, startX);
-            startX += 40;
-        }
+        frameWidth += WHEEL_SPACING;
+        machine.changeSize(FRAME_HEIGHT, frameWidth);
+        int startX = wheels.get(0).getpositionX();
+        wheels.add(pos - 1, createWheel(type, pos - 1));
+        arrangeWheels(startX);
         ok = true;
     }
-    
-    public void addWheel(String type, int pos) {
-        if (pos < 1 || pos > wheels.size() + 1 || wheels.size() + 1 > maxWheel || someWheelsAreLocked()) {
+
+    /**
+     * Elimina una rueda y reubica las demás. Falla (ok = false) si la posición
+     * es inválida, solo quedan las ruedas mínimas, hay ruedas bloqueadas o la
+     * rueda es de tipo Rebel.
+     *
+     * @param pos posición de la rueda a eliminar (base 1).
+     */
+    public void delWheel(int pos)
+    {
+        if (wheels.size() <= MIN_WHEELS || !isValidWheel(pos) || someWheelsAreLocked()
+            || isRebel(wheels.get(pos - 1))) {
             ok = false;
             return;
         }
-        pos = limit(pos); sizehorizontal += 40;
-        machine.changeSize(100, sizehorizontal);
-        Wheel j = wheels.get(0);
-        int startX = j.getpositionX();
-        Wheel w; 
-        
-        if (type.equals("Rebel")){
-            w = new Rebel(80, 30, 0, 90, colorRandomExists(), pos-1, this, false);
-        } else if (type.equals("Lefty")){
-            w = new Lefty(80, 30, 0, 90, colorRandomExists(), pos-1, this, false);
-        } else {
-            w = new Wheel(80, 30, 0, 90, colorRandomExists(), pos-1, this, false);
-        }
-        wheels.add(pos-1, w);
-        
-        for (int i = 0; i < wheels.size(); i++) {
-            Wheel wheel = wheels.get(i);
-            wheel.setposition(i, startX);
-            startX += 40;
-        }
+        frameWidth -= WHEEL_SPACING;
+        machine.changeSize(FRAME_HEIGHT, frameWidth);
+        int startX = wheels.get(0).getpositionX();
+        Wheel removed = wheels.remove(pos - 1);
+        removed.delete();
+        arrangeWheels(startX);
         ok = true;
     }
 
     /**
-     * Removes a wheel at the specified position and resizes the machine layout.
+     * Agrega un símbolo a la lista compartida mediante la primera rueda.
      *
-     * @param pos 1-based index of the wheel to be deleted.
+     * @param color color del nuevo símbolo.
+     * @param pos índice de inserción en la lista de símbolos.
      */
-    public void delWheel(int pos) {
-        if (wheels.size() <= minWheel || pos < 1 || pos > wheels.size() || someWheelsAreLocked() 
-        || wheels.get(pos-1).getType().equals("Rebel") ){
-            ok = false; 
-            return;}
-        pos = limit(pos);
-        sizehorizontal -= 40;
-        machine.changeSize(100, sizehorizontal);
-        Wheel j = wheels.get(0);
-        int startX = j.getpositionX();
-        Wheel w = wheels.get(pos-1);
-        wheels.remove(pos-1);
-        w.delete();
-        for (int i = 0; i < wheels.size(); i++) {
-            Wheel wheel = wheels.get(i);
-            wheel.setposition(i, startX);
-            startX += 40;
+    public void addSymbol(String color, int pos)
+    {
+        if (wheels.isEmpty()) {
+            ok = false;
+            return;
+        }
+        wheels.get(0).addSymbols(color, pos);
+        ok = true;
+    }
+
+    /**
+     * Elimina un símbolo (su primera aparición) mediante la primera rueda.
+     *
+     * @param color color del símbolo a eliminar.
+     */
+    public void delSymbol(String color)
+    {
+        if (wheels.isEmpty()) {
+            ok = false;
+            return;
+        }
+        wheels.get(0).deleteSymbols(color);
+        ok = true;
+    }
+
+    /**
+     * Obtiene la cantidad de símbolos registrados según la primera rueda.
+     *
+     * @return número de símbolos, o 0 si no hay ruedas.
+     */
+    public int distinctSymbols()
+    {
+        if (wheels.isEmpty()) {
+            ok = false;
+            return 0;
         }
         ok = true;
-    } 
-
-    /**
-     * Adds a symbol of a specified color to the first wheel at a designated position.
-     *
-     * @param color the color name of the new symbol.
-     * @param pos target index position inside the symbol list.
-     */
-    public void addSymbol(String color, int pos){
-        if (!wheels.isEmpty()) {
-            Wheel w = wheels.get(0);
-            w.addSymbols(color, pos);
-            ok = true;
-        } else {
-            ok = false;
-        }
+        return wheels.get(0).distinctSymbols();
     }
 
     /**
-     * Deletes all occurrences of a symbol with the specified color from the first wheel.
+     * Obtiene el símbolo visible de cada rueda, de izquierda a derecha.
      *
-     * @param color the color name of the symbol to delete.
+     * @return lista de colores visibles.
      */
-    public void delSymbol(String color){
-        if (!wheels.isEmpty()) {
-            Wheel w = wheels.get(0);
-            w.deleteSymbols(color);
-            ok = true;
-        } else {
-            ok = false;
-        }
-    }
-
-    /**
-     * Gets the count of distinct symbol colors available on the first wheel.
-     *
-     * @return the number of unique symbols on the first wheel, or 0 if no wheels exist.
-     */
-    public int distinctSymbols(){
-        if (!wheels.isEmpty()) {
-            Wheel w = wheels.get(0);
-            ok = true;
-            return w.distinctSymbols();
-        }
-        ok = false;
-        return 0;
-    }    
-
-    /**
-     * Retrieves the current visible symbol color from each wheel in the machine.
-     *
-     * @return list containing current visible symbol color strings for all wheels.
-     */
-    public ArrayList<String> configuration(){
+    public ArrayList<String> configuration()
+    {
         ArrayList<String> listSymbols = new ArrayList<>();
-        for (Wheel w: wheels){
+        for (Wheel w : wheels) {
             listSymbols.add(w.getshowSymbol());
         }
         ok = true;
         return listSymbols;
-    } 
+    }
 
     /**
-     * Evaluates if there are identical adjacent symbols currently visible across the wheels.
+     * Indica si todas las ruedas muestran el mismo símbolo.
      *
-     * @return true if two consecutive wheels display matching symbol colors; false otherwise.
-     */  
-    public boolean isJackpot() {
-        boolean isJackpot = true;
+     * @return true si hay premio; false en caso contrario.
+     */
+    public boolean isJackpot()
+    {
+        ok = true;
         for (int i = 0; i < wheels.size() - 1; i++) {
-            Wheel w1 = wheels.get(i);
-            Wheel w2 = wheels.get(i+1);
-            if (!(w1.getshowSymbol().equals(w2.getshowSymbol()))) {
-                ok = true;
-                isJackpot = false;
-                return isJackpot;
-            }  
+            if (!wheels.get(i).getshowSymbol().equals(wheels.get(i + 1).getshowSymbol())) {
+                return false;
+            }
         }
-        ok = true;
-        return isJackpot;
+        return true;
     }
 
     /**
-     * Restricts a given wheel index position within acceptable collection boundaries.
+     * Intercambia la posición de dos ruedas. Falla (ok = false) si alguna
+     * posición es inválida, si alguna rueda está bloqueada o si alguna es Rebel.
      *
-     * @param pos index position to validate.
-     * @return clamped position index within valid wheel boundaries.
+     * @param wheel1 posición de la primera rueda (base 1).
+     * @param wheel2 posición de la segunda rueda (base 1).
      */
-    private int limit(int pos){
-        if (pos < 0) {
-            pos = 0;
-        } else if (pos > wheels.size()) {
-            pos = wheels.size();
-        }
-        return pos;
-    }
-    
-
-    /**
-     * Selects a random color string from a predefined array of color options.
-     *
-     * @return random color string name.
-     */
-    private String colorRandom(){
-        Random random = new Random();
-        int red = random.nextInt(1,255) ; int blue = random.nextInt(1,255) ; int green = random.nextInt(1,255);
-        Color c = new Color(red,blue,green);
-        String namec = String.format("#%02X%02X%02X", c.getRed(), c.getGreen(), c.getBlue());;
-        return namec;
-    }
-    
-    /**
-     * Selects a random color string from a predefined array of color options.
-     *
-     * @return random color string name.
-     */
-    private String colorRandomExists(){
-        Random random = new Random();
-        Wheel j = wheels.get(0);
-        ArrayList<String> colores = j.getlistcolor();
-        int index = random.nextInt(colores.size());
-        String namec = colores.get(index); 
-        return namec;
-    } 
-
-    /**
-     * Swaps the positions and visual coordinates of two wheels in the machine.
-     *
-     * @param wheel1 1-based index position of the first wheel.
-     * @param wheel2 1-based index position of the second wheel.
-     */
-    public void swap(int wheel1, int wheel2){
-        if (wheel1 > wheels.size()|| wheel1 < 0 && wheel2 > wheels.size()|| wheel2 < 0){
+    public void swap(int wheel1, int wheel2)
+    {
+        if (!isValidWheel(wheel1) || !isValidWheel(wheel2)) {
             ok = false;
             return;
         }
-        Wheel wheeln1 = wheels.get(wheel1-1); 
-        Wheel wheeln2 = wheels.get(wheel2-1);
-        if (wheeln1.getesMove() == false || wheeln1.getesMove() == false || 
-        wheeln1.getType().equals("Rebel") || wheeln2.getType().equals("Rebel")){
+        Wheel first = wheels.get(wheel1 - 1);
+        Wheel second = wheels.get(wheel2 - 1);
+        if (!first.getesMove() || !second.getesMove() || isRebel(first) || isRebel(second)) {
             ok = false;
             return;
         }
-        wheeln1.setPositionA(wheel2 - 1);
-        wheeln2.setPositionA(wheel1 - 1);
-        int position1 = wheeln1.getpositionX();
-        int position2 = wheeln2.getpositionX();
-        wheeln1.setposition(wheel2, position2);
-        wheeln2.setposition(wheel1, position1);
-        Collections.swap(wheels, wheel1-1, wheel2-1);
+        int firstX = first.getpositionX();
+        int secondX = second.getpositionX();
+        first.setposition(wheel2 - 1, secondX);
+        second.setposition(wheel1 - 1, firstX);
+        Collections.swap(wheels, wheel1 - 1, wheel2 - 1);
         ok = true;
-    } 
+    }
 
     /**
-     * Locks a specific wheel to prevent it from rotating during spin actions.
+     * Bloquea una rueda para que no gire ni se reubique (las Rebel lo ignoran).
      *
-     * @param wheel 1-based index position of the wheel to lock.
+     * @param wheel posición de la rueda (base 1); si es inválida, ok queda en false.
      */
-    public void lock(int wheel){
-        wheels.get(wheel-1).lock();        
-    } 
+    public void lock(int wheel)
+    {
+        if (!isValidWheel(wheel)) {
+            ok = false;
+            return;
+        }
+        wheels.get(wheel - 1).lock();
+        ok = true;
+    }
 
     /**
-     * Unlocks a specific wheel allowing it to resume rotating during spin actions.
+     * Desbloquea una rueda para que pueda girar y reubicarse.
      *
-     * @param wheel 1-based index position of the wheel to unlock.
+     * @param wheel posición de la rueda (base 1); si es inválida, ok queda en false.
      */
-    public void unlock(int wheel){
-        wheels.get(wheel-1).unlock();        
-    } 
-    
-    public ArrayList<Wheel> getWheels (){
+    public void unlock(int wheel)
+    {
+        if (!isValidWheel(wheel)) {
+            ok = false;
+            return;
+        }
+        wheels.get(wheel - 1).unlock();
+        ok = true;
+    }
+
+    /**
+     * Obtiene la lista de ruedas de la máquina (no es una copia).
+     *
+     * @return lista de ruedas, de izquierda a derecha.
+     */
+    public ArrayList<Wheel> getWheels()
+    {
         return wheels;
     }
-    
-    public ArrayList<Integer> getPositionSymbolos(){
+
+    /**
+     * Obtiene, para cada rueda, la posición en la lista de símbolos del
+     * símbolo que muestra.
+     *
+     * @return lista de posiciones; contiene -1 si el símbolo visible ya no existe.
+     */
+    public ArrayList<Integer> getPositionSymbolos()
+    {
         ArrayList<Integer> listPosition = new ArrayList<>();
-        for(int n = 0; n < wheels.size();n++){
-            String color = wheels.get(n).getshowSymbol();
-            int t = wheels.get(n).getPositionSymbol(color);
-            listPosition.add(t);
+        for (Wheel w : wheels) {
+            listPosition.add(w.getPositionSymbol(w.getshowSymbol()));
         }
         return listPosition;
     }
-    
-    public boolean someWheelsAreLocked(){
-        boolean isLock = false;
-        for(Wheel w:wheels){
-            if(w.getesMove() == false){isLock = true;}
-            break;
+
+    /**
+     * Indica si al menos una rueda está bloqueada.
+     *
+     * @return true si alguna rueda está bloqueada.
+     */
+    public boolean someWheelsAreLocked()
+    {
+        for (Wheel w : wheels) {
+            if (!w.getesMove()) {
+                return true;
+            }
         }
-        return isLock;
+        return false;
     }
-    
+
+    /**
+     * Crea una rueda inicial con color aleatorio y la registra en la máquina.
+     *
+     * @param index índice de la rueda (base 0).
+     * @param x coordenada X de la rueda.
+     * @return la rueda creada.
+     */
+    private Wheel addInitialWheel(int index, int x)
+    {
+        String color = colorRandom();
+        Wheel wheel = new Wheel(WHEEL_HEIGHT, WHEEL_WIDTH, x, WHEEL_Y, color, index, this, true);
+        wheels.add(wheel);
+        colors.add(color);
+        return wheel;
     }
+
+    /**
+     * Construye una rueda del tipo pedido con un color ya existente.
+     *
+     * @param type "Rebel", "Lefty" o cualquier otro valor para una rueda normal.
+     * @param index índice de la rueda (base 0).
+     * @return la rueda creada.
+     */
+    private Wheel createWheel(String type, int index)
+    {
+        String color = colorRandomExists();
+        if (Wheel.TYPE_REBEL.equals(type)) {
+            return new Rebel(WHEEL_HEIGHT, WHEEL_WIDTH, 0, WHEEL_Y, color, index, this, false);
+        }
+        if (Wheel.TYPE_LEFTY.equals(type)) {
+            return new Lefty(WHEEL_HEIGHT, WHEEL_WIDTH, 0, WHEEL_Y, color, index, this, false);
+        }
+        return new Wheel(WHEEL_HEIGHT, WHEEL_WIDTH, 0, WHEEL_Y, color, index, this, false);
+    }
+
+    /**
+     * Reasigna índice y coordenada X a todas las ruedas, separadas uniformemente.
+     *
+     * @param startX coordenada X de la primera rueda.
+     */
+    private void arrangeWheels(int startX)
+    {
+        int x = startX;
+        for (int i = 0; i < wheels.size(); i++) {
+            wheels.get(i).setposition(i, x);
+            x += WHEEL_SPACING;
+        }
+    }
+
+    /**
+     * Verifica que la posición corresponda a una rueda existente.
+     *
+     * @param position posición (base 1).
+     * @return true si está entre 1 y la cantidad de ruedas.
+     */
+    private boolean isValidWheel(int position)
+    {
+        return position >= 1 && position <= wheels.size();
+    }
+
+    /**
+     * Indica si una rueda es de tipo Rebel.
+     *
+     * @param wheel rueda a evaluar.
+     * @return true si es Rebel.
+     */
+    private boolean isRebel(Wheel wheel)
+    {
+        return Wheel.TYPE_REBEL.equals(wheel.getType());
+    }
+
+    /**
+     * Espera el retardo de giro. Si el hilo es interrumpido, restaura la
+     * bandera de interrupción.
+     *
+     * @return true si la espera terminó; false si fue interrumpida.
+     */
+    private boolean pause()
+    {
+        try {
+            Thread.sleep(SPIN_DELAY_MILLIS);
+            return true;
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            return false;
+        }
+    }
+
+    /**
+     * Genera un color aleatorio en formato hexadecimal "#RRGGBB".
+     *
+     * @return color generado.
+     */
+    private String colorRandom()
+    {
+        return String.format("#%02X%02X%02X", randomChannel(), randomChannel(), randomChannel());
+    }
+
+    /**
+     * Genera un valor aleatorio de canal de color entre 1 y 254.
+     *
+     * @return valor del canal.
+     */
+    private int randomChannel()
+    {
+        return 1 + RANDOM.nextInt(COLOR_CHANNEL_VALUES);
+    }
+
+    /**
+     * Elige al azar uno de los colores ya presentes en la lista de símbolos.
+     *
+     * @return color existente.
+     */
+    private String colorRandomExists()
+    {
+        ArrayList<String> existing = wheels.get(0).getlistcolor();
+        return existing.get(RANDOM.nextInt(existing.size()));
+    }
+}

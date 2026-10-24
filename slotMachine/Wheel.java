@@ -1,326 +1,418 @@
 import java.util.ArrayList;
 
 /**
- * Represents an individual wheel inside the slot machine.
- * Holds symbols and manages its own rotation and visual representation.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Rueda individual de la máquina tragamonedas. Muestra un símbolo (color) a la
+ * vez y gira recorriendo la lista de símbolos, que es compartida por todas las
+ * ruedas (campo estático).
  */
 public class Wheel
 {
+    static final String TYPE_NORMAL = "Normal";
+    static final String TYPE_REBEL = "Rebel";
+    static final String TYPE_LEFTY = "Lefty";
+
+    private static final int DEFAULT_HEIGHT = 80;
+    private static final int DEFAULT_WIDTH = 30;
+    private static final int DEFAULT_X = 110;
+    private static final int DEFAULT_Y = 90;
+    private static final String DEFAULT_COLOR = "red";
+    private static final int SYMBOL_NOT_FOUND = -1;
+
+    private static final ArrayList<Symbol> symbols = new ArrayList<>();
+
     private int positionX;
-    private int positionY;
     private int positionA;
-    private static ArrayList<Symbol> symbols = new ArrayList<>();
-    private Rectangle Vwheel;
-    private String showSymbol; 
-    private boolean esMove = true;
+    private Rectangle visualWheel;
+    private String showSymbol;
+    private boolean movable = true;
     private SlotMachine machine;
-    private int height;
-    private int widht;
 
     /**
-     * Main constructor for objects of class Wheel.
+     * Crea una rueda visible con un símbolo inicial.
      *
-     * @param h Height of the wheel rectangle.
-     * @param w Width of the wheel rectangle.
-     * @param x X-coordinate position.
-     * @param y Y-coordinate position.
-     * @param s Initial symbol/color shown.
-     * @param pos Position index of the wheel.
+     * @param h alto del rectángulo.
+     * @param w ancho del rectángulo.
+     * @param x coordenada X.
+     * @param y coordenada Y.
+     * @param s color o símbolo inicial mostrado.
+     * @param pos índice de la rueda en la máquina (base 0).
+     * @param m máquina a la que pertenece.
+     * @param inicio true para registrar el color inicial en la lista compartida de símbolos.
      */
-    public Wheel(int h, int w, int x, int y, String s, int pos,SlotMachine m,boolean inicio)
-    {   
-        Vwheel = new Rectangle(h, w, x, y, s);
-        positionX = x; positionY = y; positionA = pos; esMove = true; Vwheel.makeVisible(); machine = m;
-        height = h; widht = w;
-        if (inicio) {addSymbols(s,symbols.size() + 1, h, w);}       
+    public Wheel(int h, int w, int x, int y, String s, int pos, SlotMachine m, boolean inicio)
+    {
+        visualWheel = new Rectangle(h, w, x, y, s);
+        visualWheel.makeVisible();
+        positionX = x;
+        positionA = pos;
+        machine = m;
+        if (inicio) {
+            addSymbols(s, symbols.size(), h, w);
+        }
         showSymbol = s;
     }
 
     /**
-     * Default constructor for objects of class Wheel.
+     * Crea una rueda roja por defecto y reinicia la lista compartida de símbolos.
      */
     public Wheel()
     {
-        Vwheel = new Rectangle(80, 30, 110, 90, "red");
-        Vwheel.makeVisible();
-        symbols = new ArrayList<>();
-        showSymbol = "red";
+        visualWheel = new Rectangle(DEFAULT_HEIGHT, DEFAULT_WIDTH, DEFAULT_X, DEFAULT_Y, DEFAULT_COLOR);
+        visualWheel.makeVisible();
+        symbols.clear();
+        showSymbol = DEFAULT_COLOR;
     }
 
     /**
-     * Gets the current X position.
+     * Obtiene la coordenada X actual de la rueda.
      *
-     * @return X position coordinate.
+     * @return coordenada X.
      */
-    public int getpositionX(){
+    public int getpositionX()
+    {
         return positionX;
     }
 
     /**
-     * Gets the current index position of the wheel.
+     * Obtiene el índice de la rueda dentro de la máquina.
      *
-     * @return Index position.
+     * @return índice (base 0).
      */
-    public int getpositionA(){
+    public int getpositionA()
+    {
         return positionA;
     }
 
     /**
-     * Updates the position index and X coordinate of the wheel.
+     * Reubica la rueda actualizando su índice y su coordenada X. No hace nada
+     * si la rueda está bloqueada.
      *
-     * @param pos New index position.
-     * @param x New X coordinate.
+     * @param pos nuevo índice (base 0).
+     * @param x nueva coordenada X.
      */
     public void setposition(int pos, int x)
-    {   
-        if (!esMove){return;}
+    {
+        if (!movable) {
+            return;
+        }
         positionA = pos;
         positionX = x;
-        if (Vwheel != null) {
-            Vwheel.setpositionX(x);
+        if (visualWheel != null) {
+            visualWheel.setpositionX(x);
         }
     }
-    
+
     /**
-     * Updates the position index and X coordinate of the wheel.
+     * Desplaza horizontalmente la rueda hacia la coordenada X indicada y
+     * actualiza su índice. No hace nada si la rueda está bloqueada.
      *
-     * @param pos New index position.
-     * @param x New X coordinate.
+     * @param pos nuevo índice (base 0).
+     * @param x coordenada X de destino.
      */
     public void Moveposition(int pos, int x)
-    {   
-        if (!esMove){return;}
+    {
+        if (!movable) {
+            return;
+        }
         positionA = pos;
-        if (Vwheel != null) {
-            Vwheel.moveHorizontal(positionX-x);
+        if (visualWheel != null) {
+            visualWheel.moveHorizontal(positionX - x);
         }
         positionX = x;
     }
 
     /**
-     * Deletes and hides the visual representation of the wheel.
+     * Oculta y libera la representación gráfica de la rueda. No hace nada si
+     * la rueda está bloqueada.
      */
-    public void delete(){
-        if (!esMove){return;}
-        if (Vwheel != null) {
-            Vwheel.makeInvisible();
-            Vwheel = null;
+    public void delete()
+    {
+        if (!movable) {
+            return;
+        }
+        if (visualWheel != null) {
+            visualWheel.makeInvisible();
+            visualWheel = null;
         }
     }
 
     /**
-     * Adds a new symbol at a specific index in the wheel.
+     * Inserta un símbolo con tipo y dimensiones explícitas.
      *
-     * @param color The name or color of the symbol.
-     * @param pos The index where the symbol should be added.
+     * @param color nombre o color del símbolo.
+     * @param pos índice de inserción; se ajusta al rango válido.
+     * @param t tipo del símbolo.
+     * @param h alto asociado.
+     * @param w ancho asociado.
      */
-    
-    public void addSymbols(String color, int pos,String t, int h, int w){
-        ArrayList<String> sname = Symbols();
-        pos = limit(pos);
-        Symbol s = new Symbol(color, pos,t,h,w);
-        symbols.add(pos, s);     
-        for (int i = 0; i < symbols.size(); i++) {
-            Symbol symbol = symbols.get(i);
-            symbol.setposition(i);
-        } 
-    }
-    
-    public void addSymbols(String color, int pos, int h, int w){
-        ArrayList<String> sname = Symbols();
-        pos = limit(pos);
-        Symbol s = new Symbol(color, pos,"Normal",h,w);
-        symbols.add(pos, s);     
-        for (int i = 0; i < symbols.size(); i++) {
-            Symbol symbol = symbols.get(i);
-            symbol.setposition(i);
-        } 
-    }
-    
-    public void addSymbols(String color, int pos){
-        ArrayList<String> sname = Symbols();
-        pos = limit(pos);
-        Symbol s = new Symbol(color, pos);
-        symbols.add(pos, s);     
-        for (int i = 0; i < symbols.size(); i++) {
-            Symbol symbol = symbols.get(i);
-            symbol.setposition(i);
-        } 
+    public void addSymbols(String color, int pos, String t, int h, int w)
+    {
+        insertSymbol(new Symbol(color, pos, t, h, w), pos);
     }
 
     /**
-     * Removes a symbol by its color/name from the wheel.
+     * Inserta un símbolo de tipo "Normal" con dimensiones.
      *
-     * @param color The name or color of the symbol to delete.
+     * @param color nombre o color del símbolo.
+     * @param pos índice de inserción; se ajusta al rango válido.
+     * @param h alto asociado.
+     * @param w ancho asociado.
      */
-    public void deleteSymbols(String color){
-        ArrayList<String> sname = Symbols();
-        if (!sname.contains(color)){ 
+    public void addSymbols(String color, int pos, int h, int w)
+    {
+        addSymbols(color, pos, Symbol.TYPE_NORMAL, h, w);
+    }
+
+    /**
+     * Inserta un símbolo de tipo "Normal" sin dimensiones.
+     *
+     * @param color nombre o color del símbolo.
+     * @param pos índice de inserción; se ajusta al rango válido.
+     */
+    public void addSymbols(String color, int pos)
+    {
+        insertSymbol(new Symbol(color, pos), pos);
+    }
+
+    /**
+     * Elimina la primera aparición de un símbolo por su nombre. Si no existe,
+     * imprime un mensaje y no modifica la lista.
+     *
+     * @param color nombre o color del símbolo a eliminar.
+     */
+    public void deleteSymbols(String color)
+    {
+        int index = Symbols().indexOf(color);
+        if (index < 0) {
             System.out.println("Symbol does not exist: " + color);
             return;
         }
-        
-        int pos = sname.indexOf(color); 
-        symbols.remove(pos);        
-        
-        for (int i = 0; i < symbols.size(); i++) {
-            Symbol symbol = symbols.get(i);
-            symbol.setposition(i);
-        } 
+        symbols.remove(index);
+        refreshSymbolPositions();
     }
 
     /**
-     * Retrieves the names of all symbols in the wheel.
+     * Obtiene los nombres de todos los símbolos, en orden.
      *
-     * @return List of symbol names.
+     * @return nueva lista con los nombres de los símbolos.
      */
-    public ArrayList<String> Symbols(){
-        ArrayList<String> listSymbols = new ArrayList<>();
-        for (Symbol s : symbols){
-            listSymbols.add(s.getname());
+    public ArrayList<String> Symbols()
+    {
+        ArrayList<String> names = new ArrayList<>();
+        for (Symbol s : symbols) {
+            names.add(s.getname());
         }
-        return listSymbols;
+        return names;
     }
 
     /**
-     * Gets the total count of distinct symbols available in the wheel.
+     * Obtiene la cantidad de símbolos en la lista (incluye repetidos).
      *
-     * @return Number of symbols.
+     * @return número de símbolos.
      */
-    public int distinctSymbols(){
-        return symbols.size();        
+    public int distinctSymbols()
+    {
+        return symbols.size();
     }
 
     /**
-     * Gets the name of the currently visible symbol.
+     * Obtiene el símbolo que la rueda muestra actualmente.
      *
-     * @return Currently shown symbol.
+     * @return nombre o color del símbolo visible.
      */
-    public String getshowSymbol(){
-        return showSymbol;        
+    public String getshowSymbol()
+    {
+        return showSymbol;
     }
 
     /**
-     * Rotates the wheel to the next available symbol in the list.
-     * Updates both the logical state and the visual representation.
+     * Avanza la rueda al siguiente símbolo de la lista (circular) y actualiza
+     * su estado visual según el tipo del símbolo. No hace nada si la rueda
+     * está bloqueada o no hay símbolos.
      */
-    public void rotate() {
-        if (!esMove){return;}
-        ArrayList<String> symbolNames = getlistcolor();
-        int currentIndex = symbolNames.indexOf(showSymbol);
+    public void rotate()
+    {
+        if (!movable || symbols.isEmpty()) {
+            return;
+        }
+        int currentIndex = Symbols().indexOf(showSymbol);
         int nextIndex = (currentIndex + 1) % symbols.size();
         Symbol nextSymbol = symbols.get(nextIndex);
-        if(nextSymbol.getType().equals("ephemeral")){
-            int h = nextSymbol.getHeight()-1; int w = nextSymbol.getWidth()-1;
-            nextSymbol.setHeight(h); nextSymbol.setWidth(w);
-            Vwheel.changeSize(h, w);
-        }else if(nextSymbol.getType().equals("Shy")){
-            Vwheel.makeInvisible();
-        }else{
-            Vwheel.makeVisible();
-        }
+        applyVisualEffect(nextSymbol);
         nextSymbol.setposition(nextIndex);
         showSymbol = nextSymbol.getname();
-        Vwheel.changeColor(showSymbol);
-        
-        
+        visualWheel.changeColor(showSymbol);
     }
-    
+
     /**
-     * Rotates the wheel to the next available symbol in the list.
-     * Updates both the logical state and the visual representation.
+     * Hace visible la rueda en pantalla.
      */
-    public void makeVisible() {
-        Vwheel.makeVisible();
+    public void makeVisible()
+    {
+        visualWheel.makeVisible();
     }
-    
+
     /**
-     * Rotates the wheel to the next available symbol in the list.
-     * Updates both the logical state and the visual representation.
+     * Oculta la rueda de la pantalla.
      */
-    public void makeInvisible() {
-        Vwheel.makeInvisible();
+    public void makeInvisible()
+    {
+        visualWheel.makeInvisible();
     }
-    
+
     /**
-     * Rotates the wheel to the next available symbol in the list.
-     * Updates both the logical state and the visual representation.
+     * Indica si la rueda puede girar y moverse.
+     *
+     * @return true si no está bloqueada.
      */
-    public boolean getesMove() {
-        return esMove;
+    public boolean getesMove()
+    {
+        return movable;
     }
-    
+
     /**
-     * Rotates the wheel to the next available symbol in the list.
-     * Updates both the logical state and the visual representation.
+     * Bloquea la rueda: no girará ni cambiará de posición.
      */
-    public void lock(){
-        esMove = false;
+    public void lock()
+    {
+        movable = false;
     }
-    
+
     /**
-     * Rotates the wheel to the next available symbol in the list.
-     * Updates both the logical state and the visual representation.
+     * Desbloquea la rueda para que pueda girar y moverse.
      */
-    public void unlock(){
-        esMove = true;
+    public void unlock()
+    {
+        movable = true;
     }
-    
+
     /**
-     * Rotates the wheel to the next available symbol in the list.
-     * Updates both the logical state and the visual representation.
+     * Sobrescribe, por índice, los primeros símbolos de la lista con los
+     * colores dados y agrega los que excedan el tamaño actual. Luego
+     * renumera las posiciones.
+     *
+     * @param setSymbols colores de los nuevos símbolos.
      */
-    public void setSymbols(ArrayList<String> setSymbols){
-        int p = 0;
-        for(int i = 0; i < setSymbols.size();i++){
-            Symbol s = new Symbol(setSymbols.get(i),i + 1);
-            symbols.set(i,s);
-            symbols.add(s);
-            p++;
-        }
-    }
-    
-    private int limit (int x){
-        if (x < 0) {
-            x = 0;
-        } else if (x > symbols.size()) {
-            x = symbols.size();
-        }
-        return x;
-    }
-    
-    public ArrayList<String> getlistcolor(){
-        ArrayList<String> listcolor = new ArrayList<>();
-        for(Symbol s: symbols){
-            listcolor.add(s.getname());
-        }
-        return listcolor;
-    }  
-    
-    public int getPositionSymbol(String s){
-        int index = 0;
-        for (Symbol symbol : symbols){
-            if (symbol.getname().equals(s)){
-                break;
+    public void setSymbols(ArrayList<String> setSymbols)
+    {
+        for (int i = 0; i < setSymbols.size(); i++) {
+            Symbol symbol = new Symbol(setSymbols.get(i), i);
+            if (i < symbols.size()) {
+                symbols.set(i, symbol);
+            } else {
+                symbols.add(symbol);
             }
-            index++;
         }
-        Symbol symbol = symbols.get(index);
-        return symbol.getPosition();
+        refreshSymbolPositions();
     }
-    
-    public void setPositionA(int pos){
+
+    /**
+     * Obtiene los nombres de los símbolos; equivale a {@link #Symbols()}.
+     *
+     * @return lista con los nombres de los símbolos.
+     */
+    public ArrayList<String> getlistcolor()
+    {
+        return Symbols();
+    }
+
+    /**
+     * Obtiene la posición del primer símbolo con el nombre indicado.
+     *
+     * @param s nombre o color del símbolo.
+     * @return posición del símbolo, o -1 si no existe.
+     */
+    public int getPositionSymbol(String s)
+    {
+        for (Symbol symbol : symbols) {
+            if (symbol.getname().equals(s)) {
+                return symbol.getPosition();
+            }
+        }
+        return SYMBOL_NOT_FOUND;
+    }
+
+    /**
+     * Establece directamente el índice de la rueda dentro de la máquina.
+     *
+     * @param pos nuevo índice (base 0).
+     */
+    public void setPositionA(int pos)
+    {
         positionA = pos;
     }
-    
-    public final SlotMachine getMachine(){
+
+    /**
+     * Obtiene la máquina a la que pertenece la rueda.
+     *
+     * @return máquina contenedora, o null si se usó el constructor por defecto.
+     */
+    public final SlotMachine getMachine()
+    {
         return machine;
     }
-    
-    public String getType(){
-        return "Normal";
+
+    /**
+     * Identifica el tipo de rueda.
+     *
+     * @return "Normal".
+     */
+    public String getType()
+    {
+        return TYPE_NORMAL;
+    }
+
+    /**
+     * Aplica el efecto visual del símbolo al que gira la rueda: los efímeros
+     * reducen el tamaño, los tímidos ocultan la rueda y los demás la muestran.
+     *
+     * @param symbol símbolo que pasará a mostrarse.
+     */
+    private void applyVisualEffect(Symbol symbol)
+    {
+        if (Symbol.TYPE_EPHEMERAL.equals(symbol.getType())) {
+            int newHeight = symbol.getHeight() - 1;
+            int newWidth = symbol.getWidth() - 1;
+            symbol.setHeight(newHeight);
+            symbol.setWidth(newWidth);
+            visualWheel.changeSize(newHeight, newWidth);
+        } else if (Symbol.TYPE_SHY.equals(symbol.getType())) {
+            visualWheel.makeInvisible();
+        } else {
+            visualWheel.makeVisible();
+        }
+    }
+
+    /**
+     * Inserta un símbolo en la lista compartida y renumera las posiciones.
+     *
+     * @param symbol símbolo a insertar.
+     * @param pos índice deseado; se ajusta al rango válido.
+     */
+    private void insertSymbol(Symbol symbol, int pos)
+    {
+        symbols.add(limit(pos), symbol);
+        refreshSymbolPositions();
+    }
+
+    /**
+     * Asigna a cada símbolo su índice actual en la lista (base 0).
+     */
+    private void refreshSymbolPositions()
+    {
+        for (int i = 0; i < symbols.size(); i++) {
+            symbols.get(i).setposition(i);
+        }
+    }
+
+    /**
+     * Ajusta un índice al rango [0, cantidad de símbolos].
+     *
+     * @param x índice a ajustar.
+     * @return índice dentro del rango válido.
+     */
+    private int limit(int x)
+    {
+        return Math.max(0, Math.min(x, symbols.size()));
     }
 }
