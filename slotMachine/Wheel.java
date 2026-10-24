@@ -16,6 +16,9 @@ public class Wheel
     private Rectangle Vwheel;
     private String showSymbol; 
     private boolean esMove = true;
+    private SlotMachine machine;
+    private int height;
+    private int widht;
 
     /**
      * Main constructor for objects of class Wheel.
@@ -27,11 +30,12 @@ public class Wheel
      * @param s Initial symbol/color shown.
      * @param pos Position index of the wheel.
      */
-    public Wheel(int h, int w, int x, int y, String s, int pos,boolean inicio)
+    public Wheel(int h, int w, int x, int y, String s, int pos,SlotMachine m,boolean inicio)
     {   
         Vwheel = new Rectangle(h, w, x, y, s);
-        positionX = x; positionY = y; positionA = pos; esMove = true; Vwheel.makeVisible();
-        if (inicio) {addSymbols(s,symbols.size() + 1);}       
+        positionX = x; positionY = y; positionA = pos; esMove = true; Vwheel.makeVisible(); machine = m;
+        height = h; widht = w;
+        if (inicio) {addSymbols(s,symbols.size() + 1, h, w);}       
         showSymbol = s;
     }
 
@@ -113,6 +117,29 @@ public class Wheel
      * @param color The name or color of the symbol.
      * @param pos The index where the symbol should be added.
      */
+    
+    public void addSymbols(String color, int pos,String t, int h, int w){
+        ArrayList<String> sname = Symbols();
+        pos = limit(pos);
+        Symbol s = new Symbol(color, pos,t,h,w);
+        symbols.add(pos, s);     
+        for (int i = 0; i < symbols.size(); i++) {
+            Symbol symbol = symbols.get(i);
+            symbol.setposition(i);
+        } 
+    }
+    
+    public void addSymbols(String color, int pos, int h, int w){
+        ArrayList<String> sname = Symbols();
+        pos = limit(pos);
+        Symbol s = new Symbol(color, pos,"Normal",h,w);
+        symbols.add(pos, s);     
+        for (int i = 0; i < symbols.size(); i++) {
+            Symbol symbol = symbols.get(i);
+            symbol.setposition(i);
+        } 
+    }
+    
     public void addSymbols(String color, int pos){
         ArrayList<String> sname = Symbols();
         pos = limit(pos);
@@ -183,12 +210,22 @@ public class Wheel
     public void rotate() {
         if (!esMove){return;}
         ArrayList<String> symbolNames = getlistcolor();
-        int currentIndex = symbolNames.indexOf(this.showSymbol);
+        int currentIndex = symbolNames.indexOf(showSymbol);
         int nextIndex = (currentIndex + 1) % symbols.size();
         Symbol nextSymbol = symbols.get(nextIndex);
+        if(nextSymbol.getType().equals("ephemeral")){
+            int h = nextSymbol.getHeight()-1; int w = nextSymbol.getWidth()-1;
+            nextSymbol.setHeight(h); nextSymbol.setWidth(w);
+            Vwheel.changeSize(h, w);
+        }else if(nextSymbol.getType().equals("Shy")){
+            Vwheel.makeInvisible();
+        }else{
+            Vwheel.makeVisible();
+        }
         nextSymbol.setposition(nextIndex);
-        this.showSymbol = nextSymbol.getname();
-        Vwheel.changeColor(this.showSymbol);
+        showSymbol = nextSymbol.getname();
+        Vwheel.changeColor(showSymbol);
+        
         
     }
     
@@ -277,5 +314,13 @@ public class Wheel
     
     public void setPositionA(int pos){
         positionA = pos;
+    }
+    
+    public final SlotMachine getMachine(){
+        return machine;
+    }
+    
+    public String getType(){
+        return "Normal";
     }
 }

@@ -9,15 +9,28 @@ public class Symbol
 {
     // instance variables - replace the example below with your own
     private String name;
-    private int position; 
+    private int position;
+    private int height;
+    private int width;
+    private String type; 
 
     /**
      * Constructor for objects of class Symbol
      */
+    public Symbol(String n,int p,String t,int h, int w)
+    {
+        name = n;
+        position = p;
+        type = t;
+        height = h;
+        width = w;
+    }
+    
     public Symbol(String n,int p)
     {
         name = n;
         position = p;
+        type = "Normal";
     }
     
     /**
@@ -39,4 +52,10 @@ public class Symbol
     public int getPosition(){
         return position;
     }
+    
+    public String getType(){ return "Normal";}
+    public int getHeight(){ if(height == 1){ return 2;} return height;}
+    public int getWidth(){ if(width == 1){ return 2;} return width;}
+    public void setHeight(int h){ height = h;}
+    public void setWidth(int w){ width = w;}
 }

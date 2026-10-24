@@ -33,13 +33,13 @@ public class SlotMachine
         sizehorizontal += 40*n; machine.changeSize(100, sizehorizontal);
         int x = 110;
         String c1 = colorRandom();
-        Wheel w1 = new Wheel(80, 30, x, 90, c1, 0,true); wheels.add(w1);
+        Wheel w1 = new Wheel(80, 30, x, 90, c1, 0,this,true); wheels.add(w1);
         colors.add(c1);
         w1.setSymbols(colors);
         x += 40;
         for(int i = 1; i < n ; i++){
             String c2 = colorRandom();
-            Wheel w = new Wheel(80, 30, x, 90, c2, i,true);
+            Wheel w = new Wheel(80, 30, x, 90, c2, i,this,true);
             wheels.add(w); colors.add(c2);
             x += 40;
         }
@@ -53,12 +53,12 @@ public class SlotMachine
         sizehorizontal += 40*3; machine.changeSize(100, sizehorizontal);
         int x = 110;
         String c = colorRandom();
-        Wheel w1 = new Wheel(80, 30, x, 90, c, 0,true); wheels.add(w1);
+        Wheel w1 = new Wheel(80, 30, x, 90, c, 0,this,true); wheels.add(w1);
         ArrayList<String> color = new ArrayList<>(); color.add(c);
         w1.setSymbols(color);
         x += 40;
         for(int i = 1; i < 3; i++){
-            Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i,true);
+            Wheel w = new Wheel(80, 30, x, 90, colorRandom(), i,this,true);
             wheels.add(w);
             x += 40;
         }
@@ -187,13 +187,40 @@ public class SlotMachine
             ok = false;
             return;
         }
-        
         pos = limit(pos); sizehorizontal += 40;
         machine.changeSize(100, sizehorizontal);
         Wheel j = wheels.get(0);
         int startX = j.getpositionX();
-        Wheel w = new Wheel(80, 30, 0, 90, colorRandomExists(), pos-1,false);
+        Wheel w = new Wheel(80, 30, 0, 90, colorRandomExists(), pos-1,this,false);
         wheels.add(pos-1, w); 
+        for (int i = 0; i < wheels.size(); i++) {
+            Wheel wheel = wheels.get(i);
+            wheel.setposition(i, startX);
+            startX += 40;
+        }
+        ok = true;
+    }
+    
+    public void addWheel(String type, int pos) {
+        if (pos < 1 || pos > wheels.size() + 1 || wheels.size() + 1 > maxWheel || someWheelsAreLocked()) {
+            ok = false;
+            return;
+        }
+        pos = limit(pos); sizehorizontal += 40;
+        machine.changeSize(100, sizehorizontal);
+        Wheel j = wheels.get(0);
+        int startX = j.getpositionX();
+        Wheel w; 
+        
+        if (type.equals("Rebel")){
+            w = new Rebel(80, 30, 0, 90, colorRandomExists(), pos-1, this, false);
+        } else if (type.equals("Lefty")){
+            w = new Lefty(80, 30, 0, 90, colorRandomExists(), pos-1, this, false);
+        } else {
+            w = new Wheel(80, 30, 0, 90, colorRandomExists(), pos-1, this, false);
+        }
+        wheels.add(pos-1, w);
+        
         for (int i = 0; i < wheels.size(); i++) {
             Wheel wheel = wheels.get(i);
             wheel.setposition(i, startX);
@@ -208,10 +235,10 @@ public class SlotMachine
      * @param pos 1-based index of the wheel to be deleted.
      */
     public void delWheel(int pos) {
-        if (wheels.size() <= minWheel || pos < 1 || pos > wheels.size()) {
-            ok = false;
-            return;
-        }
+        if (wheels.size() <= minWheel || pos < 1 || pos > wheels.size() || someWheelsAreLocked() 
+        || wheels.get(pos-1).getType().equals("Rebel") ){
+            ok = false; 
+            return;}
         pos = limit(pos);
         sizehorizontal -= 40;
         machine.changeSize(100, sizehorizontal);
@@ -364,7 +391,8 @@ public class SlotMachine
         }
         Wheel wheeln1 = wheels.get(wheel1-1); 
         Wheel wheeln2 = wheels.get(wheel2-1);
-        if (!(wheeln1.getesMove() == true || wheeln1.getesMove() == true)){
+        if (wheeln1.getesMove() == false || wheeln1.getesMove() == false || 
+        wheeln1.getType().equals("Rebel") || wheeln2.getType().equals("Rebel")){
             ok = false;
             return;
         }
@@ -418,4 +446,5 @@ public class SlotMachine
         }
         return isLock;
     }
+    
     }

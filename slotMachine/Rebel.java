@@ -11,10 +11,9 @@ public class Rebel extends Wheel
     /**
      * Constructor for objects of class Rebel
      */
-    public Rebel()
+    public Rebel(int h, int w, int x, int y, String s, int pos,SlotMachine m,boolean inicio)
     {
-        // initialise instance variables
-       
+        super(h,w,x,y,s,pos,m,inicio);
     }
 
     /**
@@ -23,8 +22,11 @@ public class Rebel extends Wheel
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public void sampleMethod()
-    {
-        // put your code here
+    @Override
+    public void lock(){}
+    
+    @Override
+    public String getType(){
+        return "Rebel";
     }
 }
