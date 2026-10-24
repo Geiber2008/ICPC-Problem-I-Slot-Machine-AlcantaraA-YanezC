@@ -16,7 +16,6 @@ public class Symbol
      */
     public Symbol(String n,int p)
     {
-        // initialise instance variables
         name = n;
         position = p;
     }
