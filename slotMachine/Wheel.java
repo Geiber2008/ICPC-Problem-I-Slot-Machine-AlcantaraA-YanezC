@@ -7,16 +7,16 @@ import java.util.ArrayList;
  */
 public class Wheel
 {
-    static final String TYPE_NORMAL = "Normal";
-    static final String TYPE_REBEL = "Rebel";
-    static final String TYPE_LEFTY = "Lefty";
+    static final String typeNormal = "Normal";
+    static final String typeRebel = "Rebel";
+    static final String typeLefty = "Lefty";
 
-    private static final int DEFAULT_HEIGHT = 80;
-    private static final int DEFAULT_WIDTH = 30;
-    private static final int DEFAULT_X = 110;
-    private static final int DEFAULT_Y = 90;
-    private static final String DEFAULT_COLOR = "red";
-    private static final int SYMBOL_NOT_FOUND = -1;
+    private static final int defaultHeight = 80;
+    private static final int defaultWidth = 30;
+    private static final int defaultX = 110;
+    private static final int defaultY = 90;
+    private static final String defaultColor = "red";
+    private static final int symbolNotFound = -1;
 
     private static final ArrayList<Symbol> symbols = new ArrayList<>();
 
@@ -57,10 +57,10 @@ public class Wheel
      */
     public Wheel()
     {
-        visualWheel = new Rectangle(DEFAULT_HEIGHT, DEFAULT_WIDTH, DEFAULT_X, DEFAULT_Y, DEFAULT_COLOR);
+        visualWheel = new Rectangle(defaultHeight, defaultWidth, defaultX, defaultY, defaultColor);
         visualWheel.makeVisible();
         symbols.clear();
-        showSymbol = DEFAULT_COLOR;
+        showSymbol = defaultColor;
     }
 
     /**
@@ -160,7 +160,7 @@ public class Wheel
      */
     public void addSymbols(String color, int pos, int h, int w)
     {
-        addSymbols(color, pos, Symbol.TYPE_NORMAL, h, w);
+        addSymbols(color, pos, Symbol.typeNormal, h, w);
     }
 
     /**
@@ -176,7 +176,7 @@ public class Wheel
 
     /**
      * Elimina la primera aparición de un símbolo por su nombre. Si no existe,
-     * imprime un mensaje y no modifica la lista.
+     * no modifica la lista.
      *
      * @param color nombre o color del símbolo a eliminar.
      */
@@ -184,7 +184,6 @@ public class Wheel
     {
         int index = Symbols().indexOf(color);
         if (index < 0) {
-            System.out.println("Symbol does not exist: " + color);
             return;
         }
         symbols.remove(index);
@@ -329,7 +328,7 @@ public class Wheel
                 return symbol.getPosition();
             }
         }
-        return SYMBOL_NOT_FOUND;
+        return symbolNotFound;
     }
 
     /**
@@ -359,7 +358,7 @@ public class Wheel
      */
     public String getType()
     {
-        return TYPE_NORMAL;
+        return typeNormal;
     }
 
     /**
@@ -370,13 +369,13 @@ public class Wheel
      */
     private void applyVisualEffect(Symbol symbol)
     {
-        if (Symbol.TYPE_EPHEMERAL.equals(symbol.getType())) {
+        if (Symbol.typeEphemeral.equals(symbol.getType())) {
             int newHeight = symbol.getHeight() - 1;
             int newWidth = symbol.getWidth() - 1;
             symbol.setHeight(newHeight);
             symbol.setWidth(newWidth);
             visualWheel.changeSize(newHeight, newWidth);
-        } else if (Symbol.TYPE_SHY.equals(symbol.getType())) {
+        } else if (Symbol.typeShy.equals(symbol.getType())) {
             visualWheel.makeInvisible();
         } else {
             visualWheel.makeVisible();

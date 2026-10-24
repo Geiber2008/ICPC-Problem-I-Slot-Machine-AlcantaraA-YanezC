@@ -4,19 +4,19 @@
  */
 public class Symbol
 {
-    static final String TYPE_NORMAL = "Normal";
-    static final String TYPE_EPHEMERAL = "ephemeral";
-    static final String TYPE_SHY = "Shy";
- 
-    private static final int COLLAPSED_SIZE = 1;
-    private static final int MINIMUM_SIZE = 2;
- 
+    static final String typeNormal = "Normal";
+    static final String typeEphemeral = "ephemeral";
+    static final String typeShy = "Shy";
+
+    private static final int collapsedSize = 1;
+    private static final int minimumSize = 2;
+
     private final String name;
     private final String type;
     private int position;
     private int height;
     private int width;
- 
+
     /**
      * Crea un símbolo con tipo y dimensiones explícitas.
      *
@@ -34,7 +34,7 @@ public class Symbol
         height = h;
         width = w;
     }
- 
+
     /**
      * Crea un símbolo de tipo "Normal" sin dimensiones.
      *
@@ -45,9 +45,9 @@ public class Symbol
     {
         name = n;
         position = p;
-        type = TYPE_NORMAL;
+        type = typeNormal;
     }
- 
+
     /**
      * Actualiza la posición del símbolo dentro de la lista.
      *
@@ -57,7 +57,7 @@ public class Symbol
     {
         position = y;
     }
- 
+
     /**
      * Obtiene el nombre (color) del símbolo.
      *
@@ -67,7 +67,7 @@ public class Symbol
     {
         return name;
     }
- 
+
     /**
      * Obtiene la posición del símbolo dentro de la lista.
      *
@@ -77,7 +77,7 @@ public class Symbol
     {
         return position;
     }
- 
+
     /**
      * Obtiene el tipo del símbolo.
      *
@@ -87,7 +87,7 @@ public class Symbol
     {
         return type;
     }
- 
+
     /**
      * Obtiene el alto del símbolo. Un alto almacenado de 1 se reporta como 2.
      *
@@ -95,9 +95,9 @@ public class Symbol
      */
     public int getHeight()
     {
-        return height == COLLAPSED_SIZE ? MINIMUM_SIZE : height;
+        return height == collapsedSize ? minimumSize : height;
     }
- 
+
     /**
      * Obtiene el ancho del símbolo. Un ancho almacenado de 1 se reporta como 2.
      *
@@ -105,9 +105,9 @@ public class Symbol
      */
     public int getWidth()
     {
-        return width == COLLAPSED_SIZE ? MINIMUM_SIZE : width;
+        return width == collapsedSize ? minimumSize : width;
     }
- 
+
     /**
      * Establece el alto del símbolo.
      *
@@ -117,7 +117,7 @@ public class Symbol
     {
         height = h;
     }
- 
+
     /**
      * Establece el ancho del símbolo.
      *

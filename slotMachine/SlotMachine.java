@@ -11,27 +11,27 @@ import java.util.Random;
  */
 public class SlotMachine
 {
-    private static final int MAX_WHEELS = 50;
-    private static final int MIN_WHEELS = 3;
-    private static final int DEFAULT_WHEELS = 3;
-    private static final int FRAME_HEIGHT = 100;
-    private static final int FRAME_X = 100;
-    private static final int FRAME_Y = 80;
-    private static final int FRAME_BASE_WIDTH = 10;
-    private static final String FRAME_COLOR = "#000000";
-    private static final int FIRST_WHEEL_X = 110;
-    private static final int WHEEL_Y = 90;
-    private static final int WHEEL_HEIGHT = 80;
-    private static final int WHEEL_WIDTH = 30;
-    private static final int WHEEL_SPACING = 40;
-    private static final int COLOR_CHANNEL_VALUES = 254;
-    private static final long SPIN_DELAY_MILLIS = 2000;
-    private static final Random RANDOM = new Random();
+    private static final int maxWheels = 50;
+    private static final int minWheels = 3;
+    private static final int defaultWheels = 3;
+    private static final int frameHeight = 100;
+    private static final int frameX = 100;
+    private static final int frameY = 80;
+    private static final int frameBaseWidth = 10;
+    private static final String frameColor = "#000000";
+    private static final int firstWheelX = 110;
+    private static final int wheelY = 90;
+    private static final int wheelHeight = 80;
+    private static final int wheelWidth = 30;
+    private static final int wheelSpacing = 40;
+    private static final int colorChannelValues = 254;
+    private static final long spinDelayMillis = 2000;
+    private static final Random random = new Random();
 
     private final ArrayList<Wheel> wheels = new ArrayList<>();
     private final ArrayList<String> colors = new ArrayList<>();
     private final Rectangle machine;
-    private int frameWidth = FRAME_BASE_WIDTH;
+    private int frameWidth = frameBaseWidth;
     private boolean ok;
 
     /**
@@ -42,16 +42,16 @@ public class SlotMachine
      */
     public SlotMachine(int n)
     {
-        machine = new Rectangle(FRAME_HEIGHT, frameWidth, FRAME_X, FRAME_Y, FRAME_COLOR);
+        machine = new Rectangle(frameHeight, frameWidth, frameX, frameY, frameColor);
         machine.makeVisible();
-        frameWidth += WHEEL_SPACING * n;
-        machine.changeSize(FRAME_HEIGHT, frameWidth);
-        int x = FIRST_WHEEL_X;
+        frameWidth += wheelSpacing * n;
+        machine.changeSize(frameHeight, frameWidth);
+        int x = firstWheelX;
         addInitialWheel(0, x).setSymbols(colors);
-        x += WHEEL_SPACING;
+        x += wheelSpacing;
         for (int i = 1; i < n; i++) {
             addInitialWheel(i, x);
-            x += WHEEL_SPACING;
+            x += wheelSpacing;
         }
         ok = true;
     }
@@ -61,7 +61,7 @@ public class SlotMachine
      */
     public SlotMachine()
     {
-        this(DEFAULT_WHEELS);
+        this(defaultWheels);
     }
 
     /**
@@ -120,7 +120,6 @@ public class SlotMachine
     public void spin(int wheel, int steps)
     {
         if (!isValidWheel(wheel)) {
-            System.out.println("Invalid wheel position: " + wheel);
             ok = false;
             return;
         }
@@ -189,7 +188,7 @@ public class SlotMachine
      */
     public void addWheel(int pos)
     {
-        addWheel(Wheel.TYPE_NORMAL, pos);
+        addWheel(Wheel.typeNormal, pos);
     }
 
     /**
@@ -202,12 +201,12 @@ public class SlotMachine
      */
     public void addWheel(String type, int pos)
     {
-        if (pos < 1 || pos > wheels.size() + 1 || wheels.size() >= MAX_WHEELS || someWheelsAreLocked()) {
+        if (pos < 1 || pos > wheels.size() + 1 || wheels.size() >= maxWheels || someWheelsAreLocked()) {
             ok = false;
             return;
         }
-        frameWidth += WHEEL_SPACING;
-        machine.changeSize(FRAME_HEIGHT, frameWidth);
+        frameWidth += wheelSpacing;
+        machine.changeSize(frameHeight, frameWidth);
         int startX = wheels.get(0).getpositionX();
         wheels.add(pos - 1, createWheel(type, pos - 1));
         arrangeWheels(startX);
@@ -223,13 +222,13 @@ public class SlotMachine
      */
     public void delWheel(int pos)
     {
-        if (wheels.size() <= MIN_WHEELS || !isValidWheel(pos) || someWheelsAreLocked()
+        if (wheels.size() <= minWheels || !isValidWheel(pos) || someWheelsAreLocked()
             || isRebel(wheels.get(pos - 1))) {
             ok = false;
             return;
         }
-        frameWidth -= WHEEL_SPACING;
-        machine.changeSize(FRAME_HEIGHT, frameWidth);
+        frameWidth -= wheelSpacing;
+        machine.changeSize(frameHeight, frameWidth);
         int startX = wheels.get(0).getpositionX();
         Wheel removed = wheels.remove(pos - 1);
         removed.delete();
@@ -421,7 +420,7 @@ public class SlotMachine
     private Wheel addInitialWheel(int index, int x)
     {
         String color = colorRandom();
-        Wheel wheel = new Wheel(WHEEL_HEIGHT, WHEEL_WIDTH, x, WHEEL_Y, color, index, this, true);
+        Wheel wheel = new Wheel(wheelHeight, wheelWidth, x, wheelY, color, index, this, true);
         wheels.add(wheel);
         colors.add(color);
         return wheel;
@@ -437,13 +436,13 @@ public class SlotMachine
     private Wheel createWheel(String type, int index)
     {
         String color = colorRandomExists();
-        if (Wheel.TYPE_REBEL.equals(type)) {
-            return new Rebel(WHEEL_HEIGHT, WHEEL_WIDTH, 0, WHEEL_Y, color, index, this, false);
+        if (Wheel.typeRebel.equals(type)) {
+            return new Rebel(wheelHeight, wheelWidth, 0, wheelY, color, index, this, false);
         }
-        if (Wheel.TYPE_LEFTY.equals(type)) {
-            return new Lefty(WHEEL_HEIGHT, WHEEL_WIDTH, 0, WHEEL_Y, color, index, this, false);
+        if (Wheel.typeLefty.equals(type)) {
+            return new Lefty(wheelHeight, wheelWidth, 0, wheelY, color, index, this, false);
         }
-        return new Wheel(WHEEL_HEIGHT, WHEEL_WIDTH, 0, WHEEL_Y, color, index, this, false);
+        return new Wheel(wheelHeight, wheelWidth, 0, wheelY, color, index, this, false);
     }
 
     /**
@@ -456,7 +455,7 @@ public class SlotMachine
         int x = startX;
         for (int i = 0; i < wheels.size(); i++) {
             wheels.get(i).setposition(i, x);
-            x += WHEEL_SPACING;
+            x += wheelSpacing;
         }
     }
 
@@ -479,7 +478,7 @@ public class SlotMachine
      */
     private boolean isRebel(Wheel wheel)
     {
-        return Wheel.TYPE_REBEL.equals(wheel.getType());
+        return Wheel.typeRebel.equals(wheel.getType());
     }
 
     /**
@@ -491,7 +490,7 @@ public class SlotMachine
     private boolean pause()
     {
         try {
-            Thread.sleep(SPIN_DELAY_MILLIS);
+            Thread.sleep(spinDelayMillis);
             return true;
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -516,7 +515,7 @@ public class SlotMachine
      */
     private int randomChannel()
     {
-        return 1 + RANDOM.nextInt(COLOR_CHANNEL_VALUES);
+        return 1 + random.nextInt(colorChannelValues);
     }
 
     /**
@@ -527,6 +526,6 @@ public class SlotMachine
     private String colorRandomExists()
     {
         ArrayList<String> existing = wheels.get(0).getlistcolor();
-        return existing.get(RANDOM.nextInt(existing.size()));
+        return existing.get(random.nextInt(existing.size()));
     }
 }

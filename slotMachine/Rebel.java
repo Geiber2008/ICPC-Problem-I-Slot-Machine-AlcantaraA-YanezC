@@ -37,6 +37,6 @@ public class Rebel extends Wheel
     @Override
     public String getType()
     {
-        return TYPE_REBEL;
+        return typeRebel;
     }
 }

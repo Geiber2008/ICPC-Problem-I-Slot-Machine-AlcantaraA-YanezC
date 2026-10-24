@@ -49,6 +49,6 @@ public class Lefty extends Wheel
     @Override
     public String getType()
     {
-        return TYPE_LEFTY;
+        return typeLefty;
     }
 }
