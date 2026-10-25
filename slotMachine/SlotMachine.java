@@ -283,6 +283,26 @@ public class SlotMachine
     }
 
     /**
+     * Gira una rueda hasta que muestre el símbolo indicado. La operación se
+     * rechaza (ok = false, sin girar nada) si la máquina tiene solo el mínimo de
+     * ruedas, si la posición no existe, si alguna rueda está bloqueada o si la
+     * rueda indicada es Rebel. Cuando se realiza, ok no se modifica. El símbolo
+     * debe existir en la lista de símbolos; de lo contrario el giro no termina.
+     *
+     * @param Wheel posición de la rueda (base 1).
+     * @param symbol color del símbolo que debe quedar visible en la rueda.
+     */
+    public void placeSymbol(int Wheel, String symbol)
+    {
+        if (wheels.size() <= minWheels || !isValidWheel(Wheel) || someWheelsAreLocked()
+            || isRebel(wheels.get(Wheel - 1))) {
+            ok = false;
+            return;
+        }
+        wheels.get(Wheel - 1).placeSymbol(symbol);
+    }
+
+    /**
      * Obtiene la cantidad de símbolos registrados según la primera rueda.
      *
      * @return número de símbolos, o 0 si no hay ruedas.

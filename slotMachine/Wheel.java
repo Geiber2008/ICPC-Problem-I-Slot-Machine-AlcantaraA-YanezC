@@ -492,4 +492,18 @@ public class Wheel
     {
         return Math.max(0, Math.min(x, symbols.size()));
     }
+
+    /**
+     * Gira la rueda, símbolo a símbolo, hasta que muestre el símbolo indicado.
+     * No termina si el símbolo no está en la lista de símbolos o si la rueda
+     * está bloqueada, porque en esos casos nunca llega a mostrarlo.
+     *
+     * @param symbol color del símbolo que debe quedar visible.
+     */
+    public void placeSymbol(String symbol)
+    {
+        while (!showSymbol.equals(symbol)) {
+            rotate();
+        }
+    }
 }
