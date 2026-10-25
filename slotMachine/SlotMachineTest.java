@@ -838,4 +838,142 @@ public class SlotMachineTest
         slotMachine.spin();
         assertFalse(before.equals(slotMachine.configuration().get(1)));
     }
+
+    /**
+     * Try the addSymbol(color, pos, type)
+     * Should (Acceptance): Accept the types normal, ephemeral and shy (any letter case)
+     * and add the symbol to the shared symbol list.
+     * SHOULD NOT (Reject): Accept an unknown or null type; ok() == false and nothing is added.
+     */
+    @Test
+    public void shouldAddSymbolsOfEachType(){
+        slotMachine.addSymbol("#AA0000", 1, "ephemeral");
+        assertTrue(slotMachine.ok());
+        slotMachine.addSymbol("#00AA00", 1, "SHY");
+        assertTrue(slotMachine.ok());
+        slotMachine.addSymbol("#0000AA", 1, "normal");
+        assertTrue(slotMachine.ok());
+        assertEquals(6, slotMachine.distinctSymbols());
+        slotMachine.addSymbol("#123456", 1, "unknown");
+        assertFalse(slotMachine.ok());
+        slotMachine.addSymbol("#123456", 1, null);
+        assertFalse(slotMachine.ok());
+        assertEquals(6, slotMachine.distinctSymbols());
+    }
+
+    /**
+     * Try the ephemeral symbol
+     * Should (Acceptance): Decrease its size every time it is selected on the wheel, and
+     * the wheel recovers its normal size when a normal symbol is selected.
+     */
+    @Test
+    public void shouldEphemeralSymbolShrinkEachSelection(){
+        slotMachine.addSymbol("#AA0000", 1, "ephemeral");
+        Wheel wheel = slotMachine.getWheels().get(0);
+        int baseHeight = wheel.getShownHeight();
+        int baseWidth = wheel.getShownWidth();
+        slotMachine.spin(1);
+        assertEquals(baseHeight - 1, wheel.getShownHeight());
+        assertEquals(baseWidth - 1, wheel.getShownWidth());
+        slotMachine.spin(1);
+        slotMachine.spin(1);
+        slotMachine.spin(1);
+        assertEquals(baseHeight, wheel.getShownHeight());
+        assertEquals(baseWidth, wheel.getShownWidth());
+        slotMachine.spin(1);
+        assertEquals(baseHeight - 2, wheel.getShownHeight());
+        assertEquals(baseWidth - 2, wheel.getShownWidth());
+    }
+
+    /**
+     * Try the ephemeral symbol until it vanishes
+     * Should (Acceptance): Keep shrinking until it is a point (size 1 x 1).
+     * SHOULD NOT (Reject): Go below a point.
+     */
+    @Test
+    public void shouldEphemeralSymbolEndAsAPoint(){
+        slotMachine.addSymbol("#AA0000", 1, "ephemeral");
+        Wheel wheel = slotMachine.getWheels().get(0);
+        int height = 0;
+        int width = 0;
+        for (int cycle = 0; cycle < 100; cycle++) {
+            slotMachine.spin(1);
+            height = wheel.getShownHeight();
+            width = wheel.getShownWidth();
+            assertTrue(height >= 1);
+            assertTrue(width >= 1);
+            slotMachine.spin(1);
+            slotMachine.spin(1);
+            slotMachine.spin(1);
+        }
+        assertEquals(1, height);
+        assertEquals(1, width);
+    }
+
+    /**
+     * Try the shy symbol
+     * Should (Acceptance): Alternate between invisible and visible every time it is selected,
+     * and the wheel is visible whenever a normal symbol is selected.
+     */
+    @Test
+    public void shouldShySymbolAlternateVisibility(){
+        slotMachine.addSymbol("#00AA00", 1, "shy");
+        Wheel wheel = slotMachine.getWheels().get(0);
+        int baseHeight = wheel.getShownHeight();
+        slotMachine.spin(1);
+        assertFalse(wheel.isShown());
+        assertEquals(baseHeight, wheel.getShownHeight());
+        slotMachine.spin(1);
+        assertTrue(wheel.isShown());
+        slotMachine.spin(1);
+        slotMachine.spin(1);
+        slotMachine.spin(1);
+        assertTrue(wheel.isShown());
+        slotMachine.spin(1);
+        slotMachine.spin(1);
+        slotMachine.spin(1);
+        slotMachine.spin(1);
+        assertFalse(wheel.isShown());
+    }
+
+    /**
+     * Try the makeVisible() with special symbols
+     * SHOULD NOT (Reject): Replace or alter the symbols already added, including their type.
+     */
+    @Test
+    public void shouldKeepSpecialSymbolsWhenChangingVisibility(){
+        slotMachine.addSymbol("#AA0000", 1, "ephemeral");
+        Wheel wheel = slotMachine.getWheels().get(0);
+        ArrayList<String> before = wheel.getlistcolor();
+        int baseHeight = wheel.getShownHeight();
+        slotMachine.makeVisible();
+        assertEquals(before, wheel.getlistcolor());
+        slotMachine.spin(1);
+        assertEquals(baseHeight - 1, wheel.getShownHeight());
+    }
+
+    /**
+     * Try the symbols()
+     * Should (Acceptance): Return the colors of the symbols in the order they are on the wheel,
+     * starting with the first one, including the ones added later.
+     * SHOULD NOT (Reject): Return null, omit active symbols or expose the internal list.
+     */
+    @Test
+    public void shouldReturnSymbolsInWheelOrder(){
+        Wheel wheel = slotMachine.getWheels().get(0);
+        String[] symbols = slotMachine.symbols();
+        assertNotNull(symbols);
+        assertTrue(slotMachine.ok());
+        assertEquals(slotMachine.distinctSymbols(), symbols.length);
+        assertEquals(wheel.getlistcolor(), Arrays.asList(symbols));
+
+        slotMachine.addSymbol("#9400D3", 1);
+        symbols = slotMachine.symbols();
+        assertEquals(4, symbols.length);
+        assertEquals("#9400D3", symbols[1]);
+        assertEquals(wheel.getlistcolor(), Arrays.asList(symbols));
+
+        symbols[0] = "#000001";
+        assertFalse("#000001".equals(slotMachine.symbols()[0]));
+    }
 }

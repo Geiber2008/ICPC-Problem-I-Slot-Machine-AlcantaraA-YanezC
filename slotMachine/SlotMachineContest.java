@@ -1,89 +1,102 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
 /**
- * Representa un concurso de tragamonedas que extienda las funcionalidades
- * básicas de {@link SlotMachine} para calcular y simular el alineamiento
- * de sus ruedas.
+ * Concurso de tragamonedas que utiliza {@link SlotMachine} para calcular y
+ * simular los giros necesarios para alinear el símbolo visible de todas las
+ * ruedas.
  */
 public class SlotMachineContest {
     private static SlotMachineContest slotTest;
-    private static SlotMachine sltmachine;
+    private static SlotMachine slotMachine;
+
     /**
-     * Construye una nueva instancia del concurso de tragamonedas.
+     * Construye una nueva instancia del concurso y crea la tragamonedas que
+     * usarán los cálculos.
      *
-     * @param n El número de ruedas o la configuración inicial de la tragamonedas.
+     * @param n número de ruedas de la tragamonedas.
      */
     private SlotMachineContest(int n) {
-         sltmachine = new SlotMachine(n);
+        slotMachine = new SlotMachine(n);
     }
 
     /**
      * Calcula los pasos necesarios para alinear el símbolo visible de cada rueda
-     * con el símbolo visible de la primera rueda.
+     * con la posición de símbolo más frecuente. Siempre parte de una tragamonedas
+     * nueva; si había una anterior, la oculta y la reemplaza.
      *
-     * @param n Parámetro de configuración o tamaño utilizado para el cálculo.
-     * @return Una lista de arreglos de enteros ({@code ArrayList<int[]>}) donde cada
+     * @param n número de ruedas de la tragamonedas a analizar.
+     * @return una lista de arreglos de enteros ({@code ArrayList<int[]>}) donde cada
      *         elemento contiene:
      *         <ul>
-     *           <li>{@code [0]}: El índice de la rueda (basado en 0).</li>
-     *           <li>{@code [1]}: La cantidad de giros necesarios para alinearla.</li>
+     *           <li>{@code [0]}: el índice de la rueda (basado en 1).</li>
+     *           <li>{@code [1]}: la cantidad de giros necesarios para alinearla.</li>
      *         </ul>
+     *         Las ruedas que ya están alineadas no aparecen en la lista.
      */
-    public static ArrayList<int[]> solve(int n) { 
-        if (slotTest != null){
-            sltmachine.makeInvisible();
-            slotTest = null; sltmachine = null;
-            slotTest = new  SlotMachineContest(n);
-        }else{
-            slotTest = new  SlotMachineContest(n);
+    public static ArrayList<int[]> solve(int n) {
+        if (slotTest != null) {
+            slotMachine.makeInvisible();
         }
+        slotTest = new SlotMachineContest(n);
+        slotMachine.makeInvisible();
         ArrayList<int[]> steps = new ArrayList<>();
-        sltmachine.makeInvisible();
-        ArrayList<Integer> listPositionsymbols = sltmachine.getPositionSymbolos();
-        int mostNum = butFoundInt();
-        for (int i = 0; i < listPositionsymbols.size(); i++){
-            int Num = listPositionsymbols.get(i);
-            if (!(mostNum == Num)){
-                int step = Math.abs((sltmachine.distinctSymbols() - mostNum) - Num);
-                steps.add(new int[] {i + 1, step });
+        ArrayList<Integer> positions = slotMachine.getPositionSymbolos();
+        int targetPosition = findMostFrequentPosition(positions);
+        int symbolsCount = slotMachine.distinctSymbols();
+        for (int i = 0; i < positions.size(); i++) {
+            int position = positions.get(i);
+            if (targetPosition != position) {
+                int turns = Math.abs((symbolsCount - targetPosition) - position);
+                steps.add(new int[] {i + 1, turns});
             }
-        }        
+        }
         return steps;
     }
 
     /**
-     * Ejecuta la simulación visual aplicando los giros calculados por el método {@link #solve(int)}.
+     * Ejecuta la simulación visual aplicando los giros calculados por el método
+     * {@link #solve(int)}. Cada giro espera el retardo definido en
+     * {@link SlotMachine#spin(int, int)}.
      *
-     * @param n Parámetro de configuración enviado al método {@link #solve(int)}.
-     * @throws InterruptedException Si el hilo de ejecución es interrumpido durante las animaciones de giro.
+     * @param n número de ruedas enviado al método {@link #solve(int)}.
      */
-    public static void simulate(int n){
+    public static void simulate(int n) {
         ArrayList<int[]> steps = solve(n);
-        sltmachine.makeVisible();
+        slotMachine.makeVisible();
         for (int[] step : steps) {
-            int ruedaIndex = step[0];
-            int cantidadGiros = step[1];
-            if (cantidadGiros > 0) {
-                    sltmachine.spin(ruedaIndex, cantidadGiros);
+            int wheelIndex = step[0];
+            int turns = step[1];
+            if (turns > 0) {
+                slotMachine.spin(wheelIndex, turns);
             }
         }
     }
-    
-    private static int butFoundInt(){
-       ArrayList<Integer> listPositionsymbols = sltmachine.getPositionSymbolos();
-       int mostInt = 0;
-       int mostCant = 0;
-       Map<Integer, Integer> ListInt = new HashMap<>();
-       for (Integer n: listPositionsymbols){
-           if (ListInt.get(n) == null){
-               ListInt.put(n,1);
-            }else{
-               int cantActual = ListInt.get(n);
-               ListInt.put(n,cantActual + 1);
-               if (mostCant < cantActual + 1){mostInt = n;}
+
+    /**
+     * Busca la posición de símbolo que más se repite en la lista dada. Si ninguna
+     * posición se repite, devuelve 0.
+     *
+     * @param positions posiciones de símbolo visibles de cada rueda.
+     * @return la posición más frecuente, o 0 si no hay repetidas.
+     */
+    private static int findMostFrequentPosition(ArrayList<Integer> positions) {
+        int mostFrequent = 0;
+        int mostCount = 0;
+        Map<Integer, Integer> frequencies = new HashMap<>();
+        for (Integer position : positions) {
+            if (!frequencies.containsKey(position)) {
+                frequencies.put(position, 1);
+            } else {
+                int updatedCount = frequencies.get(position) + 1;
+                frequencies.put(position, updatedCount);
+                if (mostCount < updatedCount) {
+                    mostCount = updatedCount;
+                    mostFrequent = position;
+                }
             }
-       }
-       return mostInt;
+        }
+        return mostFrequent;
     }
 }

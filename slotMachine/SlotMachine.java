@@ -65,13 +65,11 @@ public class SlotMachine
     }
 
     /**
-     * Muestra el marco y todas las ruedas, y reaplica a la primera rueda los
-     * colores iniciales de la máquina.
+     * Muestra el marco y todas las ruedas sin alterar símbolos ni posiciones.
      */
     public void makeVisible()
     {
         machine.makeVisible();
-        wheels.get(0).setSymbols(colors);
         for (Wheel w : wheels) {
             w.makeVisible();
         }
@@ -237,18 +235,35 @@ public class SlotMachine
     }
 
     /**
-     * Agrega un símbolo a la lista compartida mediante la primera rueda.
+     * Agrega un símbolo normal a la lista compartida mediante la primera rueda.
      *
      * @param color color del nuevo símbolo.
      * @param pos índice de inserción en la lista de símbolos.
      */
     public void addSymbol(String color, int pos)
     {
-        if (wheels.isEmpty()) {
+        addSymbol(color, pos, Symbol.typeNormal);
+    }
+
+    /**
+     * Agrega un símbolo del tipo indicado a la lista compartida mediante la
+     * primera rueda. Los símbolos "ephemeral" reducen su tamaño cada vez que
+     * una rueda los selecciona, hasta quedar como un punto; los "shy" alternan
+     * entre visible e invisible cada vez que una rueda los selecciona. Falla
+     * (ok = false) si el tipo no existe.
+     *
+     * @param color color del nuevo símbolo.
+     * @param pos índice de inserción en la lista de símbolos.
+     * @param type tipo del símbolo: "normal", "ephemeral" o "shy" (sin distinguir mayúsculas).
+     */
+    public void addSymbol(String color, int pos, String type)
+    {
+        String symbolType = Symbol.normalizeType(type);
+        if (wheels.isEmpty() || symbolType == null) {
             ok = false;
             return;
         }
-        wheels.get(0).addSymbols(color, pos);
+        wheels.get(0).addSymbols(color, pos, symbolType, wheelHeight, wheelWidth);
         ok = true;
     }
 
@@ -280,6 +295,22 @@ public class SlotMachine
         }
         ok = true;
         return wheels.get(0).distinctSymbols();
+    }
+
+    /**
+     * Obtiene los colores de los símbolos en el orden en que están en la rueda,
+     * empezando por el primero. Devuelve una copia: modificarla no altera la máquina.
+     *
+     * @return arreglo con los colores de los símbolos, o vacío si no hay ruedas.
+     */
+    public String[] symbols()
+    {
+        if (wheels.isEmpty()) {
+            ok = false;
+            return new String[0];
+        }
+        ok = true;
+        return wheels.get(0).Symbols().toArray(new String[0]);
     }
 
     /**

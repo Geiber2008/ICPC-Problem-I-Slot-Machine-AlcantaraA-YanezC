@@ -26,6 +26,11 @@ public class Wheel
     private String showSymbol;
     private boolean movable = true;
     private SlotMachine machine;
+    private int baseHeight;
+    private int baseWidth;
+    private int shownHeight;
+    private int shownWidth;
+    private boolean shown;
 
     /**
      * Crea una rueda visible con un símbolo inicial.
@@ -43,6 +48,11 @@ public class Wheel
     {
         visualWheel = new Rectangle(h, w, x, y, s);
         visualWheel.makeVisible();
+        baseHeight = h;
+        baseWidth = w;
+        shownHeight = h;
+        shownWidth = w;
+        shown = true;
         positionX = x;
         positionA = pos;
         machine = m;
@@ -59,6 +69,11 @@ public class Wheel
     {
         visualWheel = new Rectangle(defaultHeight, defaultWidth, defaultX, defaultY, defaultColor);
         visualWheel.makeVisible();
+        baseHeight = defaultHeight;
+        baseWidth = defaultWidth;
+        shownHeight = defaultHeight;
+        shownWidth = defaultWidth;
+        shown = true;
         symbols.clear();
         showSymbol = defaultColor;
     }
@@ -131,7 +146,7 @@ public class Wheel
             return;
         }
         if (visualWheel != null) {
-            visualWheel.makeInvisible();
+            display(false);
             visualWheel = null;
         }
     }
@@ -248,7 +263,7 @@ public class Wheel
      */
     public void makeVisible()
     {
-        visualWheel.makeVisible();
+        display(true);
     }
 
     /**
@@ -256,7 +271,7 @@ public class Wheel
      */
     public void makeInvisible()
     {
-        visualWheel.makeInvisible();
+        display(false);
     }
 
     /**
@@ -362,24 +377,87 @@ public class Wheel
     }
 
     /**
-     * Aplica el efecto visual del símbolo al que gira la rueda: los efímeros
-     * reducen el tamaño, los tímidos ocultan la rueda y los demás la muestran.
+     * Obtiene el alto con el que se dibuja actualmente la rueda.
+     *
+     * @return alto dibujado.
+     */
+    public int getShownHeight()
+    {
+        return shownHeight;
+    }
+
+    /**
+     * Obtiene el ancho con el que se dibuja actualmente la rueda.
+     *
+     * @return ancho dibujado.
+     */
+    public int getShownWidth()
+    {
+        return shownWidth;
+    }
+
+    /**
+     * Indica si la rueda está visible en pantalla.
+     *
+     * @return true si está visible.
+     */
+    public boolean isShown()
+    {
+        return shown;
+    }
+
+    /**
+     * Aplica el efecto visual del símbolo al que gira la rueda. Un símbolo
+     * efímero reduce su tamaño en cada selección hasta quedar como un punto;
+     * uno tímido alterna entre visible e invisible en cada selección; y uno
+     * normal restaura el tamaño base y muestra la rueda.
      *
      * @param symbol símbolo que pasará a mostrarse.
      */
     private void applyVisualEffect(Symbol symbol)
     {
         if (Symbol.typeEphemeral.equals(symbol.getType())) {
-            int newHeight = symbol.getHeight() - 1;
-            int newWidth = symbol.getWidth() - 1;
-            symbol.setHeight(newHeight);
-            symbol.setWidth(newWidth);
-            visualWheel.changeSize(newHeight, newWidth);
+            symbol.shrink();
+            resize(symbol.getHeight(), symbol.getWidth());
+            display(true);
         } else if (Symbol.typeShy.equals(symbol.getType())) {
-            visualWheel.makeInvisible();
+            symbol.toggleVisible();
+            resize(baseHeight, baseWidth);
+            display(symbol.isVisible());
         } else {
-            visualWheel.makeVisible();
+            resize(baseHeight, baseWidth);
+            display(true);
         }
+    }
+
+    /**
+     * Cambia el tamaño dibujado de la rueda si es distinto del actual.
+     *
+     * @param height nuevo alto.
+     * @param width nuevo ancho.
+     */
+    private void resize(int height, int width)
+    {
+        if (shownHeight != height || shownWidth != width) {
+            visualWheel.changeSize(height, width);
+            shownHeight = height;
+            shownWidth = width;
+        }
+    }
+
+    /**
+     * Muestra u oculta la rueda y recuerda su estado.
+     *
+     * @param visible true para mostrarla; false para ocultarla.
+     */
+    private void display(boolean visible)
+    {
+        if (visible) {
+            visualWheel.makeVisible();
+        } else {
+            visualWheel.makeInvisible();
+        }
+        shown = visible;
     }
 
     /**
