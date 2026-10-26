@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Maven: run unit and acceptance tests",
+            "type": "shell",
+            "command": "${workspaceFolder}\\mvnw.cmd",
+            "args": ["test"],
+            "group": "test",
+            "problemMatcher": "$javac"
+        },
+        {
+            "label": "Maven: verify coverage and PMD",
+            "type": "shell",
+            "command": "${workspaceFolder}\\mvnw.cmd",
+            "args": ["verify"],
+            "group": "build",
+            "problemMatcher": "$javac"
+        }
+    ]
+}

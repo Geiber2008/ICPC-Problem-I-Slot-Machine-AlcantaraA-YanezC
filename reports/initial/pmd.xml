@@ -1,0 +1,1310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 https://pmd.github.io/schema/report_2_0_0.xsd" version="7.7.0" timestamp="2026-10-25T00:49:22.635">
+<file name="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\src\Canvas.java">
+<violation beginline="16" endline="16" begincolumn="8" endcolumn="13" rule="NoPackage" ruleset="Code Style" class="Canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes, interfaces, enums and annotations must belong to a named package
+</violation>
+<violation beginline="16" endline="16" begincolumn="8" endcolumn="13" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" class="Canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+This class has only private constructors and may be final
+</violation>
+<violation beginline="32" endline="35" begincolumn="9" endcolumn="10" rule="NonThreadSafeSingleton" ruleset="Multithreading" class="Canvas" method="getCanvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_multithreading.html#nonthreadsafesingleton" priority="3">
+Singleton is not thread safe
+</violation>
+<violation beginline="33" endline="33" begincolumn="63" endcolumn="68" rule="UseUnderscoresInNumericLiterals" ruleset="Code Style" class="Canvas" method="getCanvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#useunderscoresinnumericliterals" priority="3">
+Number 10000 should separate every third digit with an underscore
+</violation>
+<violation beginline="42" endline="42" begincolumn="20" endcolumn="25" rule="ImmutableField" ruleset="Design" class="Canvas" variable="frame" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'frame' may be declared final
+</violation>
+<violation beginline="42" endline="42" begincolumn="20" endcolumn="25" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Code Style" class="Canvas" variable="frame" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fielddeclarationsshouldbeatstartofclass" priority="3">
+Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+</violation>
+<violation beginline="43" endline="43" begincolumn="24" endcolumn="30" rule="ImmutableField" ruleset="Design" class="Canvas" variable="canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'canvas' may be declared final
+</violation>
+<violation beginline="43" endline="43" begincolumn="24" endcolumn="30" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Code Style" class="Canvas" variable="canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fielddeclarationsshouldbeatstartofclass" priority="3">
+Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+</violation>
+<violation beginline="43" endline="43" begincolumn="24" endcolumn="30" rule="AvoidFieldNameMatchingTypeName" ruleset="Error Prone" class="Canvas" variable="canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_errorprone.html#avoidfieldnamematchingtypename" priority="3">
+It is somewhat confusing to have a field name matching the declaring class name
+</violation>
+<violation beginline="44" endline="44" begincolumn="24" endcolumn="31" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Code Style" class="Canvas" variable="graphic" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fielddeclarationsshouldbeatstartofclass" priority="3">
+Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+</violation>
+<violation beginline="45" endline="45" begincolumn="19" endcolumn="35" rule="ImmutableField" ruleset="Design" class="Canvas" variable="backgroundColour" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'backgroundColour' may be declared final
+</violation>
+<violation beginline="45" endline="45" begincolumn="19" endcolumn="35" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Code Style" class="Canvas" variable="backgroundColour" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fielddeclarationsshouldbeatstartofclass" priority="3">
+Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+</violation>
+<violation beginline="46" endline="46" begincolumn="19" endcolumn="30" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Code Style" class="Canvas" variable="canvasImage" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fielddeclarationsshouldbeatstartofclass" priority="3">
+Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+</violation>
+<violation beginline="47" endline="47" begincolumn="27" endcolumn="34" rule="ImmutableField" ruleset="Design" class="Canvas" variable="objects" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'objects' may be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="27" endcolumn="34" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Code Style" class="Canvas" variable="objects" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fielddeclarationsshouldbeatstartofclass" priority="3">
+Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+</violation>
+<violation beginline="48" endline="48" begincolumn="13" endcolumn="46" rule="LooseCoupling" ruleset="Best Practices" class="Canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'HashMap'; use the interface instead
+</violation>
+<violation beginline="48" endline="48" begincolumn="47" endcolumn="53" rule="ImmutableField" ruleset="Design" class="Canvas" variable="shapes" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'shapes' may be declared final
+</violation>
+<violation beginline="48" endline="48" begincolumn="47" endcolumn="53" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Code Style" class="Canvas" variable="shapes" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fielddeclarationsshouldbeatstartofclass" priority="3">
+Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+</violation>
+<violation beginline="57" endline="57" begincolumn="27" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Canvas" method="Canvas" variable="title" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'title' is not assigned and could be declared final
+</violation>
+<violation beginline="57" endline="57" begincolumn="38" endcolumn="43" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Canvas" method="Canvas" variable="width" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'width' is not assigned and could be declared final
+</violation>
+<violation beginline="57" endline="57" begincolumn="49" endcolumn="55" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Canvas" method="Canvas" variable="height" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'height' is not assigned and could be declared final
+</violation>
+<violation beginline="57" endline="57" begincolumn="63" endcolumn="71" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Canvas" method="Canvas" variable="bgColour" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'bgColour' is not assigned and could be declared final
+</violation>
+<violation beginline="65" endline="65" begincolumn="33" endcolumn="41" rule="UseDiamondOperator" ruleset="Code Style" class="Canvas" method="Canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#usediamondoperator" priority="3">
+Explicit type arguments can be replaced by a diamond: `new ArrayList&lt;&gt;()`
+</violation>
+<violation beginline="66" endline="66" begincolumn="30" endcolumn="55" rule="UseDiamondOperator" ruleset="Code Style" class="Canvas" method="Canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#usediamondoperator" priority="3">
+Explicit type arguments can be replaced by a diamond: `new HashMap&lt;&gt;()`
+</violation>
+<violation beginline="76" endline="76" begincolumn="36" endcolumn="43" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Canvas" method="setVisible" variable="visible" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'visible' is not assigned and could be declared final
+</violation>
+<violation beginline="80" endline="80" begincolumn="23" endcolumn="27" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Canvas" method="setVisible" variable="size" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'size' could be declared final
+</violation>
+<violation beginline="82" endline="82" begincolumn="35" endcolumn="60" rule="LawOfDemeter" ruleset="Design" class="Canvas" method="setVisible" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#lawofdemeter" priority="3">
+Call to `getGraphics` on foreign value `canvasImage` (degree 1)
+</violation>
+<violation beginline="99" endline="99" begincolumn="29" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Canvas" method="draw" variable="referenceObject" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'referenceObject' is not assigned and could be declared final
+</violation>
+<violation beginline="99" endline="99" begincolumn="53" endcolumn="58" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Canvas" method="draw" variable="color" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'color' is not assigned and could be declared final
+</violation>
+<violation beginline="99" endline="99" begincolumn="66" endcolumn="71" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Canvas" method="draw" variable="shape" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'shape' is not assigned and could be declared final
+</violation>
+<violation beginline="110" endline="110" begincolumn="30" endcolumn="45" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Canvas" method="erase" variable="referenceObject" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'referenceObject' is not assigned and could be declared final
+</violation>
+<violation beginline="120" endline="120" begincolumn="43" endcolumn="54" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Canvas" method="setForegroundColor" variable="colorString" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'colorString' is not assigned and could be declared final
+</violation>
+<violation beginline="121" endline="121" begincolumn="12" endcolumn="37" rule="LiteralsFirstInComparisons" ruleset="Best Practices" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="122" endline="122" begincolumn="13" endcolumn="41" rule="ControlStatementBraces" ruleset="Code Style" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+This statement should have braces
+</violation>
+<violation beginline="123" endline="123" begincolumn="17" endcolumn="44" rule="LiteralsFirstInComparisons" ruleset="Best Practices" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="124" endline="124" begincolumn="13" endcolumn="43" rule="ControlStatementBraces" ruleset="Code Style" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+This statement should have braces
+</violation>
+<violation beginline="125" endline="125" begincolumn="17" endcolumn="43" rule="LiteralsFirstInComparisons" ruleset="Best Practices" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="126" endline="126" begincolumn="13" endcolumn="42" rule="ControlStatementBraces" ruleset="Code Style" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+This statement should have braces
+</violation>
+<violation beginline="127" endline="127" begincolumn="17" endcolumn="45" rule="LiteralsFirstInComparisons" ruleset="Best Practices" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="128" endline="128" begincolumn="13" endcolumn="44" rule="ControlStatementBraces" ruleset="Code Style" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+This statement should have braces
+</violation>
+<violation beginline="129" endline="129" begincolumn="17" endcolumn="44" rule="LiteralsFirstInComparisons" ruleset="Best Practices" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="130" endline="130" begincolumn="13" endcolumn="43" rule="ControlStatementBraces" ruleset="Code Style" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+This statement should have braces
+</violation>
+<violation beginline="131" endline="131" begincolumn="17" endcolumn="46" rule="LiteralsFirstInComparisons" ruleset="Best Practices" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="132" endline="132" begincolumn="13" endcolumn="45" rule="ControlStatementBraces" ruleset="Code Style" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+This statement should have braces
+</violation>
+<violation beginline="133" endline="133" begincolumn="17" endcolumn="44" rule="LiteralsFirstInComparisons" ruleset="Best Practices" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="134" endline="134" begincolumn="13" endcolumn="43" rule="ControlStatementBraces" ruleset="Code Style" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+This statement should have braces
+</violation>
+<violation beginline="136" endline="136" begincolumn="13" endcolumn="43" rule="ControlStatementBraces" ruleset="Code Style" class="Canvas" method="setForegroundColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+This statement should have braces
+</violation>
+<violation beginline="145" endline="145" begincolumn="26" endcolumn="38" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Canvas" method="wait" variable="milliseconds" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'milliseconds' is not assigned and could be declared final
+</violation>
+<violation beginline="147" endline="147" begincolumn="13" endcolumn="19" rule="DoNotUseThreads" ruleset="Multithreading" class="Canvas" method="wait" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_multithreading.html#donotusethreads" priority="3">
+To be compliant to J2EE, a webapp should not use any thread.
+</violation>
+<violation beginline="149" endline="149" begincolumn="13" endcolumn="19" rule="DoNotUseThreads" ruleset="Multithreading" class="Canvas" method="wait" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_multithreading.html#donotusethreads" priority="3">
+To be compliant to J2EE, a webapp should not use any thread.
+</violation>
+<violation beginline="158" endline="160" begincolumn="9" endcolumn="10" rule="ForLoopCanBeForeach" ruleset="Best Practices" class="Canvas" method="redraw" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+This for loop can be replaced by a foreach loop
+</violation>
+<violation beginline="158" endline="158" begincolumn="22" endcolumn="23" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Canvas" method="redraw" variable="i" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'i' could be declared final
+</violation>
+<violation beginline="168" endline="168" begincolumn="15" endcolumn="23" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Canvas" method="erase" variable="original" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'original' could be declared final
+</violation>
+<violation beginline="170" endline="170" begincolumn="19" endcolumn="23" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Canvas" method="erase" variable="size" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'size' could be declared final
+</violation>
+<violation beginline="181" endline="181" begincolumn="13" endcolumn="18" rule="MissingSerialVersionUID" ruleset="Error Prone" class="CanvasPane" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_errorprone.html#missingserialversionuid" priority="3">
+Classes implementing Serializable should set a serialVersionUID
+</violation>
+<violation beginline="181" endline="181" begincolumn="13" endcolumn="18" rule="AtLeastOneConstructor" ruleset="Code Style" class="CanvasPane" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#atleastoneconstructor" priority="3">
+Each class should declare at least one constructor
+</violation>
+<violation beginline="181" endline="181" begincolumn="13" endcolumn="18" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" class="CanvasPane" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+This class has only private constructors and may be final
+</violation>
+<violation beginline="182" endline="182" begincolumn="21" endcolumn="26" rule="MissingOverride" ruleset="Best Practices" class="CanvasPane" method="paint" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#missingoverride" priority="3">
+The method 'paint(Graphics)' is missing an @Override annotation.
+</violation>
+<violation beginline="182" endline="182" begincolumn="36" endcolumn="37" rule="ShortVariable" ruleset="Code Style" class="CanvasPane" method="paint" variable="g" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like g
+</violation>
+<violation beginline="182" endline="182" begincolumn="36" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="CanvasPane" method="paint" variable="g" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'g' is not assigned and could be declared final
+</violation>
+<violation beginline="193" endline="193" begincolumn="23" endcolumn="28" rule="ImmutableField" ruleset="Design" class="ShapeDescription" variable="shape" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'shape' may be declared final
+</violation>
+<violation beginline="194" endline="194" begincolumn="24" endcolumn="35" rule="ImmutableField" ruleset="Design" class="ShapeDescription" variable="colorString" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'colorString' may be declared final
+</violation>
+<violation beginline="196" endline="196" begincolumn="39" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="ShapeDescription" method="ShapeDescription" variable="shape" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'shape' is not assigned and could be declared final
+</violation>
+<violation beginline="196" endline="196" begincolumn="53" endcolumn="58" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="ShapeDescription" method="ShapeDescription" variable="color" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'color' is not assigned and could be declared final
+</violation>
+<violation beginline="201" endline="201" begincolumn="37" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="ShapeDescription" method="draw" variable="graphic" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'graphic' is not assigned and could be declared final
+</violation>
+</file>
+<file name="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\src\Circle.java">
+<violation beginline="1" endline="1" begincolumn="1" endcolumn="19" rule="UnnecessaryImport" ruleset="Code Style" class="Circle" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+Unused import 'java.awt.*'
+</violation>
+<violation beginline="11" endline="11" begincolumn="8" endcolumn="13" rule="NoPackage" ruleset="Code Style" class="Circle" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes, interfaces, enums and annotations must belong to a named package
+</violation>
+<violation beginline="11" endline="170" begincolumn="20" endcolumn="2" rule="TooManyMethods" ruleset="Design" class="Circle" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#toomanymethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="13" endline="13" begincolumn="32" endcolumn="34" rule="ShortVariable" ruleset="Code Style" class="Circle" variable="PI" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like PI
+</violation>
+<violation beginline="45" endline="45" begincolumn="20" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Circle" method="draw" variable="canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'canvas' could be declared final
+</violation>
+<violation beginline="55" endline="55" begincolumn="20" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Circle" method="erase" variable="canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'canvas' could be declared final
+</violation>
+<violation beginline="92" endline="92" begincolumn="36" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Circle" method="moveHorizontal" variable="distance" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'distance' is not assigned and could be declared final
+</violation>
+<violation beginline="102" endline="102" begincolumn="34" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Circle" method="moveVertical" variable="distance" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'distance' is not assigned and could be declared final
+</violation>
+<violation beginline="113" endline="113" begincolumn="13" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Circle" method="slowMoveHorizontal" variable="delta" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'delta' could be declared final
+</violation>
+<violation beginline="117" endline="117" begincolumn="13" endcolumn="21" rule="AvoidReassigningParameters" ruleset="Best Practices" class="Circle" method="slowMoveHorizontal" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#avoidreassigningparameters" priority="2">
+Avoid reassigning parameters such as 'distance'
+</violation>
+<violation beginline="133" endline="133" begincolumn="13" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Circle" method="slowMoveVertical" variable="delta" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'delta' could be declared final
+</violation>
+<violation beginline="137" endline="137" begincolumn="13" endcolumn="21" rule="AvoidReassigningParameters" ruleset="Best Practices" class="Circle" method="slowMoveVertical" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#avoidreassigningparameters" priority="2">
+Avoid reassigning parameters such as 'distance'
+</violation>
+<violation beginline="152" endline="152" begincolumn="32" endcolumn="43" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Circle" method="changeSize" variable="newDiameter" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'newDiameter' is not assigned and could be declared final
+</violation>
+<violation beginline="163" endline="163" begincolumn="36" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Circle" method="changeColor" variable="newColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'newColor' is not assigned and could be declared final
+</violation>
+</file>
+<file name="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\src\Lefty.java">
+<violation beginline="5" endline="5" begincolumn="8" endcolumn="13" rule="NoPackage" ruleset="Code Style" class="Lefty" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes, interfaces, enums and annotations must belong to a named package
+</violation>
+<violation beginline="19" endline="19" begincolumn="22" endcolumn="23" rule="ShortVariable" ruleset="Code Style" class="Lefty" method="Lefty" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like h
+</violation>
+<violation beginline="19" endline="19" begincolumn="22" endcolumn="23" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Lefty" method="Lefty" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'h' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="29" endcolumn="30" rule="ShortVariable" ruleset="Code Style" class="Lefty" method="Lefty" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like w
+</violation>
+<violation beginline="19" endline="19" begincolumn="29" endcolumn="30" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Lefty" method="Lefty" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'w' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="36" endcolumn="37" rule="ShortVariable" ruleset="Code Style" class="Lefty" method="Lefty" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="19" endline="19" begincolumn="36" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Lefty" method="Lefty" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="43" endcolumn="44" rule="ShortVariable" ruleset="Code Style" class="Lefty" method="Lefty" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like y
+</violation>
+<violation beginline="19" endline="19" begincolumn="43" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Lefty" method="Lefty" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'y' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="53" endcolumn="54" rule="ShortVariable" ruleset="Code Style" class="Lefty" method="Lefty" variable="s" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like s
+</violation>
+<violation beginline="19" endline="19" begincolumn="53" endcolumn="54" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Lefty" method="Lefty" variable="s" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 's' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="60" endcolumn="63" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Lefty" method="Lefty" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="77" endcolumn="78" rule="ShortVariable" ruleset="Code Style" class="Lefty" method="Lefty" variable="m" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like m
+</violation>
+<violation beginline="19" endline="19" begincolumn="77" endcolumn="78" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Lefty" method="Lefty" variable="m" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'm' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="88" endcolumn="94" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Lefty" method="Lefty" variable="inicio" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'inicio' is not assigned and could be declared final
+</violation>
+<violation beginline="33" endline="33" begincolumn="13" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" class="Lefty" method="rotate" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="35" endline="35" begincolumn="16" endcolumn="22" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Lefty" method="rotate" variable="target" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'target' could be declared final
+</violation>
+</file>
+<file name="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\src\Main.java">
+<violation beginline="3" endline="3" begincolumn="8" endcolumn="13" rule="NoPackage" ruleset="Code Style" class="Main" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes, interfaces, enums and annotations must belong to a named package
+</violation>
+<violation beginline="3" endline="3" begincolumn="8" endcolumn="13" rule="ShortClassName" ruleset="Code Style" class="Main" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortclassname" priority="4">
+Avoid short class names like Main
+</violation>
+<violation beginline="3" endline="3" begincolumn="8" endcolumn="13" rule="UseUtilityClass" ruleset="Design" class="Main" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#useutilityclass" priority="3">
+This utility class has a non-private constructor
+</violation>
+</file>
+<file name="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\src\Rebel.java">
+<violation beginline="5" endline="5" begincolumn="8" endcolumn="13" rule="NoPackage" ruleset="Code Style" class="Rebel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes, interfaces, enums and annotations must belong to a named package
+</violation>
+<violation beginline="19" endline="19" begincolumn="22" endcolumn="23" rule="ShortVariable" ruleset="Code Style" class="Rebel" method="Rebel" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like h
+</violation>
+<violation beginline="19" endline="19" begincolumn="22" endcolumn="23" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rebel" method="Rebel" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'h' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="29" endcolumn="30" rule="ShortVariable" ruleset="Code Style" class="Rebel" method="Rebel" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like w
+</violation>
+<violation beginline="19" endline="19" begincolumn="29" endcolumn="30" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rebel" method="Rebel" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'w' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="36" endcolumn="37" rule="ShortVariable" ruleset="Code Style" class="Rebel" method="Rebel" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="19" endline="19" begincolumn="36" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rebel" method="Rebel" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="43" endcolumn="44" rule="ShortVariable" ruleset="Code Style" class="Rebel" method="Rebel" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like y
+</violation>
+<violation beginline="19" endline="19" begincolumn="43" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rebel" method="Rebel" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'y' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="53" endcolumn="54" rule="ShortVariable" ruleset="Code Style" class="Rebel" method="Rebel" variable="s" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like s
+</violation>
+<violation beginline="19" endline="19" begincolumn="53" endcolumn="54" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rebel" method="Rebel" variable="s" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 's' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="60" endcolumn="63" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rebel" method="Rebel" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="77" endcolumn="78" rule="ShortVariable" ruleset="Code Style" class="Rebel" method="Rebel" variable="m" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like m
+</violation>
+<violation beginline="19" endline="19" begincolumn="77" endcolumn="78" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rebel" method="Rebel" variable="m" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'm' is not assigned and could be declared final
+</violation>
+<violation beginline="19" endline="19" begincolumn="88" endcolumn="94" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rebel" method="Rebel" variable="inicio" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'inicio' is not assigned and could be declared final
+</violation>
+</file>
+<file name="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\src\Rectangle.java">
+<violation beginline="1" endline="1" begincolumn="1" endcolumn="19" rule="UnnecessaryImport" ruleset="Code Style" class="Rectangle" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+Unused import 'java.awt.*'
+</violation>
+<violation beginline="12" endline="12" begincolumn="8" endcolumn="13" rule="NoPackage" ruleset="Code Style" class="Rectangle" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes, interfaces, enums and annotations must belong to a named package
+</violation>
+<violation beginline="12" endline="208" begincolumn="23" endcolumn="2" rule="TooManyMethods" ruleset="Design" class="Rectangle" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#toomanymethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="14" endline="14" begincolumn="23" endcolumn="28" rule="MutableStaticState" ruleset="Design" class="Rectangle" variable="EDGES" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#mutablestaticstate" priority="3">
+Do not use non-final non-private static fields
+</violation>
+<violation beginline="14" endline="14" begincolumn="23" endcolumn="28" rule="FieldNamingConventions" ruleset="Code Style" class="Rectangle" variable="EDGES" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The static field name 'EDGES' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="26" endline="26" begincolumn="26" endcolumn="27" rule="ShortVariable" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like h
+</violation>
+<violation beginline="26" endline="26" begincolumn="26" endcolumn="27" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'h' is not assigned and could be declared final
+</violation>
+<violation beginline="26" endline="26" begincolumn="32" endcolumn="33" rule="ShortVariable" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like w
+</violation>
+<violation beginline="26" endline="26" begincolumn="32" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'w' is not assigned and could be declared final
+</violation>
+<violation beginline="26" endline="26" begincolumn="38" endcolumn="39" rule="ShortVariable" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="26" endline="26" begincolumn="38" endcolumn="39" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+<violation beginline="26" endline="26" begincolumn="44" endcolumn="45" rule="ShortVariable" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like y
+</violation>
+<violation beginline="26" endline="26" begincolumn="44" endcolumn="45" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'y' is not assigned and could be declared final
+</violation>
+<violation beginline="26" endline="26" begincolumn="53" endcolumn="54" rule="ShortVariable" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="s" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like s
+</violation>
+<violation beginline="26" endline="26" begincolumn="53" endcolumn="54" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="s" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 's' is not assigned and could be declared final
+</violation>
+<violation beginline="34" endline="34" begincolumn="26" endcolumn="27" rule="ShortVariable" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like h
+</violation>
+<violation beginline="34" endline="34" begincolumn="26" endcolumn="27" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'h' is not assigned and could be declared final
+</violation>
+<violation beginline="34" endline="34" begincolumn="32" endcolumn="33" rule="ShortVariable" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like w
+</violation>
+<violation beginline="34" endline="34" begincolumn="32" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'w' is not assigned and could be declared final
+</violation>
+<violation beginline="34" endline="34" begincolumn="38" endcolumn="39" rule="ShortVariable" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="34" endline="34" begincolumn="38" endcolumn="39" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+<violation beginline="34" endline="34" begincolumn="44" endcolumn="45" rule="ShortVariable" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like y
+</violation>
+<violation beginline="34" endline="34" begincolumn="44" endcolumn="45" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="Rectangle" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'y' is not assigned and could be declared final
+</violation>
+<violation beginline="101" endline="101" begincolumn="36" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="moveHorizontal" variable="distance" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'distance' is not assigned and could be declared final
+</violation>
+<violation beginline="111" endline="111" begincolumn="34" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="moveVertical" variable="distance" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'distance' is not assigned and could be declared final
+</violation>
+<violation beginline="122" endline="122" begincolumn="13" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Rectangle" method="slowMoveHorizontal" variable="delta" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'delta' could be declared final
+</violation>
+<violation beginline="126" endline="126" begincolumn="13" endcolumn="21" rule="AvoidReassigningParameters" ruleset="Best Practices" class="Rectangle" method="slowMoveHorizontal" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#avoidreassigningparameters" priority="2">
+Avoid reassigning parameters such as 'distance'
+</violation>
+<violation beginline="142" endline="142" begincolumn="13" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Rectangle" method="slowMoveVertical" variable="delta" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'delta' could be declared final
+</violation>
+<violation beginline="146" endline="146" begincolumn="13" endcolumn="21" rule="AvoidReassigningParameters" ruleset="Best Practices" class="Rectangle" method="slowMoveVertical" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#avoidreassigningparameters" priority="2">
+Avoid reassigning parameters such as 'distance'
+</violation>
+<violation beginline="162" endline="162" begincolumn="32" endcolumn="41" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="changeSize" variable="newHeight" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'newHeight' is not assigned and could be declared final
+</violation>
+<violation beginline="162" endline="162" begincolumn="47" endcolumn="55" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="changeSize" variable="newWidth" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'newWidth' is not assigned and could be declared final
+</violation>
+<violation beginline="174" endline="174" begincolumn="36" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="changeColor" variable="newColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'newColor' is not assigned and could be declared final
+</violation>
+<violation beginline="185" endline="185" begincolumn="20" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Rectangle" method="draw" variable="canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'canvas' could be declared final
+</violation>
+<violation beginline="198" endline="198" begincolumn="20" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Rectangle" method="erase" variable="canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'canvas' could be declared final
+</violation>
+<violation beginline="203" endline="203" begincolumn="34" endcolumn="35" rule="ShortVariable" ruleset="Code Style" class="Rectangle" method="setpositionX" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="203" endline="203" begincolumn="34" endcolumn="35" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Rectangle" method="setpositionX" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+</file>
+<file name="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\src\SlotMachine.java">
+<violation beginline="12" endline="12" begincolumn="8" endcolumn="13" rule="NoPackage" ruleset="Code Style" class="SlotMachine" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes, interfaces, enums and annotations must belong to a named package
+</violation>
+<violation beginline="12" endline="12" begincolumn="8" endcolumn="13" rule="CyclomaticComplexity" ruleset="Design" class="SlotMachine" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The class 'SlotMachine' has a total cyclomatic complexity of 83 (highest 7).
+</violation>
+<violation beginline="13" endline="582" begincolumn="1" endcolumn="2" rule="TooManyMethods" ruleset="Design" class="SlotMachine" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#toomanymethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="14" endline="14" begincolumn="30" endcolumn="39" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="maxWheels" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'maxWheels' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="15" endline="15" begincolumn="30" endcolumn="39" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="minWheels" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'minWheels' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="16" endline="16" begincolumn="30" endcolumn="43" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="defaultWheels" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'defaultWheels' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="17" endline="17" begincolumn="30" endcolumn="41" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="frameHeight" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'frameHeight' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="18" endline="18" begincolumn="30" endcolumn="36" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="frameX" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'frameX' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="19" endline="19" begincolumn="30" endcolumn="36" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="frameY" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'frameY' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="20" endline="20" begincolumn="30" endcolumn="44" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="frameBaseWidth" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'frameBaseWidth' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="21" endline="21" begincolumn="33" endcolumn="43" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="frameColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'frameColor' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="22" endline="22" begincolumn="30" endcolumn="41" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="firstWheelX" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'firstWheelX' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="23" endline="23" begincolumn="30" endcolumn="36" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="wheelY" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'wheelY' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="24" endline="24" begincolumn="30" endcolumn="41" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="wheelHeight" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'wheelHeight' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="25" endline="25" begincolumn="30" endcolumn="40" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="wheelWidth" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'wheelWidth' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="26" endline="26" begincolumn="30" endcolumn="42" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="wheelSpacing" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'wheelSpacing' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="27" endline="27" begincolumn="30" endcolumn="48" rule="LongVariable" ruleset="Code Style" class="SlotMachine" variable="colorChannelValues" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like colorChannelValues
+</violation>
+<violation beginline="27" endline="27" begincolumn="30" endcolumn="48" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="colorChannelValues" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'colorChannelValues' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="28" endline="28" begincolumn="31" endcolumn="46" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="spinDelayMillis" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'spinDelayMillis' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="29" endline="29" begincolumn="33" endcolumn="39" rule="FieldNamingConventions" ruleset="Code Style" class="SlotMachine" variable="random" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'random' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="31" endline="31" begincolumn="19" endcolumn="35" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachine" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="32" endline="32" begincolumn="19" endcolumn="36" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachine" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="35" endline="35" begincolumn="21" endcolumn="23" rule="ShortVariable" ruleset="Code Style" class="SlotMachine" variable="ok" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like ok
+</violation>
+<violation beginline="35" endline="35" begincolumn="21" endcolumn="23" rule="AvoidFieldNameMatchingMethodName" ruleset="Error Prone" class="SlotMachine" variable="ok" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_errorprone.html#avoidfieldnamematchingmethodname" priority="3">
+Field ok has the same name as a method
+</violation>
+<violation beginline="43" endline="43" begincolumn="28" endcolumn="29" rule="ShortVariable" ruleset="Code Style" class="SlotMachine" method="SlotMachine" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like n
+</violation>
+<violation beginline="43" endline="43" begincolumn="28" endcolumn="29" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="SlotMachine" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'n' is not assigned and could be declared final
+</violation>
+<violation beginline="49" endline="49" begincolumn="13" endcolumn="14" rule="ShortVariable" ruleset="Code Style" class="SlotMachine" method="SlotMachine" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="73" endline="73" begincolumn="20" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="makeVisible" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'w' could be declared final
+</violation>
+<violation beginline="85" endline="85" begincolumn="20" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="makeInvisible" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'w' could be declared final
+</violation>
+<violation beginline="97" endline="97" begincolumn="9" endcolumn="23" rule="DoNotTerminateVM" ruleset="Error Prone" class="SlotMachine" method="exit" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_errorprone.html#donotterminatevm" priority="3">
+System.exit() should not be used in J2EE/JEE apps
+</violation>
+<violation beginline="105" endline="105" begincolumn="20" endcolumn="22" rule="ShortMethodName" ruleset="Code Style" class="SlotMachine" method="ok" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortmethodname" priority="3">
+Avoid using short method names
+</violation>
+<violation beginline="118" endline="118" begincolumn="26" endcolumn="31" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="spin" variable="wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'wheel' is not assigned and could be declared final
+</violation>
+<violation beginline="118" endline="118" begincolumn="37" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="spin" variable="steps" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'steps' is not assigned and could be declared final
+</violation>
+<violation beginline="122" endline="122" begincolumn="13" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" class="SlotMachine" method="spin" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="124" endline="124" begincolumn="15" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="spin" variable="target" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'target' could be declared final
+</violation>
+<violation beginline="142" endline="142" begincolumn="26" endcolumn="31" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="spin" variable="wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'wheel' is not assigned and could be declared final
+</violation>
+<violation beginline="148" endline="148" begincolumn="15" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="spin" variable="target" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'target' could be declared final
+</violation>
+<violation beginline="161" endline="161" begincolumn="22" endcolumn="41" rule="UseVarargs" ruleset="Best Practices" class="SlotMachine" method="spin" variable="setSymbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#usevarargs" priority="4">
+Consider using varargs for methods or constructors which take an array the last parameter.
+</violation>
+<violation beginline="161" endline="161" begincolumn="31" endcolumn="41" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="spin" variable="setSymbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'setSymbols' is not assigned and could be declared final
+</violation>
+<violation beginline="174" endline="174" begincolumn="20" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="spin" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'w' could be declared final
+</violation>
+<violation beginline="187" endline="187" begincolumn="30" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addWheel" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="200" endline="200" begincolumn="33" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addWheel" variable="type" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'type' is not assigned and could be declared final
+</violation>
+<violation beginline="200" endline="200" begincolumn="43" endcolumn="46" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addWheel" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="208" endline="208" begincolumn="13" endcolumn="19" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addWheel" variable="startX" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'startX' could be declared final
+</violation>
+<violation beginline="221" endline="221" begincolumn="30" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="delWheel" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="230" endline="230" begincolumn="13" endcolumn="19" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="delWheel" variable="startX" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'startX' could be declared final
+</violation>
+<violation beginline="231" endline="231" begincolumn="15" endcolumn="22" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="delWheel" variable="removed" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'removed' could be declared final
+</violation>
+<violation beginline="243" endline="243" begincolumn="34" endcolumn="39" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addSymbol" variable="color" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'color' is not assigned and could be declared final
+</violation>
+<violation beginline="243" endline="243" begincolumn="45" endcolumn="48" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addSymbol" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="259" endline="259" begincolumn="34" endcolumn="39" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addSymbol" variable="color" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'color' is not assigned and could be declared final
+</violation>
+<violation beginline="259" endline="259" begincolumn="45" endcolumn="48" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addSymbol" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="259" endline="259" begincolumn="57" endcolumn="61" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addSymbol" variable="type" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'type' is not assigned and could be declared final
+</violation>
+<violation beginline="261" endline="261" begincolumn="16" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addSymbol" variable="symbolType" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'symbolType' could be declared final
+</violation>
+<violation beginline="275" endline="275" begincolumn="34" endcolumn="39" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="delSymbol" variable="color" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'color' is not assigned and could be declared final
+</violation>
+<violation beginline="295" endline="295" begincolumn="33" endcolumn="38" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="placeSymbol" variable="Wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'Wheel' is not assigned and could be declared final
+</violation>
+<violation beginline="295" endline="295" begincolumn="33" endcolumn="38" rule="FormalParameterNamingConventions" ruleset="Code Style" class="SlotMachine" method="placeSymbol" variable="Wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#formalparameternamingconventions" priority="1">
+The method parameter name 'Wheel' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="295" endline="295" begincolumn="47" endcolumn="53" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="placeSymbol" variable="symbol" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'symbol' is not assigned and could be declared final
+</violation>
+<violation beginline="314" endline="314" begincolumn="13" endcolumn="22" rule="OnlyOneReturn" ruleset="Code Style" class="SlotMachine" method="distinctSymbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="330" endline="330" begincolumn="13" endcolumn="34" rule="OnlyOneReturn" ruleset="Code Style" class="SlotMachine" method="symbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="341" endline="341" begincolumn="12" endcolumn="29" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachine" method="configuration" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="343" endline="343" begincolumn="9" endcolumn="26" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachine" method="configuration" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="343" endline="343" begincolumn="27" endcolumn="38" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="configuration" variable="listSymbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'listSymbols' could be declared final
+</violation>
+<violation beginline="344" endline="344" begincolumn="20" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="configuration" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'w' could be declared final
+</violation>
+<violation beginline="361" endline="361" begincolumn="17" endcolumn="30" rule="OnlyOneReturn" ruleset="Code Style" class="SlotMachine" method="isJackpot" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="374" endline="374" begincolumn="26" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="swap" variable="wheel1" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'wheel1' is not assigned and could be declared final
+</violation>
+<violation beginline="374" endline="374" begincolumn="38" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="swap" variable="wheel2" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'wheel2' is not assigned and could be declared final
+</violation>
+<violation beginline="378" endline="378" begincolumn="13" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" class="SlotMachine" method="swap" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="380" endline="380" begincolumn="15" endcolumn="20" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="swap" variable="first" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'first' could be declared final
+</violation>
+<violation beginline="381" endline="381" begincolumn="15" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="swap" variable="second" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'second' could be declared final
+</violation>
+<violation beginline="386" endline="386" begincolumn="13" endcolumn="19" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="swap" variable="firstX" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'firstX' could be declared final
+</violation>
+<violation beginline="387" endline="387" begincolumn="13" endcolumn="20" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="swap" variable="secondX" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'secondX' could be declared final
+</violation>
+<violation beginline="399" endline="399" begincolumn="26" endcolumn="31" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="lock" variable="wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'wheel' is not assigned and could be declared final
+</violation>
+<violation beginline="414" endline="414" begincolumn="28" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="unlock" variable="wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'wheel' is not assigned and could be declared final
+</violation>
+<violation beginline="429" endline="429" begincolumn="12" endcolumn="28" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachine" method="getWheels" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="440" endline="440" begincolumn="12" endcolumn="30" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachine" method="getPositionSymbolos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="442" endline="442" begincolumn="9" endcolumn="27" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachine" method="getPositionSymbolos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="442" endline="442" begincolumn="28" endcolumn="40" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="getPositionSymbolos" variable="listPosition" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'listPosition' could be declared final
+</violation>
+<violation beginline="443" endline="443" begincolumn="20" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="getPositionSymbolos" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'w' could be declared final
+</violation>
+<violation beginline="456" endline="456" begincolumn="20" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="someWheelsAreLocked" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'w' could be declared final
+</violation>
+<violation beginline="458" endline="458" begincolumn="17" endcolumn="29" rule="OnlyOneReturn" ruleset="Code Style" class="SlotMachine" method="someWheelsAreLocked" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="471" endline="471" begincolumn="39" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addInitialWheel" variable="index" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'index' is not assigned and could be declared final
+</violation>
+<violation beginline="471" endline="471" begincolumn="50" endcolumn="51" rule="ShortVariable" ruleset="Code Style" class="SlotMachine" method="addInitialWheel" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="471" endline="471" begincolumn="50" endcolumn="51" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addInitialWheel" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+<violation beginline="473" endline="473" begincolumn="16" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addInitialWheel" variable="color" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'color' could be declared final
+</violation>
+<violation beginline="474" endline="474" begincolumn="15" endcolumn="20" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="addInitialWheel" variable="wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'wheel' could be declared final
+</violation>
+<violation beginline="487" endline="487" begincolumn="38" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="createWheel" variable="type" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'type' is not assigned and could be declared final
+</violation>
+<violation beginline="487" endline="487" begincolumn="48" endcolumn="53" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="createWheel" variable="index" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'index' is not assigned and could be declared final
+</violation>
+<violation beginline="489" endline="489" begincolumn="16" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="createWheel" variable="color" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'color' could be declared final
+</violation>
+<violation beginline="491" endline="491" begincolumn="13" endcolumn="93" rule="OnlyOneReturn" ruleset="Code Style" class="SlotMachine" method="createWheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="494" endline="494" begincolumn="13" endcolumn="93" rule="OnlyOneReturn" ruleset="Code Style" class="SlotMachine" method="createWheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="504" endline="504" begincolumn="36" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="arrangeWheels" variable="startX" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'startX' is not assigned and could be declared final
+</violation>
+<violation beginline="506" endline="506" begincolumn="13" endcolumn="14" rule="ShortVariable" ruleset="Code Style" class="SlotMachine" method="arrangeWheels" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="519" endline="519" begincolumn="38" endcolumn="46" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="isValidWheel" variable="position" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'position' is not assigned and could be declared final
+</violation>
+<violation beginline="530" endline="530" begincolumn="35" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="isRebel" variable="wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'wheel' is not assigned and could be declared final
+</violation>
+<violation beginline="544" endline="544" begincolumn="13" endcolumn="19" rule="DoNotUseThreads" ruleset="Multithreading" class="SlotMachine" method="pause" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_multithreading.html#donotusethreads" priority="3">
+To be compliant to J2EE, a webapp should not use any thread.
+</violation>
+<violation beginline="545" endline="545" begincolumn="13" endcolumn="25" rule="OnlyOneReturn" ruleset="Code Style" class="SlotMachine" method="pause" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="547" endline="547" begincolumn="13" endcolumn="19" rule="DoNotUseThreads" ruleset="Multithreading" class="SlotMachine" method="pause" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_multithreading.html#donotusethreads" priority="3">
+To be compliant to J2EE, a webapp should not use any thread.
+</violation>
+<violation beginline="579" endline="579" begincolumn="9" endcolumn="26" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachine" method="colorRandomExists" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="579" endline="579" begincolumn="27" endcolumn="35" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachine" method="colorRandomExists" variable="existing" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'existing' could be declared final
+</violation>
+</file>
+<file name="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\src\SlotMachineContest.java">
+<violation beginline="10" endline="10" begincolumn="8" endcolumn="13" rule="NoPackage" ruleset="Code Style" class="SlotMachineContest" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes, interfaces, enums and annotations must belong to a named package
+</violation>
+<violation beginline="10" endline="10" begincolumn="8" endcolumn="13" rule="ClassWithOnlyPrivateConstructorsShouldBeFinal" ruleset="Design" class="SlotMachineContest" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#classwithonlyprivateconstructorsshouldbefinal" priority="1">
+This class has only private constructors and may be final
+</violation>
+<violation beginline="20" endline="20" begincolumn="36" endcolumn="37" rule="ShortVariable" ruleset="Code Style" class="SlotMachineContest" method="SlotMachineContest" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like n
+</violation>
+<violation beginline="20" endline="20" begincolumn="36" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="SlotMachineContest" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'n' is not assigned and could be declared final
+</violation>
+<violation beginline="21" endline="21" begincolumn="9" endcolumn="20" rule="AssignmentToNonFinalStatic" ruleset="Error Prone" class="SlotMachineContest" method="SlotMachineContest" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_errorprone.html#assignmenttononfinalstatic" priority="3">
+Possible unsafe assignment to non-final static field 'slotMachine' in a constructor.
+</violation>
+<violation beginline="38" endline="38" begincolumn="19" endcolumn="35" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachineContest" method="solve" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="38" endline="38" begincolumn="46" endcolumn="47" rule="ShortVariable" ruleset="Code Style" class="SlotMachineContest" method="solve" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like n
+</violation>
+<violation beginline="38" endline="38" begincolumn="46" endcolumn="47" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="solve" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'n' is not assigned and could be declared final
+</violation>
+<violation beginline="44" endline="44" begincolumn="9" endcolumn="25" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachineContest" method="solve" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="44" endline="44" begincolumn="26" endcolumn="31" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="solve" variable="steps" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'steps' could be declared final
+</violation>
+<violation beginline="45" endline="45" begincolumn="9" endcolumn="27" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachineContest" method="solve" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="45" endline="45" begincolumn="28" endcolumn="37" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="solve" variable="positions" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'positions' could be declared final
+</violation>
+<violation beginline="46" endline="46" begincolumn="13" endcolumn="27" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="solve" variable="targetPosition" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'targetPosition' could be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="13" endcolumn="25" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="solve" variable="symbolsCount" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'symbolsCount' could be declared final
+</violation>
+<violation beginline="49" endline="49" begincolumn="17" endcolumn="25" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="solve" variable="position" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'position' could be declared final
+</violation>
+<violation beginline="51" endline="51" begincolumn="21" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="solve" variable="turns" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'turns' could be declared final
+</violation>
+<violation beginline="51" endline="51" begincolumn="38" endcolumn="69" rule="UselessParentheses" ruleset="Code Style" class="SlotMachineContest" method="solve" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="65" endline="65" begincolumn="37" endcolumn="38" rule="ShortVariable" ruleset="Code Style" class="SlotMachineContest" method="simulate" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like n
+</violation>
+<violation beginline="65" endline="65" begincolumn="37" endcolumn="38" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="simulate" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'n' is not assigned and could be declared final
+</violation>
+<violation beginline="66" endline="66" begincolumn="9" endcolumn="25" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachineContest" method="simulate" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="66" endline="66" begincolumn="26" endcolumn="31" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="simulate" variable="steps" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'steps' could be declared final
+</violation>
+<violation beginline="68" endline="68" begincolumn="20" endcolumn="24" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="simulate" variable="step" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'step' could be declared final
+</violation>
+<violation beginline="69" endline="69" begincolumn="17" endcolumn="27" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="simulate" variable="wheelIndex" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'wheelIndex' could be declared final
+</violation>
+<violation beginline="70" endline="70" begincolumn="17" endcolumn="22" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="simulate" variable="turns" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'turns' could be declared final
+</violation>
+<violation beginline="84" endline="84" begincolumn="49" endcolumn="67" rule="LooseCoupling" ruleset="Best Practices" class="SlotMachineContest" method="findMostFrequentPosition" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="84" endline="84" begincolumn="68" endcolumn="77" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="findMostFrequentPosition" variable="positions" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'positions' is not assigned and could be declared final
+</violation>
+<violation beginline="87" endline="87" begincolumn="31" endcolumn="60" rule="UseConcurrentHashMap" ruleset="Multithreading" class="SlotMachineContest" method="findMostFrequentPosition" variable="frequencies" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_multithreading.html#useconcurrenthashmap" priority="3">
+If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation
+</violation>
+<violation beginline="87" endline="87" begincolumn="31" endcolumn="42" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="findMostFrequentPosition" variable="frequencies" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'frequencies' could be declared final
+</violation>
+<violation beginline="88" endline="88" begincolumn="22" endcolumn="30" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="findMostFrequentPosition" variable="position" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'position' could be declared final
+</violation>
+<violation beginline="89" endline="98" begincolumn="13" endcolumn="14" rule="ConfusingTernary" ruleset="Code Style" class="SlotMachineContest" method="findMostFrequentPosition" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#confusingternary" priority="3">
+Avoid if (x != y) ..; else ..;
+</violation>
+<violation beginline="92" endline="92" begincolumn="21" endcolumn="33" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="SlotMachineContest" method="findMostFrequentPosition" variable="updatedCount" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'updatedCount' could be declared final
+</violation>
+</file>
+<file name="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\src\Symbol.java">
+<violation beginline="7" endline="7" begincolumn="8" endcolumn="13" rule="NoPackage" ruleset="Code Style" class="Symbol" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes, interfaces, enums and annotations must belong to a named package
+</violation>
+<violation beginline="9" endline="9" begincolumn="25" endcolumn="35" rule="CommentDefaultAccessModifier" ruleset="Code Style" class="Symbol" variable="typeNormal" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#commentdefaultaccessmodifier" priority="3">
+Missing commented default access modifier on field 'typeNormal'
+</violation>
+<violation beginline="9" endline="9" begincolumn="25" endcolumn="35" rule="FieldNamingConventions" ruleset="Code Style" class="Symbol" variable="typeNormal" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'typeNormal' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="10" endline="10" begincolumn="25" endcolumn="38" rule="CommentDefaultAccessModifier" ruleset="Code Style" class="Symbol" variable="typeEphemeral" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#commentdefaultaccessmodifier" priority="3">
+Missing commented default access modifier on field 'typeEphemeral'
+</violation>
+<violation beginline="10" endline="10" begincolumn="25" endcolumn="38" rule="FieldNamingConventions" ruleset="Code Style" class="Symbol" variable="typeEphemeral" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'typeEphemeral' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="11" endline="11" begincolumn="25" endcolumn="32" rule="CommentDefaultAccessModifier" ruleset="Code Style" class="Symbol" variable="typeShy" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#commentdefaultaccessmodifier" priority="3">
+Missing commented default access modifier on field 'typeShy'
+</violation>
+<violation beginline="11" endline="11" begincolumn="25" endcolumn="32" rule="FieldNamingConventions" ruleset="Code Style" class="Symbol" variable="typeShy" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'typeShy' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="13" endline="13" begincolumn="30" endcolumn="39" rule="FieldNamingConventions" ruleset="Code Style" class="Symbol" variable="pointSize" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'pointSize' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="31" endline="31" begincolumn="26" endcolumn="27" rule="ShortVariable" ruleset="Code Style" class="Symbol" method="Symbol" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like n
+</violation>
+<violation beginline="31" endline="31" begincolumn="26" endcolumn="27" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Symbol" method="Symbol" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'n' is not assigned and could be declared final
+</violation>
+<violation beginline="31" endline="31" begincolumn="33" endcolumn="34" rule="ShortVariable" ruleset="Code Style" class="Symbol" method="Symbol" variable="p" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like p
+</violation>
+<violation beginline="31" endline="31" begincolumn="33" endcolumn="34" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Symbol" method="Symbol" variable="p" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'p' is not assigned and could be declared final
+</violation>
+<violation beginline="31" endline="31" begincolumn="43" endcolumn="44" rule="ShortVariable" ruleset="Code Style" class="Symbol" method="Symbol" variable="t" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like t
+</violation>
+<violation beginline="31" endline="31" begincolumn="43" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Symbol" method="Symbol" variable="t" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 't' is not assigned and could be declared final
+</violation>
+<violation beginline="31" endline="31" begincolumn="50" endcolumn="51" rule="ShortVariable" ruleset="Code Style" class="Symbol" method="Symbol" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like h
+</violation>
+<violation beginline="31" endline="31" begincolumn="50" endcolumn="51" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Symbol" method="Symbol" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'h' is not assigned and could be declared final
+</violation>
+<violation beginline="31" endline="31" begincolumn="57" endcolumn="58" rule="ShortVariable" ruleset="Code Style" class="Symbol" method="Symbol" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like w
+</violation>
+<violation beginline="31" endline="31" begincolumn="57" endcolumn="58" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Symbol" method="Symbol" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'w' is not assigned and could be declared final
+</violation>
+<violation beginline="46" endline="46" begincolumn="26" endcolumn="27" rule="ShortVariable" ruleset="Code Style" class="Symbol" method="Symbol" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like n
+</violation>
+<violation beginline="46" endline="46" begincolumn="26" endcolumn="27" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Symbol" method="Symbol" variable="n" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'n' is not assigned and could be declared final
+</violation>
+<violation beginline="46" endline="46" begincolumn="33" endcolumn="34" rule="ShortVariable" ruleset="Code Style" class="Symbol" method="Symbol" variable="p" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like p
+</violation>
+<violation beginline="46" endline="46" begincolumn="33" endcolumn="34" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Symbol" method="Symbol" variable="p" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'p' is not assigned and could be declared final
+</violation>
+<violation beginline="60" endline="60" begincolumn="19" endcolumn="32" rule="CommentDefaultAccessModifier" ruleset="Code Style" class="Symbol" method="normalizeType" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#commentdefaultaccessmodifier" priority="3">
+Missing commented default access modifier on method 'normalizeType(String)'
+</violation>
+<violation beginline="60" endline="60" begincolumn="40" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Symbol" method="normalizeType" variable="type" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'type' is not assigned and could be declared final
+</violation>
+<violation beginline="63" endline="63" begincolumn="13" endcolumn="31" rule="OnlyOneReturn" ruleset="Code Style" class="Symbol" method="normalizeType" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="66" endline="66" begincolumn="13" endcolumn="34" rule="OnlyOneReturn" ruleset="Code Style" class="Symbol" method="normalizeType" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="69" endline="69" begincolumn="13" endcolumn="28" rule="OnlyOneReturn" ruleset="Code Style" class="Symbol" method="normalizeType" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="79" endline="79" begincolumn="33" endcolumn="34" rule="ShortVariable" ruleset="Code Style" class="Symbol" method="setposition" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like y
+</violation>
+<violation beginline="79" endline="79" begincolumn="33" endcolumn="34" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Symbol" method="setposition" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'y' is not assigned and could be declared final
+</violation>
+<violation beginline="139" endline="139" begincolumn="31" endcolumn="32" rule="ShortVariable" ruleset="Code Style" class="Symbol" method="setHeight" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like h
+</violation>
+<violation beginline="139" endline="139" begincolumn="31" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Symbol" method="setHeight" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'h' is not assigned and could be declared final
+</violation>
+<violation beginline="149" endline="149" begincolumn="30" endcolumn="31" rule="ShortVariable" ruleset="Code Style" class="Symbol" method="setWidth" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like w
+</violation>
+<violation beginline="149" endline="149" begincolumn="30" endcolumn="31" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Symbol" method="setWidth" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'w' is not assigned and could be declared final
+</violation>
+</file>
+<file name="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\src\Triangle.java">
+<violation beginline="2" endline="2" begincolumn="1" endcolumn="26" rule="UnnecessaryImport" ruleset="Code Style" class="Triangle" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+Unused import 'java.lang.Math.*'
+</violation>
+<violation beginline="10" endline="10" begincolumn="8" endcolumn="13" rule="NoPackage" ruleset="Code Style" class="Triangle" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes, interfaces, enums and annotations must belong to a named package
+</violation>
+<violation beginline="10" endline="242" begincolumn="22" endcolumn="2" rule="TooManyMethods" ruleset="Design" class="Triangle" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#toomanymethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="24" endline="24" begincolumn="28" endcolumn="36" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Triangle" method="Triangle" variable="newcolor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'newcolor' is not assigned and could be declared final
+</violation>
+<violation beginline="24" endline="24" begincolumn="42" endcolumn="51" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Triangle" method="Triangle" variable="newheight" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'newheight' is not assigned and could be declared final
+</violation>
+<violation beginline="24" endline="24" begincolumn="57" endcolumn="65" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Triangle" method="Triangle" variable="newwidth" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'newwidth' is not assigned and could be declared final
+</violation>
+<violation beginline="93" endline="93" begincolumn="36" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Triangle" method="moveHorizontal" variable="distance" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'distance' is not assigned and could be declared final
+</violation>
+<violation beginline="103" endline="103" begincolumn="34" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Triangle" method="moveVertical" variable="distance" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'distance' is not assigned and could be declared final
+</violation>
+<violation beginline="114" endline="114" begincolumn="13" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Triangle" method="slowMoveHorizontal" variable="delta" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'delta' could be declared final
+</violation>
+<violation beginline="118" endline="118" begincolumn="13" endcolumn="21" rule="AvoidReassigningParameters" ruleset="Best Practices" class="Triangle" method="slowMoveHorizontal" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#avoidreassigningparameters" priority="2">
+Avoid reassigning parameters such as 'distance'
+</violation>
+<violation beginline="134" endline="134" begincolumn="13" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Triangle" method="slowMoveVertical" variable="delta" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'delta' could be declared final
+</violation>
+<violation beginline="138" endline="138" begincolumn="13" endcolumn="21" rule="AvoidReassigningParameters" ruleset="Best Practices" class="Triangle" method="slowMoveVertical" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#avoidreassigningparameters" priority="2">
+Avoid reassigning parameters such as 'distance'
+</violation>
+<violation beginline="154" endline="154" begincolumn="32" endcolumn="41" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Triangle" method="changeSize" variable="newHeight" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'newHeight' is not assigned and could be declared final
+</violation>
+<violation beginline="154" endline="154" begincolumn="47" endcolumn="55" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Triangle" method="changeSize" variable="newWidth" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'newWidth' is not assigned and could be declared final
+</violation>
+<violation beginline="168" endline="168" begincolumn="36" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Triangle" method="changeColor" variable="newColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'newColor' is not assigned and could be declared final
+</violation>
+<violation beginline="178" endline="178" begincolumn="20" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Triangle" method="draw" variable="canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'canvas' could be declared final
+</violation>
+<violation beginline="179" endline="179" begincolumn="19" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Triangle" method="draw" variable="xpoints" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'xpoints' could be declared final
+</violation>
+<violation beginline="180" endline="180" begincolumn="19" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Triangle" method="draw" variable="ypoints" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'ypoints' could be declared final
+</violation>
+<violation beginline="191" endline="191" begincolumn="20" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Triangle" method="erase" variable="canvas" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'canvas' could be declared final
+</violation>
+<violation beginline="200" endline="200" begincolumn="16" endcolumn="30" rule="UselessParentheses" ruleset="Code Style" class="Triangle" method="area" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="207" endline="207" begincolumn="16" endcolumn="20" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Triangle" method="equilateral" variable="area" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'area' could be declared final
+</violation>
+<violation beginline="208" endline="208" begincolumn="16" endcolumn="20" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Triangle" method="equilateral" variable="side" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'side' could be declared final
+</violation>
+<violation beginline="208" endline="208" begincolumn="33" endcolumn="49" rule="UselessParentheses" ruleset="Code Style" class="Triangle" method="equilateral" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="218" endline="218" begincolumn="26" endcolumn="31" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Triangle" method="walk" variable="times" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'times' is not assigned and could be declared final
+</violation>
+<violation beginline="226" endline="226" begincolumn="33" endcolumn="40" rule="UselessParentheses" ruleset="Code Style" class="Triangle" method="walk" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="227" endline="227" begincolumn="33" endcolumn="36" rule="UselessParentheses" ruleset="Code Style" class="Triangle" method="walk" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+</file>
+<file name="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\src\Wheel.java">
+<violation beginline="8" endline="8" begincolumn="8" endcolumn="13" rule="NoPackage" ruleset="Code Style" class="Wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#nopackage" priority="3">
+All classes, interfaces, enums and annotations must belong to a named package
+</violation>
+<violation beginline="8" endline="8" begincolumn="8" endcolumn="13" rule="GodClass" ruleset="Design" class="Wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#godclass" priority="3">
+Possible God Class (WMC=58, ATFD=7, TCC=14.082%)
+</violation>
+<violation beginline="9" endline="509" begincolumn="1" endcolumn="2" rule="TooManyMethods" ruleset="Design" class="Wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#toomanymethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="10" endline="10" begincolumn="25" endcolumn="35" rule="CommentDefaultAccessModifier" ruleset="Code Style" class="Wheel" variable="typeNormal" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#commentdefaultaccessmodifier" priority="3">
+Missing commented default access modifier on field 'typeNormal'
+</violation>
+<violation beginline="10" endline="10" begincolumn="25" endcolumn="35" rule="FieldNamingConventions" ruleset="Code Style" class="Wheel" variable="typeNormal" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'typeNormal' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="11" endline="11" begincolumn="25" endcolumn="34" rule="CommentDefaultAccessModifier" ruleset="Code Style" class="Wheel" variable="typeRebel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#commentdefaultaccessmodifier" priority="3">
+Missing commented default access modifier on field 'typeRebel'
+</violation>
+<violation beginline="11" endline="11" begincolumn="25" endcolumn="34" rule="FieldNamingConventions" ruleset="Code Style" class="Wheel" variable="typeRebel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'typeRebel' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="12" endline="12" begincolumn="25" endcolumn="34" rule="CommentDefaultAccessModifier" ruleset="Code Style" class="Wheel" variable="typeLefty" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#commentdefaultaccessmodifier" priority="3">
+Missing commented default access modifier on field 'typeLefty'
+</violation>
+<violation beginline="12" endline="12" begincolumn="25" endcolumn="34" rule="FieldNamingConventions" ruleset="Code Style" class="Wheel" variable="typeLefty" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'typeLefty' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="14" endline="14" begincolumn="30" endcolumn="43" rule="FieldNamingConventions" ruleset="Code Style" class="Wheel" variable="defaultHeight" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'defaultHeight' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="15" endline="15" begincolumn="30" endcolumn="42" rule="FieldNamingConventions" ruleset="Code Style" class="Wheel" variable="defaultWidth" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'defaultWidth' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="16" endline="16" begincolumn="30" endcolumn="38" rule="FieldNamingConventions" ruleset="Code Style" class="Wheel" variable="defaultX" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'defaultX' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="17" endline="17" begincolumn="30" endcolumn="38" rule="FieldNamingConventions" ruleset="Code Style" class="Wheel" variable="defaultY" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'defaultY' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="18" endline="18" begincolumn="33" endcolumn="45" rule="FieldNamingConventions" ruleset="Code Style" class="Wheel" variable="defaultColor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'defaultColor' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="19" endline="19" begincolumn="30" endcolumn="44" rule="FieldNamingConventions" ruleset="Code Style" class="Wheel" variable="symbolNotFound" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'symbolNotFound' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="21" endline="21" begincolumn="26" endcolumn="43" rule="LooseCoupling" ruleset="Best Practices" class="Wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="21" endline="21" begincolumn="44" endcolumn="51" rule="AvoidFieldNameMatchingMethodName" ruleset="Error Prone" class="Wheel" variable="symbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_errorprone.html#avoidfieldnamematchingmethodname" priority="3">
+Field symbols has the same name as a method
+</violation>
+<violation beginline="21" endline="21" begincolumn="44" endcolumn="51" rule="FieldNamingConventions" ruleset="Code Style" class="Wheel" variable="symbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The constant name 'symbols' doesn't match '[A-Z][A-Z_0-9]*'
+</violation>
+<violation beginline="29" endline="29" begincolumn="17" endcolumn="27" rule="ImmutableField" ruleset="Design" class="Wheel" variable="baseHeight" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'baseHeight' may be declared final
+</violation>
+<violation beginline="30" endline="30" begincolumn="17" endcolumn="26" rule="ImmutableField" ruleset="Design" class="Wheel" variable="baseWidth" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#immutablefield" priority="3">
+Field 'baseWidth' may be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="22" endcolumn="23" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="Wheel" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like h
+</violation>
+<violation beginline="47" endline="47" begincolumn="22" endcolumn="23" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="Wheel" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'h' is not assigned and could be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="29" endcolumn="30" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="Wheel" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like w
+</violation>
+<violation beginline="47" endline="47" begincolumn="29" endcolumn="30" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="Wheel" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'w' is not assigned and could be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="36" endcolumn="37" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="Wheel" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="47" endline="47" begincolumn="36" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="Wheel" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="43" endcolumn="44" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="Wheel" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like y
+</violation>
+<violation beginline="47" endline="47" begincolumn="43" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="Wheel" variable="y" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'y' is not assigned and could be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="53" endcolumn="54" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="Wheel" variable="s" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like s
+</violation>
+<violation beginline="47" endline="47" begincolumn="53" endcolumn="54" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="Wheel" variable="s" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 's' is not assigned and could be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="60" endcolumn="63" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="Wheel" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="77" endcolumn="78" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="Wheel" variable="m" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like m
+</violation>
+<violation beginline="47" endline="47" begincolumn="77" endcolumn="78" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="Wheel" variable="m" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'm' is not assigned and could be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="88" endcolumn="94" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="Wheel" variable="inicio" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'inicio' is not assigned and could be declared final
+</violation>
+<violation beginline="60" endline="60" begincolumn="13" endcolumn="48" rule="ConstructorCallsOverridableMethod" ruleset="Error Prone" class="Wheel" method="Wheel" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_errorprone.html#constructorcallsoverridablemethod" priority="1">
+Overridable method called during object construction: Wheel.addSymbols(String, int, int, int) 
+</violation>
+<violation beginline="108" endline="108" begincolumn="33" endcolumn="36" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="setposition" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="108" endline="108" begincolumn="42" endcolumn="43" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="setposition" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="108" endline="108" begincolumn="42" endcolumn="43" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="setposition" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+<violation beginline="127" endline="127" begincolumn="17" endcolumn="29" rule="MethodNamingConventions" ruleset="Code Style" class="Wheel" method="Moveposition" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodnamingconventions" priority="1">
+The instance method name 'Moveposition' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="127" endline="127" begincolumn="34" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="Moveposition" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="127" endline="127" begincolumn="43" endcolumn="44" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="Moveposition" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="127" endline="127" begincolumn="43" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="Moveposition" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+<violation beginline="150" endline="150" begincolumn="27" endcolumn="31" rule="NullAssignment" ruleset="Error Prone" class="Wheel" method="delete" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_errorprone.html#nullassignment" priority="3">
+Assigning an Object to null is a code smell.  Consider refactoring.
+</violation>
+<violation beginline="163" endline="163" begincolumn="35" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="addSymbols" variable="color" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'color' is not assigned and could be declared final
+</violation>
+<violation beginline="163" endline="163" begincolumn="46" endcolumn="49" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="addSymbols" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="163" endline="163" begincolumn="58" endcolumn="59" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="addSymbols" variable="t" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like t
+</violation>
+<violation beginline="163" endline="163" begincolumn="58" endcolumn="59" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="addSymbols" variable="t" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 't' is not assigned and could be declared final
+</violation>
+<violation beginline="163" endline="163" begincolumn="65" endcolumn="66" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="addSymbols" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like h
+</violation>
+<violation beginline="163" endline="163" begincolumn="65" endcolumn="66" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="addSymbols" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'h' is not assigned and could be declared final
+</violation>
+<violation beginline="163" endline="163" begincolumn="72" endcolumn="73" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="addSymbols" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like w
+</violation>
+<violation beginline="163" endline="163" begincolumn="72" endcolumn="73" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="addSymbols" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'w' is not assigned and could be declared final
+</violation>
+<violation beginline="176" endline="176" begincolumn="35" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="addSymbols" variable="color" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'color' is not assigned and could be declared final
+</violation>
+<violation beginline="176" endline="176" begincolumn="46" endcolumn="49" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="addSymbols" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="176" endline="176" begincolumn="55" endcolumn="56" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="addSymbols" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like h
+</violation>
+<violation beginline="176" endline="176" begincolumn="55" endcolumn="56" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="addSymbols" variable="h" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'h' is not assigned and could be declared final
+</violation>
+<violation beginline="176" endline="176" begincolumn="62" endcolumn="63" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="addSymbols" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like w
+</violation>
+<violation beginline="176" endline="176" begincolumn="62" endcolumn="63" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="addSymbols" variable="w" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'w' is not assigned and could be declared final
+</violation>
+<violation beginline="187" endline="187" begincolumn="35" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="addSymbols" variable="color" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'color' is not assigned and could be declared final
+</violation>
+<violation beginline="187" endline="187" begincolumn="46" endcolumn="49" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="addSymbols" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="198" endline="198" begincolumn="38" endcolumn="43" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="deleteSymbols" variable="color" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'color' is not assigned and could be declared final
+</violation>
+<violation beginline="200" endline="200" begincolumn="13" endcolumn="18" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Wheel" method="deleteSymbols" variable="index" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'index' could be declared final
+</violation>
+<violation beginline="213" endline="213" begincolumn="12" endcolumn="29" rule="LooseCoupling" ruleset="Best Practices" class="Wheel" method="Symbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="213" endline="213" begincolumn="30" endcolumn="37" rule="MethodNamingConventions" ruleset="Code Style" class="Wheel" method="Symbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodnamingconventions" priority="1">
+The instance method name 'Symbols' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="215" endline="215" begincolumn="9" endcolumn="26" rule="LooseCoupling" ruleset="Best Practices" class="Wheel" method="Symbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="215" endline="215" begincolumn="27" endcolumn="32" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Wheel" method="Symbols" variable="names" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'names' could be declared final
+</violation>
+<violation beginline="216" endline="216" begincolumn="21" endcolumn="22" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Wheel" method="Symbols" variable="s" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 's' could be declared final
+</violation>
+<violation beginline="252" endline="252" begincolumn="13" endcolumn="25" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Wheel" method="rotate" variable="currentIndex" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'currentIndex' could be declared final
+</violation>
+<violation beginline="253" endline="253" begincolumn="13" endcolumn="22" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Wheel" method="rotate" variable="nextIndex" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'nextIndex' could be declared final
+</violation>
+<violation beginline="254" endline="254" begincolumn="16" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Wheel" method="rotate" variable="nextSymbol" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'nextSymbol' could be declared final
+</violation>
+<violation beginline="282" endline="282" begincolumn="20" endcolumn="29" rule="BooleanGetMethodName" ruleset="Code Style" class="Wheel" method="getesMove" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#booleangetmethodname" priority="4">
+A getX() method which returns a boolean or Boolean should be named isX()
+</violation>
+<violation beginline="310" endline="310" begincolumn="28" endcolumn="45" rule="LooseCoupling" ruleset="Best Practices" class="Wheel" method="setSymbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="310" endline="310" begincolumn="46" endcolumn="56" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="setSymbols" variable="setSymbols" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'setSymbols' is not assigned and could be declared final
+</violation>
+<violation beginline="313" endline="313" begincolumn="20" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Wheel" method="setSymbols" variable="symbol" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'symbol' could be declared final
+</violation>
+<violation beginline="313" endline="313" begincolumn="29" endcolumn="61" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" class="Wheel" method="setSymbols" variable="symbol" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="328" endline="328" begincolumn="12" endcolumn="29" rule="LooseCoupling" ruleset="Best Practices" class="Wheel" method="getlistcolor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="339" endline="339" begincolumn="41" endcolumn="42" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="getPositionSymbol" variable="s" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like s
+</violation>
+<violation beginline="339" endline="339" begincolumn="41" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="getPositionSymbol" variable="s" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 's' is not assigned and could be declared final
+</violation>
+<violation beginline="341" endline="341" begincolumn="21" endcolumn="27" rule="LocalVariableCouldBeFinal" ruleset="Code Style" class="Wheel" method="getPositionSymbol" variable="symbol" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'symbol' could be declared final
+</violation>
+<violation beginline="343" endline="343" begincolumn="17" endcolumn="45" rule="OnlyOneReturn" ruleset="Code Style" class="Wheel" method="getPositionSymbol" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="354" endline="354" begincolumn="34" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="setPositionA" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="417" endline="417" begincolumn="43" endcolumn="49" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="applyVisualEffect" variable="symbol" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'symbol' is not assigned and could be declared final
+</violation>
+<violation beginline="439" endline="439" begincolumn="29" endcolumn="35" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="resize" variable="height" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'height' is not assigned and could be declared final
+</violation>
+<violation beginline="439" endline="439" begincolumn="41" endcolumn="46" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="resize" variable="width" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'width' is not assigned and could be declared final
+</violation>
+<violation beginline="453" endline="453" begincolumn="34" endcolumn="41" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="display" variable="visible" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'visible' is not assigned and could be declared final
+</violation>
+<violation beginline="469" endline="469" begincolumn="38" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="insertSymbol" variable="symbol" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'symbol' is not assigned and could be declared final
+</violation>
+<violation beginline="469" endline="469" begincolumn="50" endcolumn="53" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="insertSymbol" variable="pos" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'pos' is not assigned and could be declared final
+</violation>
+<violation beginline="491" endline="491" begincolumn="27" endcolumn="28" rule="ShortVariable" ruleset="Code Style" class="Wheel" method="limit" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like x
+</violation>
+<violation beginline="491" endline="491" begincolumn="27" endcolumn="28" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="limit" variable="x" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'x' is not assigned and could be declared final
+</violation>
+<violation beginline="503" endline="503" begincolumn="36" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" class="Wheel" method="placeSymbol" variable="symbol" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'symbol' is not assigned and could be declared final
+</violation>
+</file>
+<configerror rule="LoosePackageCoupling" msg="No packages or classes specified"/>
+</pmd>
