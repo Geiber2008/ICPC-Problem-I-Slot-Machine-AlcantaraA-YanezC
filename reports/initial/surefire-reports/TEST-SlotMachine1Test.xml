@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="SlotMachine1Test" time="144.139" tests="82" errors="0" skipped="1" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="sun.awt.enableExtraMouseButtons" value="true"/>
+    <property name="java.class.path" value="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\target\test-classes;D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\target\classes;C:\Users\ANGEL\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\ANGEL\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\ANGEL\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\ANGEL\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\ANGEL\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\ANGEL\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\ANGEL\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\ANGEL\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk17.0.18_9\bin"/>
+    <property name="sun.java.command" value="C:\Users\ANGEL\AppData\Local\Temp\surefire10919760490513739143\surefirebooter-20261025004339273_3.jar C:\Users\ANGEL\AppData\Local\Temp\surefire10919760490513739143 2026-10-25T00-43-37_942-jvmRun1 surefire-20261025004339273_1tmp surefire_0-20261025004339273_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\target\test-classes;D:\universidad 2026\2 semestre\DOPO\SlotMachineProject\target\classes;C:\Users\ANGEL\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\ANGEL\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\ANGEL\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\ANGEL\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\ANGEL\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\ANGEL\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\ANGEL\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\ANGEL\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\ANGEL"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-01-20"/>
+    <property name="java.home" value="C:\Program Files\Amazon Corretto\jdk17.0.18_9"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\ANGEL\AppData\Local\Temp\surefire10919760490513739143\surefirebooter-20261025004339273_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.18+9-LTS"/>
+    <property name="user.name" value="ANGEL"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Corretto-17.0.18.9.1"/>
+    <property name="localRepository" value="C:\Users\ANGEL\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-17/issues/"/>
+    <property name="java.io.tmpdir" value="C:\Users\ANGEL\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.18"/>
+    <property name="user.dir" value="D:\universidad 2026\2 semestre\DOPO\SlotMachineProject"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk17.0.18_9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Amazon Corretto\jdk17.0.18_9\bin;C:\Program Files (x86)\Amazon Corretto\jdk11.0.30_7\bin;C:\app\ANGEL\product\21c\dbhomeXE\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\universidad 2026\2 semestre\DOPO\Git\cmd;C:\Users\ANGEL\AppData\Local\Programs\Python\Python314\Scripts\;C:\Users\ANGEL\AppData\Local\Programs\Python\Python314\;C:\Users\ANGEL\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\ANGEL\AppData\Local\Programs\Python\Python312\;C:\Users\ANGEL\.local\bin;C:\Users\ANGEL\AppData\Local\Microsoft\WindowsApps;C:\Users\ANGEL\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ANGEL\AppData\Roaming\Programs\Zero Install;C:\Users\ANGEL\AppData\Local\Microsoft\WindowsApps;C:\Users\ANGEL\AppData\Local\Programs\Antigravity\bin;C:\Users\ANGEL\AppData\Local\GitHubDesktop\bin;C:\Program Files\Apache\apache-maven-3.10.0;;c:\Users\ANGEL\AppData\Local\Programs\Microsoft VS Code\e646868227\resources\app\node_modules.asar.unpacked\@vscode\ripgrep-universal\bin\win32-x64;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="java.vm.version" value="17.0.18+9-LTS"/>
+    <property name="java.specification.maintenance.version" value="1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="shouldLocateUniformlySeparatedWheels" classname="SlotMachine1Test" time="0.421"/>
+  <testcase name="limitShouldNotAddWheelWithExtremePositions" classname="SlotMachine1Test" time="0.099"/>
+  <testcase name="shouldNotGivePrizeIfOnlyOneWheelDiffers" classname="SlotMachine1Test" time="0.635"/>
+  <testcase name="limitShouldSpinWithFiftyWheels" classname="SlotMachine1Test" time="24.079"/>
+  <testcase name="shouldUpdatePositionsOfVisibleSymbols" classname="SlotMachine1Test" time="0.13"/>
+  <testcase name="shouldRemoveExistingSymbol" classname="SlotMachine1Test" time="0.106"/>
+  <testcase name="shouldNotBreakPrizeWhenSpinningAllWheels" classname="SlotMachine1Test" time="0.482"/>
+  <testcase name="limitNegativePositionAdjustsToBeginning" classname="SlotMachine1Test" time="0.106"/>
+  <testcase name="limitShouldDetectPrizeWithFiftyWheels" classname="SlotMachine1Test" time="24.853"/>
+  <testcase name="shouldRemoveWheelInTheMiddle" classname="SlotMachine1Test" time="0.386"/>
+  <testcase name="limitShouldPlaceLastSymbolOfList" classname="SlotMachine1Test" time="0.266"/>
+  <testcase name="shouldNotModifySymbolsWhenRemovingWheel" classname="SlotMachine1Test" time="0.277"/>
+  <testcase name="shouldNotAlterSymbolsOrPositionsWhenChangingVisibility" classname="SlotMachine1Test" time="0.179"/>
+  <testcase name="shouldNotAlterMachineWhenItFails" classname="SlotMachine1Test" time="0.108"/>
+  <testcase name="shouldCreateThreeWheelsByDefault" classname="SlotMachine1Test" time="0.109"/>
+  <testcase name="shouldHideAllWheels" classname="SlotMachine1Test" time="0.104"/>
+  <testcase name="limitShouldNotPlaceWithOnlyMinimumWheels" classname="SlotMachine1Test" time="0.112"/>
+  <testcase name="limitShouldReturnToOriginAfterFullTurn" classname="SlotMachine1Test" time="0.201"/>
+  <testcase name="shouldNotLockWheelsOnCreation" classname="SlotMachine1Test" time="0.108"/>
+  <testcase name="shouldReflectOnlyLastOperation" classname="SlotMachine1Test" time="0.323"/>
+  <testcase name="shouldAdvanceSpecifiedWheelOneSymbol" classname="SlotMachine1Test" time="0.139"/>
+  <testcase name="limitShouldAllowRemovingAllSymbols" classname="SlotMachine1Test" time="0.126"/>
+  <testcase name="shouldReflectChangeAfterSpinning" classname="SlotMachine1Test" time="0.211"/>
+  <testcase name="shouldNotSpinOtherWheels" classname="SlotMachine1Test" time="0.138"/>
+  <testcase name="limitShouldRemoveDownToThreeAndThenReject" classname="SlotMachine1Test" time="0.444"/>
+  <testcase name="shouldNotCreateNewSymbolsWhenAddingWheel" classname="SlotMachine1Test" time="0.204"/>
+  <testcase name="limitShouldNotRemoveBelowMinimumWheels" classname="SlotMachine1Test" time="0.109"/>
+  <testcase name="shouldNotAlterOtherWheels" classname="SlotMachine1Test" time="0.231"/>
+  <testcase name="shouldLeaveSameIfAlreadyShowingThatSymbol" classname="SlotMachine1Test" time="0.202"/>
+  <testcase name="shouldDetectPrizeWhenAllShowSame" classname="SlotMachine1Test" time="0.325"/>
+  <testcase name="shouldNotHangWithNonExistentSymbol" classname="SlotMachine1Test" time="0.0">
+    <skipped message="KNOWN DEFECT: if symbol does not exist, placeSymbol enters infinite loop. Enable only to demonstrate issue (will hang execution)."/>
+  </testcase>
+  <testcase name="shouldAdvanceAllWheelsOneSymbol" classname="SlotMachine1Test" time="0.21"/>
+  <testcase name="shouldNotPlaceOnNonExistentWheel" classname="SlotMachine1Test" time="0.214"/>
+  <testcase name="limitWithSingleSymbolWheelDoesNotChange" classname="SlotMachine1Test" time="0.129"/>
+  <testcase name="shouldAddWheelAtTheEnd" classname="SlotMachine1Test" time="0.221"/>
+  <testcase name="shouldHideAndRemoveDeletedWheelFromList" classname="SlotMachine1Test" time="0.278"/>
+  <testcase name="limitSingleWheelIsAlwaysAPrize" classname="SlotMachine1Test" time="0.208"/>
+  <testcase name="shouldReturnVisibleSymbolOfEachWheelFromLeftToRight" classname="SlotMachine1Test" time="0.115"/>
+  <testcase name="limitWithoutSymbolsSpinShouldNotFail" classname="SlotMachine1Test" time="0.108"/>
+  <testcase name="shouldReturnSymbolsInOrder" classname="SlotMachine1Test" time="0.105"/>
+  <testcase name="shouldRemoveWheelAtTheBeginning" classname="SlotMachine1Test" time="0.265"/>
+  <testcase name="limitShouldMatchSymbolsLength" classname="SlotMachine1Test" time="1.049"/>
+  <testcase name="limitShouldRemoveFromFiftyWheels" classname="SlotMachine1Test" time="24.944"/>
+  <testcase name="shouldNotRemoveNonExistentSymbol" classname="SlotMachine1Test" time="0.096"/>
+  <testcase name="limitColorChannelsShouldBeBetween1And254" classname="SlotMachine1Test" time="4.122"/>
+  <testcase name="shouldAddWheelInTheMiddle" classname="SlotMachine1Test" time="0.242"/>
+  <testcase name="shouldNotAddWheelPastEndPlusOne" classname="SlotMachine1Test" time="0.106"/>
+  <testcase name="shouldAddWheelAtTheBeginning" classname="SlotMachine1Test" time="0.205"/>
+  <testcase name="shouldGenerateValidHexadecimalColors" classname="SlotMachine1Test" time="0.107"/>
+  <testcase name="shouldCreateNormalWheelWithExistingSymbol" classname="SlotMachine1Test" time="0.205"/>
+  <testcase name="shouldNotTreatUppercaseAsLowercaseEqual" classname="SlotMachine1Test" time="0.117"/>
+  <testcase name="shouldRemoveWheelAtTheEnd" classname="SlotMachine1Test" time="0.284"/>
+  <testcase name="shouldCountSymbolsAsTheyAreAddedOrRemoved" classname="SlotMachine1Test" time="0.107"/>
+  <testcase name="shouldNotRemoveNonExistentWheel" classname="SlotMachine1Test" time="0.218"/>
+  <testcase name="shouldAddSymbolInTheMiddle" classname="SlotMachine1Test" time="0.105"/>
+  <testcase name="shouldStartWithOkAsTrue" classname="SlotMachine1Test" time="0.111"/>
+  <testcase name="shouldNotStartWithAPrize" classname="SlotMachine1Test" time="0.105"/>
+  <testcase name="shouldAllowRepeatedSymbols" classname="SlotMachine1Test" time="0.113"/>
+  <testcase name="shouldAddSymbolAtTheEnd" classname="SlotMachine1Test" time="0.111"/>
+  <testcase name="shouldCreateOneSymbolPerWheel" classname="SlotMachine1Test" time="0.125"/>
+  <testcase name="shouldNotAllowAlteringMachineByModifyingCopy" classname="SlotMachine1Test" time="0.126"/>
+  <testcase name="shouldNotAllowAlteringMachineByModifyingList" classname="SlotMachine1Test" time="0.123"/>
+  <testcase name="shouldRemoveOnlyFirstOccurrence" classname="SlotMachine1Test" time="0.137"/>
+  <testcase name="shouldMarkMinusOneForPositionOfDeletedVisibleSymbol" classname="SlotMachine1Test" time="0.105"/>
+  <testcase name="shouldNotAddWheelAtPositionZero" classname="SlotMachine1Test" time="0.14"/>
+  <testcase name="shouldRecoverOkAfterSuccessfulOperation" classname="SlotMachine1Test" time="0.138"/>
+  <testcase name="limitShouldNotExceedMaxWheels" classname="SlotMachine1Test" time="24.663"/>
+  <testcase name="limitShouldAllowReachingExactlyFiftyWheels" classname="SlotMachine1Test" time="26.441"/>
+  <testcase name="shouldAddSymbolAtTheBeginning" classname="SlotMachine1Test" time="0.101"/>
+  <testcase name="limitShouldAddManySymbols" classname="SlotMachine1Test" time="0.109"/>
+  <testcase name="limitPositionGreaterThansizeAdjustsToEnd" classname="SlotMachine1Test" time="0.109"/>
+  <testcase name="shouldNotChangeWhatWheelsDisplay" classname="SlotMachine1Test" time="0.126"/>
+  <testcase name="shouldPlaceSpecifiedSymbolOnWheel" classname="SlotMachine1Test" time="0.254"/>
+  <testcase name="shouldNotGivePrizeWithManyDifferentWheels" classname="SlotMachine1Test" time="0.366"/>
+  <testcase name="shouldNotModifyOkWhenOperationIsPerformed" classname="SlotMachine1Test" time="0.234"/>
+  <testcase name="shouldShowItsOwnSymbolOnEachWheel" classname="SlotMachine1Test" time="0.104"/>
+  <testcase name="shouldShowAllWheels" classname="SlotMachine1Test" time="0.19"/>
+  <testcase name="shouldJumpToFirstSymbolIfShownWasRemoved" classname="SlotMachine1Test" time="0.153"/>
+  <testcase name="shouldNotSpinNonExistentWheel" classname="SlotMachine1Test" time="0.121"/>
+  <testcase name="limitShouldBeIdempotent" classname="SlotMachine1Test" time="0.248"/>
+  <testcase name="limitShouldAllowAddingSymbolAfterClearingList" classname="SlotMachine1Test" time="0.11"/>
+  <testcase name="limitShouldReturnToOriginAfterAsManySpinsAsSymbols" classname="SlotMachine1Test" time="0.383"/>
+</testsuite>

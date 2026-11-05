@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Rebel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Slot Machine</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Rebel.java</span></div><h1>Rebel.java</h1><pre class="source lang-java linenums">/**
+ * Rueda &quot;rebelde&quot;: no puede bloquearse, no puede eliminarse y no participa
+ * en intercambios de posición dentro de la máquina.
+ */
+public class Rebel extends Wheel
+{
+    /**
+     * Crea una rueda rebelde con los mismos parámetros que {@link Wheel}.
+     *
+     * @param h alto del rectángulo.
+     * @param w ancho del rectángulo.
+     * @param x coordenada X.
+     * @param y coordenada Y.
+     * @param s color o símbolo inicial.
+     * @param pos índice de la rueda en la máquina (base 0).
+     * @param m máquina a la que pertenece.
+     * @param inicio true si debe registrar su color en la lista de símbolos.
+     */
+    public Rebel(int h, int w, int x, int y, String s, int pos, SlotMachine m, boolean inicio)
+    {
+<span class="fc" id="L21">        super(h, w, x, y, s, pos, m, inicio);</span>
+<span class="fc" id="L22">    }</span>
+
+    /**
+     * No hace nada: una rueda rebelde ignora el bloqueo y siempre puede girar.
+     */
+    @Override
+    public void lock()
+    {
+<span class="fc" id="L30">    }</span>
+
+    /**
+     * Identifica el tipo de rueda.
+     *
+     * @return &quot;Rebel&quot;.
+     */
+    @Override
+    public String getType()
+    {
+<span class="fc" id="L40">        return TYPE_REBEL;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Symbol.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Slot Machine</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Symbol.java</span></div><h1>Symbol.java</h1><pre class="source lang-java linenums">/**
+ * Representa un símbolo que puede mostrar una rueda: un nombre (color), una
+ * posición dentro de la lista de símbolos, un tipo y un tamaño. Hay tres tipos:
+ * &quot;Normal&quot;, &quot;ephemeral&quot; (reduce su tamaño en cada selección hasta quedar como
+ * un punto) y &quot;Shy&quot; (alterna entre visible e invisible en cada selección).
+ */
+public class Symbol
+{
+    static final String typeNormal = &quot;Normal&quot;;
+    static final String typeEphemeral = &quot;ephemeral&quot;;
+    static final String typeShy = &quot;Shy&quot;;
+
+    private static final int pointSize = 1;
+
+    private final String name;
+    private final String type;
+    private int position;
+    private int height;
+    private int width;
+<span class="fc" id="L20">    private boolean visible = true;</span>
+
+    /**
+     * Crea un símbolo con tipo y dimensiones explícitas.
+     *
+     * @param n nombre o color del símbolo.
+     * @param p posición inicial dentro de la lista de símbolos.
+     * @param t tipo del símbolo (&quot;Normal&quot;, &quot;ephemeral&quot; o &quot;Shy&quot;).
+     * @param h alto inicial del símbolo.
+     * @param w ancho inicial del símbolo.
+     */
+    public Symbol(String n, int p, String t, int h, int w)
+<span class="fc" id="L32">    {</span>
+<span class="fc" id="L33">        name = n;</span>
+<span class="fc" id="L34">        position = p;</span>
+<span class="fc" id="L35">        type = t;</span>
+<span class="fc" id="L36">        height = h;</span>
+<span class="fc" id="L37">        width = w;</span>
+<span class="fc" id="L38">    }</span>
+
+    /**
+     * Crea un símbolo de tipo &quot;Normal&quot; sin dimensiones.
+     *
+     * @param n nombre o color del símbolo.
+     * @param p posición inicial dentro de la lista de símbolos.
+     */
+    public Symbol(String n, int p)
+<span class="fc" id="L47">    {</span>
+<span class="fc" id="L48">        name = n;</span>
+<span class="fc" id="L49">        position = p;</span>
+<span class="fc" id="L50">        type = typeNormal;</span>
+<span class="fc" id="L51">    }</span>
+
+    /**
+     * Convierte un nombre de tipo, sin importar mayúsculas o minúsculas, en el
+     * nombre canónico del tipo de símbolo.
+     *
+     * @param type nombre del tipo (&quot;normal&quot;, &quot;ephemeral&quot; o &quot;shy&quot;).
+     * @return el tipo canónico, o null si el tipo no existe.
+     */
+    static String normalizeType(String type)
+    {
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if (typeNormal.equalsIgnoreCase(type)) {</span>
+<span class="fc" id="L63">            return typeNormal;</span>
+        }
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        if (typeEphemeral.equalsIgnoreCase(type)) {</span>
+<span class="fc" id="L66">            return typeEphemeral;</span>
+        }
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (typeShy.equalsIgnoreCase(type)) {</span>
+<span class="fc" id="L69">            return typeShy;</span>
+        }
+<span class="fc" id="L71">        return null;</span>
+    }
+
+    /**
+     * Actualiza la posición del símbolo dentro de la lista.
+     *
+     * @param y nueva posición (base 0).
+     */
+    public void setposition(int y)
+    {
+<span class="fc" id="L81">        position = y;</span>
+<span class="fc" id="L82">    }</span>
+
+    /**
+     * Obtiene el nombre (color) del símbolo.
+     *
+     * @return nombre del símbolo.
+     */
+    public String getname()
+    {
+<span class="fc" id="L91">        return name;</span>
+    }
+
+    /**
+     * Obtiene la posición del símbolo dentro de la lista.
+     *
+     * @return posición actual (base 0).
+     */
+    public int getPosition()
+    {
+<span class="fc" id="L101">        return position;</span>
+    }
+
+    /**
+     * Obtiene el tipo del símbolo.
+     *
+     * @return &quot;Normal&quot;, &quot;ephemeral&quot; o &quot;Shy&quot;.
+     */
+    public String getType()
+    {
+<span class="fc" id="L111">        return type;</span>
+    }
+
+    /**
+     * Obtiene el alto actual del símbolo.
+     *
+     * @return alto actual.
+     */
+    public int getHeight()
+    {
+<span class="fc" id="L121">        return height;</span>
+    }
+
+    /**
+     * Obtiene el ancho actual del símbolo.
+     *
+     * @return ancho actual.
+     */
+    public int getWidth()
+    {
+<span class="fc" id="L131">        return width;</span>
+    }
+
+    /**
+     * Establece el alto del símbolo.
+     *
+     * @param h nuevo alto.
+     */
+    public void setHeight(int h)
+    {
+<span class="nc" id="L141">        height = h;</span>
+<span class="nc" id="L142">    }</span>
+
+    /**
+     * Establece el ancho del símbolo.
+     *
+     * @param w nuevo ancho.
+     */
+    public void setWidth(int w)
+    {
+<span class="nc" id="L151">        width = w;</span>
+<span class="nc" id="L152">    }</span>
+
+    /**
+     * Reduce en una unidad el alto y el ancho del símbolo, sin bajar de un
+     * punto (tamaño 1).
+     */
+    public void shrink()
+    {
+<span class="fc" id="L160">        height = Math.max(pointSize, height - 1);</span>
+<span class="fc" id="L161">        width = Math.max(pointSize, width - 1);</span>
+<span class="fc" id="L162">    }</span>
+
+    /**
+     * Indica si el símbolo está en estado visible.
+     *
+     * @return true si está visible.
+     */
+    public boolean isVisible()
+    {
+<span class="fc" id="L171">        return visible;</span>
+    }
+
+    /**
+     * Alterna el estado del símbolo entre visible e invisible.
+     */
+    public void toggleVisible()
+    {
+<span class="fc bfc" id="L179" title="All 2 branches covered.">        visible = !visible;</span>
+<span class="fc" id="L180">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
